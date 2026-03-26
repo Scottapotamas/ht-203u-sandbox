@@ -42,15 +42,13 @@ I wanted the ability to get proper ratiometric/thermal data out of the camera fo
  - Passed the camera into the Android emulator and used Frida to hook specific features
  - Managed to capture `pcap` files of some basic communication to guide re-implementation.
 
-## Hardware Details
+## Ratiometric Output 
 
 This [EEVBlog thread](https://www.eevblog.com/forum/thermal-imaging/hti-ht-203u-256x192-thermal-imager-for-android-phones/) has some discussion about the different apps and mounting ZnSe lenses for macro use.
 
 A basic dataset of 'raw' captured scenes is in [`/dataset`](/dataset) which includes test scenes including a human face, ice, hot water and a soldering iron.
 
-|                  |                      |
-| ---------------- | -------------------- |
-| Resolution       | 256x192              |
+![5x2 test images collage. Labels: Lenscover, wall, face, ice plate, hot water, hot water close, ice and hot cup, soldering iron 360c, ice hand mug iron, ice in hot water](img/thermal_dataset_collage.png)
 | Pixel spacing    | 12 μm                |
 | Focal length     | 3.5 mm               |
 | Angle of view    | 50.0°(H) x 37.2°(V)  |
