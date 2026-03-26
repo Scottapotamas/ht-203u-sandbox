@@ -1,4 +1,21 @@
-# Device info
+# Hardware Details
+
+These specs are from the vendor's listing, to outlive product listings etc.
+
+|                  |                      |
+| ---------------- | -------------------- |
+| Resolution       | 256x192              |
+| Pixel spacing    | 12 μm                |
+| Focal length     | 3.5 mm               |
+| Angle of view    | 50.0°(H) x 37.2°(V)  |
+| IFOV             | 3.43 mrad            |
+| Working band     | 8~14μm               |
+| NETD             | ≤ 40mk@25℃ @ *f*/1.2 |
+| Image frame rate | ≤25Hz                |
+| Product size     | 46 x 70 x 14 mm      |
+| Product weight   | 28g                  |
+
+# Reported Device Info
 
 As reported by linux:
 
@@ -423,3 +440,132 @@ ffmpeg version n8.1 Copyright (c) 2000-2026 the FFmpeg developers
 [in#0 @ 0x557dfe914cc0] Compressed:        h264 :                H.264 : 240x320
 
 ```
+
+## Android Findings
+
+To better poke at the camera, I setup an Ubuntu 25.04 VM (x86 based with Android SDK, Frida, Ghidra etc) and ran the Smart Thermal app with the emulator.
+
+Passing the camera into the VM from Proxmox, and then into the Android emulator required some gross permissions overrides and Frida bridge. Some pcap of USB traffic are in the `/apk-re/dynamic` folder.
+
+Reproducing the simplest communications path from linux successfully gets the device info:
+
+```
+Selector 0x05 GET_LEN returned 2 byte(s): 02 00
+  Decoded length: little-endian=2, big-endian=512
+Selector 0x05 SET_CUR wrote 2 byte(s): 01 01
+Selector read returned 2 byte(s): e4 01
+  Decoded length: little-endian=484, big-endian=58369
+Selector read GET_CUR returned 484 byte(s)
+
+Printable ASCII fragments:
+  [1] APP  20012 BUILD 20240409
+  [2] FPGA 10101 BUILD 20240129
+  [3] FPGA UVC Camera
+  [4] 2.0
+  [5] EA3046573
+  [6] XinTai_TM32_PHONE
+  [7] 0953560200
+  [8] HM-TM32-CJ20241111AACHEA3046573
+
+Hexdump:
+0000  41 50 50 20 20 32 30 30 31 32 20 42 55 49 4c 44  APP  20012 BUILD
+0010  20 32 30 32 34 30 34 30 39 00 00 00 00 00 00 00   20240409.......
+0020  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0030  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0040  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0050  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0060  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0070  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0080  46 50 47 41 20 31 30 31 30 31 20 42 55 49 4c 44  FPGA 10101 BUILD
+0090  20 32 30 32 34 30 31 32 39 00 00 00 00 00 00 00   20240129.......
+00a0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+00b0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+00c0  46 50 47 41 20 55 56 43 20 43 61 6d 65 72 61 00  FPGA UVC Camera.
+00d0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+00e0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+00f0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0100  32 2e 30 00 45 41 33 30 34 36 35 37 33 00 00 00  2.0.EA3046573...
+0110  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0120  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0130  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0140  00 00 00 00 58 69 6e 54 61 69 5f 54 4d 33 32 5f  ....XinTai_TM32_
+0150  50 48 4f 4e 45 00 00 00 00 00 00 00 00 00 00 00  PHONE...........
+0160  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0170  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0180  00 00 00 00 30 39 35 33 35 36 30 32 30 30 00 00  ....0953560200..
+0190  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+01a0  00 00 00 00 48 4d 2d 54 4d 33 32 2d 43 4a 32 30  ....HM-TM32-CJ20
+01b0  32 34 31 31 31 31 41 41 43 48 45 41 33 30 34 36  241111AACHEA3046
+01c0  35 37 33 00 00 00 00 00 00 00 00 00 00 00 00 00  573.............
+01d0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+01e0  00 00 00 00                                      ....
+```
+
+Config traffic observed on successful login:
+
+- USB_SET_THERMOMETRY_MODE
+- USB_SET_IMAGE_BRIGHTNESS with dwBrightness:40
+- USB_SET_IMAGE_CONTRAST with dwContrast:35
+- USB_SET_IMAGE_ENHANCEMENT
+- USB_GET_THERMOMETRY_BASIC_PARAM
+- USB_SET_THERMOMETRY_BASIC_PARAM
+- USB_SET_THERMOMETRY_EXPERT_REGIONS
+- USB_SET_VIDEO_PARAM with dwVideoFormat:103 dwWidth:256 dwHeight:392 dwFramerate:25
+- USB_GET_IMAGE_VIDEO_ADJUST
+- USB_SET_IMAGE_VIDEO_ADJUST
+- USB_SET_THERMAL_STREAM_PARAM with byVideoCodingType:8
+
+Streaming was then active, 
+
+- repeated fStreamCallback_JNI Success!
+- dwStreamType:103
+- 256x392
+- 25 fps
+- frame buffers around 200704 / 201248
+
+
+Other reproduced comms reproducing the pcap:
+
+```
+Attempting protocol-version
+    Using interface 0, unit 0x0a, selector 0x04
+    Selector read returned 2 byte(s): 04 00
+    Decoded length: little-endian=4, big-endian=1024
+    Selector read GET_CUR returned 4 byte(s)
+
+    ASCII value: 2.0
+
+    Hexdump:
+    0000  32 2e 30 00
+
+Attempting thermometry-mode
+    Using interface 0, unit 0x0a, selector 0x03
+    Prelude stage returned 2 byte(s): 02 00
+    Decoded length: little-endian=2, big-endian=512
+    Prelude stage SET_CUR wrote 2 byte(s): 03 02
+
+    Main stage returned 2 byte(s): 03 00
+    Decoded length: little-endian=3, big-endian=768
+    Main stage SET_CUR wrote 3 byte(s): 01 02 00
+
+Attempting brightness-40
+    Using interface 0, unit 0x0a, selector 0x02
+    Prelude stage returned 2 byte(s): 02 00
+    Decoded length: little-endian=2, big-endian=512
+    Prelude stage SET_CUR wrote 2 byte(s): 02 01
+
+    Main stage returned 2 byte(s): 02 00
+    Decoded length: little-endian=2, big-endian=512
+    Main stage SET_CUR wrote 2 byte(s): 01 28
+
+Attempting contrast-35
+    Using interface 0, unit 0x0a, selector 0x02
+    Prelude stage returned 2 byte(s): 02 00
+    Decoded length: little-endian=2, big-endian=512
+    Prelude stage SET_CUR wrote 2 byte(s): 02 02
+
+    Main stage returned 2 byte(s): 02 00
+    Decoded length: little-endian=2, big-endian=512
+    Main stage SET_CUR wrote 2 byte(s): 01 23
+```
+

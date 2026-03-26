@@ -1,13 +1,15 @@
 # Thermal Camera Notes
 
-I got a cheap (AUD$180) thermal camera from Aliexpress, the Hti `HT-203U`. This repo has notes/tools during experimentation to make it usable from my computer for electronics inspection and documentation use, as the Android app "Smart Thermal" is rather poor.
+I got a cheap (AUD$180) thermal camera Hti `HT-203U` from Aliexpress during Black Friday sales. The only supported software is the Android app "Smart Thermal" which rather limited/poor. This repo is for notes/tools made during experimentation with the goal of some usable camera tooling running on my Linux machines for electronics inspection and documentation use.
 
-# Linux Use
+This README is a high-level summary, more detailed notes are in `/docs`. 
+This [EEVBlog thread](https://www.eevblog.com/forum/thermal-imaging/hti-ht-203u-256x192-thermal-imager-for-android-phones/) has some discussion about different apps and mounting ZnSe lenses for macro use.
 
-Connected the camera to my machine with a USBC extension cable, and sometimes a adapter (USB-C socket to USB-A plug).
+# Viewing the camera feed from Linux
 
-## Editing uvc quirks
+Connected the camera to my machine with a USBC extension cable, and sometimes a adapter (USB-C socket to USB-A plug). It enumerates as a USB2 device `2bdf:0102 HIK HikCamera`.
 
+It's viewable by default as a UVC camera but required a modified uvc 'quirk' to operate.
 Modify `/etc/modprobe.d/uvcvideo.conf` with the quirk:
 
 ```
@@ -18,30 +20,33 @@ Reboot or reload as desired. Check it is set with `cat /sys/module/uvcvideo/para
 
 ## View & Record the UVC endpoint
 
-Because it's a generally usable UVC device, with correct incantations mpv and ffmpeg can be used directly. I couldn't get it detected by browsers or typical webcam tools like this though.
+Because it's a usable UVC device, simple incantations using `mpv` and `ffmpeg` provide quick preview/capture tooling. I couldn't get the camera to work with browsers or typical webcam tools like this though.
 
-Requires `ffmpeg` and `v4l2`.
-
-Realtime view: `mpv av://v4l2:/dev/video0 --profile=low-latency --untimed`
-
-Record to file: `sudo ffmpeg -input_format yuyv422 -video_size 256x129 -i /dev/video0 test6.mkv`
+- The system requires `ffmpeg` and `v4l2`.
+- Realtime view: `mpv av://v4l2:/dev/video0 --profile=low-latency --untimed`
+- Record to file: `sudo ffmpeg -input_format yuyv422 -video_size 256x128 -i /dev/video0 test6.mkv`
 
 > Use 256x392 for a dual output image (green ratiometric + shaded thermal view)
 
+TODO put a screencapture of the two feeds with metadata pixels to demonstrate what output looks like.
+
+The top image is a YUYV formatted raw ratiometric feed, and the bottom image is processed on-camera with autoscaled colour palette.
+
 # Reverse Engineering
 
-I wanted the ability to get proper ratiometric/thermal data out of the camera for better viewing and some scientific applications.
+I wanted the ability to get proper ratiometric/thermal data out of the camera for better viewing and some scientific applications. I slowly increased my understanding of the camera from two different approaches:
 
-- `hti-capture` grabs single frames and allowed creation of a basic test [`/dataset`](/dataset).
-- TODO: Look through dataset examples and work out how to convert raw data into per-pixel temperatures
-- TODO: Build some basic tooling to view ratiometric feed and set custom min/max scales
-- TODO: Reverse engineer the android app to find internal LUTs and control commands
+- Unguided analysis with the goal of converting the ratiometric data using test scenes until I could get reasonable results
+- Manual and machine guided static decompilation and dynamic exploration of the Android APK:
+ - Finding interesting strings and mapping abi shapes, looking at `libHCUSBSDK.so` etc.
+ - Passed the camera into the Android emulator and used Frida to hook specific features
+ - Managed to capture `pcap` files of some basic communication to guide re-implementation.
 
 ## Hardware Details
 
 This [EEVBlog thread](https://www.eevblog.com/forum/thermal-imaging/hti-ht-203u-256x192-thermal-imager-for-android-phones/) has some discussion about the different apps and mounting ZnSe lenses for macro use.
 
-These specs are from the vendor's listing, to outlive product listings etc.
+A basic dataset of 'raw' captured scenes is in [`/dataset`](/dataset) which includes test scenes including a human face, ice, hot water and a soldering iron.
 
 |                  |                      |
 | ---------------- | -------------------- |
