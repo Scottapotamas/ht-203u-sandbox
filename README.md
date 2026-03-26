@@ -51,3 +51,35 @@ A basic dataset of 'raw' captured scenes is in [`/dataset`](/dataset) which incl
 
 ![5x2 test images collage. Labels: Lenscover, wall, face, ice plate, hot water, hot water close, ice and hot cup, soldering iron 360c, ice hand mug iron, ice in hot water](img/thermal_dataset_collage.png)
 
+These images were used to guide the development of `/decoder` to iterate on different thermal conversion processes.
+
+- In the saved `256x392` frames, the upper `256x196` block is currently the best-understood radiometric block: `256x192` active data plus `4` metadata rows. The lower `256x196` block looks like a separately processed display path.
+- `/decoder` can convert the recorded raw files, or a realtime feed, into usable thermal data with attempted scaling. Includes viewer with manual min/max controls.
+- `/apk-re` has notes and log exports from some sessions trying to find implementation details in the Android app. Includes some USB pcap files.
+
+## Camera Communication
+
+Through APK reverse engineering of `HT-105-203U Smart Thermal-V-1.0.3.30-RELEASE.apk`, I've been able to re-implement a few basic controls over the *pre-processed* image in the same manner as the official app. 
+
+Currently supported options include dumping the hardware info blob, setting brightness, contrast a range of additional 'image enhancement' settings including:
+
+- Colour palette
+- Noise reduction mode and strength
+- LSE detail enable and strength
+- Bird-watching mode[^1]
+- Highlight mode and strength
+- Hook-edge mode and strength
+- AGC mode
+
+Here's examples of the hardware's internally selectable colour palettes: 
+
+![15 different colour palettes applied to a human face](img/internal_palette_support.png)
+
+There are notes in `/apk-re` along with `.pcap` files. The tool `/hik-info-probe` implements these for experimentation, use the `--transport v4l2` argument if making changes alongside a realtime stream or existing connections will be closed.
+
+
+
+
+
+[^1]: No idea what bird-watching mode does?
+
