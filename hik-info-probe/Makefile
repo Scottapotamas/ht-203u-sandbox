@@ -6,7 +6,7 @@ LIBUSB_CFLAGS := $(shell $(PKG_CONFIG) --cflags libusb-1.0)
 LIBUSB_LIBS := $(shell $(PKG_CONFIG) --libs libusb-1.0)
 BUILD_DIR := build
 TARGET := $(BUILD_DIR)/hik-info-probe
-SRCS := hik_info_probe.c hik_cli.c hik_profiles.c hik_transport.c hik_enhancement.c hik_workloads.c
+SRCS := hik_info_probe.c hik_cli.c hik_profiles.c hik_transport.c hik_enhancement.c hik_thermometry.c hik_workloads.c
 OBJS := $(addprefix $(BUILD_DIR)/,$(SRCS:.c=.o))
 
 all: $(TARGET)

@@ -186,6 +186,28 @@ void hik_usage( FILE *stream, const char *argv0 )
              "  --hook-edge-mode N           Enhancement byte 20\n"
              "  --hook-edge-level N          Enhancement byte 21\n"
              "  --agc-mode N                 Enhancement byte 23\n"
+             "  --thermometry-enabled 0|1                    Thermometry byte 1\n"
+             "  --thermometry-display-max 0|1                Thermometry byte 2\n"
+             "  --thermometry-display-min 0|1                Thermometry byte 3\n"
+             "  --thermometry-display-avg 0|1                Thermometry byte 4\n"
+             "  --thermometry-temperature-unit N             Thermometry byte 5\n"
+             "  --thermometry-temperature-range N            Thermometry byte 6\n"
+             "  --thermometry-calibration-coeff-enabled 0|1  Thermometry byte 7\n"
+             "  --thermometry-calibration-coeff N            Thermometry bytes 8..11\n"
+             "  --thermometry-external-optics-window-correction N  Thermometry bytes 12..15\n"
+             "  --thermometry-emissivity N                   Thermometry bytes 16..19\n"
+             "  --thermometry-distance-unit N                Thermometry byte 20\n"
+             "  --thermometry-distance N                     Thermometry bytes 21..24\n"
+             "  --thermometry-reflective-enable 0|1          Thermometry byte 25\n"
+             "  --thermometry-reflective-temperature N       Thermometry bytes 26..29\n"
+             "  --thermometry-info-display-position N        Thermometry byte 30\n"
+             "  --thermometry-stream-overlay 0|1             Thermometry byte 31\n"
+             "  --thermometry-alert N                        Thermometry bytes 32..35\n"
+             "  --thermometry-alarm N                        Thermometry bytes 36..39\n"
+             "  --thermometry-external-optics-transmit N     Thermometry bytes 40..43\n"
+             "  --thermometry-display-center 0|1             Thermometry byte 44\n"
+             "  --thermometry-backcolor 0|1                  Thermometry byte 45\n"
+             "  --thermometry-show-alarm-color 0|1           Thermometry byte 46\n"
              "  --vid HEX           USB vendor ID (default: 0x%04x)\n"
              "  --pid HEX           USB product ID (default: 0x%04x)\n"
              "  --interface N       VideoControl interface number (default: %u)\n"
@@ -400,6 +422,252 @@ bool hik_parse_args( int argc, char **argv, HikOptions *opts )
             opts->agc_mode_set = true;
             continue;
         }
+        if( strcmp( arg, "--thermometry-enabled" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_enabled ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-enabled: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_enabled_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-display-max" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_display_max ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-display-max: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_display_max_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-display-min" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_display_min ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-display-min: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_display_min_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-display-avg" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_display_avg ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-display-avg: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_display_avg_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-temperature-unit" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_temperature_unit ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-temperature-unit: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_temperature_unit_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-temperature-range" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_temperature_range ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-temperature-range: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_temperature_range_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-calibration-coeff-enabled" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_calibration_coeff_enabled ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-calibration-coeff-enabled: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_calibration_coeff_enabled_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-calibration-coeff" ) == 0 && i + 1 < argc )
+        {
+            unsigned int value = 0;
+
+            if( !parse_uint( argv[++i], &value ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-calibration-coeff: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_calibration_coeff     = value;
+            opts->thermometry_calibration_coeff_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-external-optics-window-correction" ) == 0 && i + 1 < argc )
+        {
+            unsigned int value = 0;
+
+            if( !parse_uint( argv[++i], &value ) )
+            {
+                fprintf( stderr,
+                         "error: invalid --thermometry-external-optics-window-correction: %s\n",
+                         argv[i] );
+                return false;
+            }
+            opts->thermometry_external_optics_window_correction     = value;
+            opts->thermometry_external_optics_window_correction_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-emissivity" ) == 0 && i + 1 < argc )
+        {
+            unsigned int value = 0;
+
+            if( !parse_uint( argv[++i], &value ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-emissivity: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_emissivity     = value;
+            opts->thermometry_emissivity_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-distance-unit" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_distance_unit ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-distance-unit: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_distance_unit_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-distance" ) == 0 && i + 1 < argc )
+        {
+            unsigned int value = 0;
+
+            if( !parse_uint( argv[++i], &value ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-distance: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_distance     = value;
+            opts->thermometry_distance_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-reflective-enable" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_reflective_enable ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-reflective-enable: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_reflective_enable_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-reflective-temperature" ) == 0 && i + 1 < argc )
+        {
+            unsigned int value = 0;
+
+            if( !parse_uint( argv[++i], &value ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-reflective-temperature: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_reflective_temperature     = value;
+            opts->thermometry_reflective_temperature_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-info-display-position" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_info_display_position ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-info-display-position: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_info_display_position_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-stream-overlay" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_stream_overlay ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-stream-overlay: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_stream_overlay_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-alert" ) == 0 && i + 1 < argc )
+        {
+            unsigned int value = 0;
+
+            if( !parse_uint( argv[++i], &value ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-alert: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_alert     = value;
+            opts->thermometry_alert_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-alarm" ) == 0 && i + 1 < argc )
+        {
+            unsigned int value = 0;
+
+            if( !parse_uint( argv[++i], &value ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-alarm: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_alarm     = value;
+            opts->thermometry_alarm_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-external-optics-transmit" ) == 0 && i + 1 < argc )
+        {
+            unsigned int value = 0;
+
+            if( !parse_uint( argv[++i], &value ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-external-optics-transmit: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_external_optics_transmit     = value;
+            opts->thermometry_external_optics_transmit_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-display-center" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_display_center ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-display-center: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_display_center_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-backcolor" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_backcolor ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-backcolor: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_backcolor_set = true;
+            continue;
+        }
+        if( strcmp( arg, "--thermometry-show-alarm-color" ) == 0 && i + 1 < argc )
+        {
+            if( !parse_u8( argv[++i], &opts->thermometry_show_alarm_color ) )
+            {
+                fprintf( stderr, "error: invalid --thermometry-show-alarm-color: %s\n", argv[i] );
+                return false;
+            }
+            opts->thermometry_show_alarm_color_set = true;
+            continue;
+        }
         if( strcmp( arg, "--vid" ) == 0 && i + 1 < argc )
         {
             if( !parse_u16( argv[++i], &opts->vid ) )
@@ -566,6 +834,13 @@ int hik_validate_options( const HikOptions *opts,
     {
         fprintf( stderr,
                  "error: %s requires at least one enhancement option such as --palette or --noise-reduce-mode\n",
+                 profile->name );
+        return 2;
+    }
+    if( profile->write_shape == HIK_WRITE_SHAPE_THERMOMETRY_PATCH && !hik_thermometry_overrides_requested( opts ) )
+    {
+        fprintf( stderr,
+                 "error: %s requires at least one thermometry option such as --thermometry-emissivity or --thermometry-distance\n",
                  profile->name );
         return 2;
     }

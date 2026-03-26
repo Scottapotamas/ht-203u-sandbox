@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 static void print_hexdump( const uint8_t *data, size_t len )
 {
@@ -100,6 +101,26 @@ static void print_hex_bytes_inline( const uint8_t *data, size_t len )
         printf( "%s%02x", ( i == 0 ) ? "" : " ", data[i] );
     }
 }
+
+static void sleep_ms( long milliseconds )
+{
+    struct timespec delay;
+
+    if( milliseconds <= 0 )
+    {
+        return;
+    }
+
+    delay.tv_sec  = milliseconds / 1000;
+    delay.tv_nsec = ( milliseconds % 1000 ) * 1000000L;
+    nanosleep( &delay, NULL );
+}
+
+static void verify_thermometry_after_write( const HikSession *session,
+                                            const HikOptions *opts,
+                                            const HikProfile *profile,
+                                            const uint8_t    *expected,
+                                            size_t            expected_len );
 
 static int write_blob( const char *path, const uint8_t *buf, size_t len )
 {
@@ -480,6 +501,10 @@ static int run_read_selector( const HikSession *session,
     {
         hik_print_enhancement_summary( blob, (size_t)rc );
     }
+    else if( profile->read_output_kind == HIK_READ_OUTPUT_THERMOMETRY_BASIC )
+    {
+        hik_print_thermometry_summary( blob, (size_t)rc );
+    }
     else
     {
         print_ascii_fragments( blob, (size_t)rc );
@@ -631,9 +656,255 @@ static int run_enhancement_patch( const HikSession *session,
     return 0;
 }
 
+static int run_thermometry_patch( const HikSession *session,
+                                  const HikOptions *opts,
+                                  const HikProfile *profile,
+                                  const char       *label )
+{
+    HikLengthInfo length_info;
+    uint8_t      *current            = NULL;
+    uint8_t      *updated            = NULL;
+    uint16_t      effective_blob_len = 0;
+    int           rc                 = 0;
+    size_t        changed            = 0;
+
+    rc = hik_fetch_control_length( session, opts, profile->selector, &length_info );
+    if( rc != 0 )
+    {
+        fprintf( stderr,
+                 "error: %s GET_LEN failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        return rc;
+    }
+
+    hik_print_length_report( label, &length_info );
+    effective_blob_len = opts->force_len_set ? opts->force_len
+                                             : hik_select_reported_length( length_info.decoded_length,
+                                                                           profile->expected_len );
+    if( opts->force_len_set )
+    {
+        printf( "%s using forced length override: %u byte(s)\n", label, opts->force_len );
+    }
+    if( effective_blob_len != HIK_THERMOMETRY_TYPED_LEN )
+    {
+        fprintf( stderr,
+                 "error: %s expected a %u-byte thermometry payload but the device reported %u\n",
+                 label,
+                 HIK_THERMOMETRY_TYPED_LEN,
+                 length_info.decoded_length );
+        return 1;
+    }
+
+    current = calloc( effective_blob_len, 1 );
+    updated = calloc( effective_blob_len, 1 );
+    if( current == NULL || updated == NULL )
+    {
+        fprintf( stderr, "error: out of memory allocating %" PRIu16 " bytes\n", effective_blob_len );
+        free( current );
+        free( updated );
+        return 1;
+    }
+
+    rc = hik_fetch_current_value( session, opts, profile->selector, current, effective_blob_len );
+    if( rc < 0 )
+    {
+        fprintf( stderr,
+                 "error: %s GET_CUR failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        free( current );
+        free( updated );
+        return rc;
+    }
+
+    if( (uint16_t)rc != effective_blob_len )
+    {
+        fprintf( stderr,
+                 "warning: %s GET_CUR returned %d bytes but GET_LEN advertised %" PRIu16 "\n",
+                 label,
+                 rc,
+                 effective_blob_len );
+    }
+
+    memcpy( updated, current, effective_blob_len );
+    changed = hik_apply_thermometry_patch( updated, effective_blob_len, opts );
+
+    puts( "Current thermometry basic state:" );
+    hik_print_thermometry_summary( current, effective_blob_len );
+    printf( "Current payload bytes: " );
+    print_hex_bytes_inline( current, effective_blob_len );
+    printf( "\n" );
+
+    if( changed == 0 )
+    {
+        puts( "Requested thermometry values already match the current payload." );
+    }
+    else
+    {
+        printf( "Patched %zu byte(s) in the thermometry payload.\n", changed );
+    }
+
+    puts( "Updated thermometry basic state:" );
+    hik_print_thermometry_summary( updated, effective_blob_len );
+    printf( "Updated payload bytes: " );
+    print_hex_bytes_inline( updated, effective_blob_len );
+    printf( "\n" );
+
+    rc = hik_set_current_value( session, opts, profile->selector, updated, effective_blob_len );
+    if( rc < 0 )
+    {
+        fprintf( stderr,
+                 "error: %s SET_CUR failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        free( current );
+        free( updated );
+        return rc;
+    }
+
+    printf( "%s SET_CUR wrote %d byte(s): ", label, rc );
+    print_hex_bytes_inline( updated, effective_blob_len );
+    printf( "\n" );
+
+    if( opts->raw_out_path != NULL && write_blob( opts->raw_out_path, updated, effective_blob_len ) != 0 )
+    {
+        free( current );
+        free( updated );
+        return 1;
+    }
+
+    verify_thermometry_after_write( session, opts, profile, updated, effective_blob_len );
+
+    free( current );
+    free( updated );
+    return 0;
+}
+
+static int run_expert_regions_zero_write( const HikSession *session,
+                                          const HikOptions *opts,
+                                          const HikProfile *profile )
+{
+    static const uint8_t kHeaderChunk[] = { 0x01, 0x6a, 0x0b, 0x00, 0x00 };
+    uint8_t              chunk[512];
+    int                  rc = 0;
+
+    rc = run_write_stage( session,
+                          opts,
+                          profile->selector,
+                          kHeaderChunk,
+                          sizeof( kHeaderChunk ),
+                          (uint16_t)sizeof( kHeaderChunk ),
+                          "Expert regions header" );
+    if( rc != 0 )
+    {
+        return rc;
+    }
+
+    for( uint8_t part = 1; part <= 5; ++part )
+    {
+        char label[64];
+
+        memset( chunk, 0, sizeof( chunk ) );
+        chunk[0] = 0x02;
+        chunk[1] = part;
+        snprintf( label, sizeof( label ), "Expert regions chunk %u/6", (unsigned int)part );
+        rc = run_write_stage( session,
+                              opts,
+                              profile->selector,
+                              chunk,
+                              sizeof( chunk ),
+                              (uint16_t)sizeof( chunk ),
+                              label );
+        if( rc != 0 )
+        {
+            return rc;
+        }
+    }
+
+    memset( chunk, 0, sizeof( chunk ) );
+    chunk[0] = 0x02;
+    chunk[1] = 0x06;
+    return run_write_stage( session, opts, profile->selector, chunk, 392, 392, "Expert regions chunk 6/6" );
+}
+
+static void verify_thermometry_after_write( const HikSession *session,
+                                            const HikOptions *opts,
+                                            const HikProfile *profile,
+                                            const uint8_t    *expected,
+                                            size_t            expected_len )
+{
+    enum
+    {
+        HIK_VERIFY_ATTEMPTS = 5,
+        HIK_VERIFY_DELAY_MS = 200
+    };
+
+    uint8_t verify[HIK_THERMOMETRY_TYPED_LEN];
+    int     verify_rc = -1;
+
+    for( int attempt = 1; attempt <= HIK_VERIFY_ATTEMPTS; ++attempt )
+    {
+        if( profile->prewrite_payload_len != 0 )
+        {
+            int prewrite_rc = hik_set_current_value( session,
+                                                     opts,
+                                                     profile->prewrite_selector,
+                                                     profile->prewrite_payload,
+                                                     (uint16_t)profile->prewrite_payload_len );
+
+            if( prewrite_rc < 0 )
+            {
+                fprintf( stderr,
+                         "warning: thermometry verification prewrite failed on attempt %d: %s\n",
+                         attempt,
+                         hik_transport_error( session->transport, prewrite_rc ) );
+                sleep_ms( HIK_VERIFY_DELAY_MS );
+                continue;
+            }
+        }
+
+        verify_rc = hik_fetch_current_value( session, opts, profile->selector, verify, sizeof( verify ) );
+        if( verify_rc < 0 )
+        {
+            fprintf( stderr,
+                     "warning: verification GET_CUR failed on attempt %d: %s\n",
+                     attempt,
+                     hik_transport_error( session->transport, verify_rc ) );
+            sleep_ms( HIK_VERIFY_DELAY_MS );
+            continue;
+        }
+
+        if( (size_t)verify_rc == expected_len && memcmp( verify, expected, expected_len ) == 0 )
+        {
+            printf( "Verified thermometry basic state on attempt %d:\n", attempt );
+            hik_print_thermometry_summary( verify, (size_t)verify_rc );
+            printf( "Verified payload bytes: " );
+            print_hex_bytes_inline( verify, (size_t)verify_rc );
+            printf( "\n" );
+            return;
+        }
+
+        if( attempt < HIK_VERIFY_ATTEMPTS )
+        {
+            sleep_ms( HIK_VERIFY_DELAY_MS );
+        }
+    }
+
+    if( verify_rc >= 0 )
+    {
+        printf( "Post-write thermometry state did not match after %d verification attempt(s):\n",
+                HIK_VERIFY_ATTEMPTS );
+        hik_print_thermometry_summary( verify, (size_t)verify_rc );
+        printf( "Observed payload bytes: " );
+        print_hex_bytes_inline( verify, (size_t)verify_rc );
+        printf( "\n" );
+    }
+}
+
 int hik_execute_profile( const HikSession *session, const HikOptions *opts, const HikProfile *profile )
 {
-    uint8_t payload[4];
+    uint8_t payload[HIK_MAX_PROFILE_PAYLOAD_BYTES];
     size_t  payload_len = 0;
     int     rc          = 0;
 
@@ -660,6 +931,24 @@ int hik_execute_profile( const HikSession *session, const HikOptions *opts, cons
             return rc;
         }
         return run_enhancement_patch( session, opts, profile, "Image enhancement" );
+    }
+    if( profile->write_shape == HIK_WRITE_SHAPE_THERMOMETRY_PATCH )
+    {
+        rc = maybe_run_profile_prewrite( session, opts, profile );
+        if( rc != 0 )
+        {
+            return rc;
+        }
+        return run_thermometry_patch( session, opts, profile, "Thermometry basic" );
+    }
+    if( profile->write_shape == HIK_WRITE_SHAPE_EXPERT_REGIONS_ZERO )
+    {
+        rc = maybe_run_profile_prewrite( session, opts, profile );
+        if( rc != 0 )
+        {
+            return rc;
+        }
+        return run_expert_regions_zero_write( session, opts, profile );
     }
 
     if( !hik_build_profile_payload( profile, opts, payload, &payload_len ) )

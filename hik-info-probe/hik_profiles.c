@@ -81,6 +81,76 @@ static const HikProfile kProfiles[] = {
       HIK_WRITE_SHAPE_ENHANCEMENT_PATCH,
       0,
       "Selector 0x02 read-modify-write for palette and the confirmed image-enhancement fields. Use --palette and related enhancement flags." },
+    { "thermometry-basic",
+      HIK_PROFILE_READ,
+      HIK_THERMOMETRY_SELECTOR,
+      HIK_THERMOMETRY_TYPED_LEN,
+      false,
+      HIK_READ_OUTPUT_THERMOMETRY_BASIC,
+      HIK_PRELUDE_SELECTOR,
+      { 0x03, 0x01 },
+      2,
+      { 0 },
+      0,
+      HIK_WRITE_SHAPE_FIXED,
+      0,
+      "Selector 0x03 thermometry-basic page, staged by selector 0x05 payload 03 01. Reads and decodes the 69-byte mailbox payload." },
+    { "thermometry-basic-set",
+      HIK_PROFILE_WRITE,
+      HIK_THERMOMETRY_SELECTOR,
+      HIK_THERMOMETRY_TYPED_LEN,
+      false,
+      HIK_READ_OUTPUT_INFO_BLOB,
+      HIK_PRELUDE_SELECTOR,
+      { 0x03, 0x01 },
+      2,
+      { 0 },
+      0,
+      HIK_WRITE_SHAPE_THERMOMETRY_PATCH,
+      0,
+      "Selector 0x03 thermometry-basic read-modify-write for emissivity, distance, reflection, and related compensation fields." },
+    { "expert-correction-set",
+      HIK_PROFILE_WRITE,
+      HIK_THERMOMETRY_SELECTOR,
+      53,
+      false,
+      HIK_READ_OUTPUT_INFO_BLOB,
+      HIK_PRELUDE_SELECTOR,
+      { 0x03, 0x10 },
+      2,
+      { 0 },
+      0,
+      HIK_WRITE_SHAPE_EXPERT_CORRECTION_REPLAY,
+      0,
+      "Selector 0x03 replay of the captured 53-byte USB_SetExpertCorrectionParam payload, staged by selector 0x05 payload 03 10." },
+    { "temperature-correct-set",
+      HIK_PROFILE_WRITE,
+      HIK_THERMOMETRY_SELECTOR,
+      53,
+      false,
+      HIK_READ_OUTPUT_INFO_BLOB,
+      HIK_PRELUDE_SELECTOR,
+      { 0x03, 0x06 },
+      2,
+      { 0 },
+      0,
+      HIK_WRITE_SHAPE_TEMPERATURE_CORRECT_REPLAY,
+      0,
+      "Selector 0x03 replay of the captured 53-byte USB_SetTemperatureCorrect payload, staged by selector 0x05 payload 03 06." },
+    { "thermometry-expert-regions-set",
+      HIK_PROFILE_WRITE,
+      HIK_THERMOMETRY_SELECTOR,
+      0,
+      false,
+      HIK_READ_OUTPUT_INFO_BLOB,
+      HIK_PRELUDE_SELECTOR,
+      { 0x03, 0x0f },
+      2,
+      { 0 },
+      0,
+      HIK_WRITE_SHAPE_EXPERT_REGIONS_ZERO,
+      0,
+      "Selector 0x03 replay of the captured zero-region USB_SetThermometryExpertRegions chunked transfer, staged by selector 0x05 payload 03 0f." },
     { "selector-state-scan",
       HIK_PROFILE_SCAN,
       HIK_ENHANCEMENT_SELECTOR,
@@ -123,6 +193,48 @@ static const HikProfile kProfiles[] = {
       HIK_WRITE_SHAPE_SCALAR,
       35,
       "Selector 0x02 write matching contrast-like scalar control, staged by selector 0x05 payload 02 02. Override with --value." },
+    { "manual-correct",
+      HIK_PROFILE_WRITE,
+      HIK_PRELUDE_SELECTOR,
+      2,
+      false,
+      HIK_READ_OUTPUT_INFO_BLOB,
+      0,
+      { 0 },
+      0,
+      { 0x02, 0x04 },
+      2,
+      HIK_WRITE_SHAPE_FIXED,
+      0,
+      "Selector 0x05 action trigger correlated with USB_SetImageManualCorrect." },
+    { "background-correct",
+      HIK_PROFILE_WRITE,
+      HIK_PRELUDE_SELECTOR,
+      2,
+      false,
+      HIK_READ_OUTPUT_INFO_BLOB,
+      0,
+      { 0 },
+      0,
+      { 0x02, 0x03 },
+      2,
+      HIK_WRITE_SHAPE_FIXED,
+      0,
+      "Selector 0x05 action trigger correlated with USB_SetImageBackGroundCorrect." },
+    { "start-expert-correction",
+      HIK_PROFILE_WRITE,
+      HIK_PRELUDE_SELECTOR,
+      2,
+      false,
+      HIK_READ_OUTPUT_INFO_BLOB,
+      0,
+      { 0 },
+      0,
+      { 0x03, 0x11 },
+      2,
+      HIK_WRITE_SHAPE_FIXED,
+      0,
+      "Selector 0x05 action trigger correlated with USB_StartExpertCorrection." },
 };
 
 static bool normalized_name_equal( const char *lhs, const char *rhs )
@@ -259,6 +371,25 @@ bool hik_build_profile_payload( const HikProfile *profile,
                                 uint8_t          *payload_out,
                                 size_t           *payload_len_out )
 {
+    static const uint8_t kExpertCorrectionReplay[] = {
+        0x01,
+        0x1e, 0x00, 0x00, 0x00,
+        0xac, 0x0d, 0x00, 0x00,
+        0x61, 0x00, 0x00, 0x00,
+        0x01, 0x40, 0x06, 0x00, 0x00, 0xf4, 0x01, 0x00, 0x00, 0xf4, 0x01, 0x00, 0x00,
+        0x02, 0x40, 0x06, 0x00, 0x00, 0xf4, 0x01, 0x00, 0x00, 0xf4, 0x01, 0x00, 0x00,
+        0x03, 0x40, 0x06, 0x00, 0x00, 0xf4, 0x01, 0x00, 0x00, 0xf4, 0x01, 0x00, 0x00,
+    };
+    static const uint8_t kTemperatureCorrectReplay[] = {
+        0x01,
+        0x1e, 0x00, 0x00, 0x00,
+        0xac, 0x0d, 0x00, 0x00,
+        0x61, 0x00, 0x00, 0x00,
+        0x01, 0x40, 0x06, 0x00, 0x00, 0xf4, 0x01, 0x00, 0x00, 0xf4, 0x01, 0x00, 0x00,
+        0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    };
+
     memcpy( payload_out, profile->payload, profile->payload_len );
     *payload_len_out = profile->payload_len;
 
@@ -274,6 +405,20 @@ bool hik_build_profile_payload( const HikProfile *profile,
             payload_out[1] = opts->value_set ? opts->value : profile->default_value;
             return true;
         case HIK_WRITE_SHAPE_ENHANCEMENT_PATCH:
+            *payload_len_out = 0;
+            return true;
+        case HIK_WRITE_SHAPE_THERMOMETRY_PATCH:
+            *payload_len_out = 0;
+            return true;
+        case HIK_WRITE_SHAPE_EXPERT_CORRECTION_REPLAY:
+            memcpy( payload_out, kExpertCorrectionReplay, sizeof( kExpertCorrectionReplay ) );
+            *payload_len_out = sizeof( kExpertCorrectionReplay );
+            return true;
+        case HIK_WRITE_SHAPE_TEMPERATURE_CORRECT_REPLAY:
+            memcpy( payload_out, kTemperatureCorrectReplay, sizeof( kTemperatureCorrectReplay ) );
+            *payload_len_out = sizeof( kTemperatureCorrectReplay );
+            return true;
+        case HIK_WRITE_SHAPE_EXPERT_REGIONS_ZERO:
             *payload_len_out = 0;
             return true;
         default:

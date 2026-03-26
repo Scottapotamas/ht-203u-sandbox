@@ -26,6 +26,14 @@ This tool has been built using a concept of test profiles:
 - `protocol-version`
 - `image-enhancement`
 - `image-enhancement-set`
+- `thermometry-basic`
+- `thermometry-basic-set`
+- `expert-correction-set`
+- `temperature-correct-set`
+- `thermometry-expert-regions-set`
+- `manual-correct`
+- `background-correct`
+- `start-expert-correction`
 - `selector-state-scan`
 - `brightness`
 - `contrast`
@@ -118,6 +126,48 @@ The goal is to replicate the different configuration and control transactions fr
   - prewrite selector `0x05`
   - target selector `0x02`
 
+### `thermometry-basic`
+
+- Selector `0x03`
+- Automatically staged by selector `0x05` payload `03 01`
+- Performs `GET_LEN` / `GET_CUR` against the 69-byte thermometry mailbox
+- Decodes the confirmed fields:
+  - emissivity
+  - distance and distance unit
+  - reflective enable and reflective temperature
+  - external optics window correction and transmit
+  - alert and alarm thresholds
+  - the known thermometry display and overlay flags
+
+### `thermometry-basic-set`
+
+- Selector `0x03`
+- Automatically staged by selector `0x05` payload `03 01`
+- Performs a read-modify-write of the 69-byte thermometry mailbox
+- Changes only the requested known bytes and preserves the undecoded tail from the camera
+- Accepts these flags:
+  - `--thermometry-enabled 0|1`
+  - `--thermometry-display-max 0|1`
+  - `--thermometry-display-min 0|1`
+  - `--thermometry-display-avg 0|1`
+  - `--thermometry-temperature-unit N`
+  - `--thermometry-temperature-range N`
+  - `--thermometry-calibration-coeff-enabled 0|1`
+  - `--thermometry-calibration-coeff N`
+  - `--thermometry-external-optics-window-correction N`
+  - `--thermometry-emissivity N`
+  - `--thermometry-distance-unit N`
+  - `--thermometry-distance N`
+  - `--thermometry-reflective-enable 0|1`
+  - `--thermometry-reflective-temperature N`
+  - `--thermometry-info-display-position N`
+  - `--thermometry-stream-overlay 0|1`
+  - `--thermometry-alert N`
+  - `--thermometry-alarm N`
+  - `--thermometry-external-optics-transmit N`
+  - `--thermometry-display-center 0|1`
+  - `--thermometry-backcolor 0|1`
+  - `--thermometry-show-alarm-color 0|1`
 ## Example usage
 
 ```bash
@@ -185,6 +235,14 @@ sudo ./build/hik-info-probe --profile brightness --value 60
 sudo ./build/hik-info-probe --profile contrast --value 20
 ```
 
+Read and patch the thermometry-basic payload:
+
+```bash
+sudo ./build/hik-info-probe --profile thermometry-basic
+sudo ./build/hik-info-probe --profile thermometry-basic-set --thermometry-emissivity 80
+sudo ./build/hik-info-probe --profile thermometry-basic-set --thermometry-distance 120 --thermometry-distance-unit 2
+sudo ./build/hik-info-probe --profile thermometry-basic-set --thermometry-reflective-enable 1 --thermometry-reflective-temperature 1080
+```
 Monitor the live feed in `mpv` while changing values through `uvcvideo` instead of detaching the interface:
 
 ```bash

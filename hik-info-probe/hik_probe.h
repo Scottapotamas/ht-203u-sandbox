@@ -19,6 +19,7 @@ typedef enum
     HIK_DEFAULT_INTERFACE         = 0,
     HIK_DEFAULT_UNIT              = 0x0a,
     HIK_DEFAULT_SELECTOR          = 0x01,
+    HIK_THERMOMETRY_SELECTOR      = 0x03,
     HIK_DEFAULT_TIMEOUT_MS        = 5000,
     HIK_ENHANCEMENT_SELECTOR      = 0x02,
     HIK_PROTOCOL_SELECTOR         = 0x04,
@@ -32,7 +33,10 @@ typedef enum
     HIK_XU_GET_BMREQUESTTYPE      = 0xa1,
     HIK_XU_SET_BMREQUESTTYPE      = 0x21,
     HIK_MAX_REASONABLE_BLOB       = 16384,
-    HIK_MAX_SCAN_PAYLOAD_BYTES    = 32
+    HIK_MAX_SCAN_PAYLOAD_BYTES    = 32,
+    HIK_MAX_PROFILE_PAYLOAD_BYTES = 512,
+    HIK_THERMOMETRY_TYPED_LEN     = 69,
+    HIK_THERMOMETRY_STRUCT_LEN    = 0x104
 } HikProbeConstant;
 
 typedef enum
@@ -53,14 +57,19 @@ typedef enum
 {
     HIK_READ_OUTPUT_INFO_BLOB = 0,
     HIK_READ_OUTPUT_ASCII_STRING,
-    HIK_READ_OUTPUT_IMAGE_ENHANCEMENT
+    HIK_READ_OUTPUT_IMAGE_ENHANCEMENT,
+    HIK_READ_OUTPUT_THERMOMETRY_BASIC
 } HikReadOutputKind;
 
 typedef enum
 {
     HIK_WRITE_SHAPE_FIXED = 0,
     HIK_WRITE_SHAPE_SCALAR,
-    HIK_WRITE_SHAPE_ENHANCEMENT_PATCH
+    HIK_WRITE_SHAPE_ENHANCEMENT_PATCH,
+    HIK_WRITE_SHAPE_THERMOMETRY_PATCH,
+    HIK_WRITE_SHAPE_EXPERT_CORRECTION_REPLAY,
+    HIK_WRITE_SHAPE_TEMPERATURE_CORRECT_REPLAY,
+    HIK_WRITE_SHAPE_EXPERT_REGIONS_ZERO
 } HikWriteShapeKind;
 
 typedef enum
@@ -166,6 +175,50 @@ typedef struct
     uint8_t          hook_edge_level;
     bool             agc_mode_set;
     uint8_t          agc_mode;
+    bool             thermometry_enabled_set;
+    uint8_t          thermometry_enabled;
+    bool             thermometry_display_max_set;
+    uint8_t          thermometry_display_max;
+    bool             thermometry_display_min_set;
+    uint8_t          thermometry_display_min;
+    bool             thermometry_display_avg_set;
+    uint8_t          thermometry_display_avg;
+    bool             thermometry_temperature_unit_set;
+    uint8_t          thermometry_temperature_unit;
+    bool             thermometry_temperature_range_set;
+    uint8_t          thermometry_temperature_range;
+    bool             thermometry_calibration_coeff_enabled_set;
+    uint8_t          thermometry_calibration_coeff_enabled;
+    bool             thermometry_calibration_coeff_set;
+    uint32_t         thermometry_calibration_coeff;
+    bool             thermometry_external_optics_window_correction_set;
+    uint32_t         thermometry_external_optics_window_correction;
+    bool             thermometry_emissivity_set;
+    uint32_t         thermometry_emissivity;
+    bool             thermometry_distance_unit_set;
+    uint8_t          thermometry_distance_unit;
+    bool             thermometry_distance_set;
+    uint32_t         thermometry_distance;
+    bool             thermometry_reflective_enable_set;
+    uint8_t          thermometry_reflective_enable;
+    bool             thermometry_reflective_temperature_set;
+    uint32_t         thermometry_reflective_temperature;
+    bool             thermometry_info_display_position_set;
+    uint8_t          thermometry_info_display_position;
+    bool             thermometry_stream_overlay_set;
+    uint8_t          thermometry_stream_overlay;
+    bool             thermometry_alert_set;
+    uint32_t         thermometry_alert;
+    bool             thermometry_alarm_set;
+    uint32_t         thermometry_alarm;
+    bool             thermometry_external_optics_transmit_set;
+    uint32_t         thermometry_external_optics_transmit;
+    bool             thermometry_display_center_set;
+    uint8_t          thermometry_display_center;
+    bool             thermometry_backcolor_set;
+    uint8_t          thermometry_backcolor;
+    bool             thermometry_show_alarm_color_set;
+    uint8_t          thermometry_show_alarm_color;
     unsigned int     timeout_ms;
     bool             auto_detach;
     bool             paired_init;
@@ -246,6 +299,11 @@ void             hik_print_length_report( const char *label, const HikLengthInfo
 bool   hik_enhancement_overrides_requested( const HikOptions *opts );
 void   hik_print_enhancement_summary( const uint8_t *data, size_t len );
 size_t hik_apply_enhancement_patch( uint8_t *buf, size_t len, const HikOptions *opts );
+
+bool   hik_normalize_thermometry_payload( const uint8_t *data, size_t len, uint8_t *typed_out );
+bool   hik_thermometry_overrides_requested( const HikOptions *opts );
+void   hik_print_thermometry_summary( const uint8_t *data, size_t len );
+size_t hik_apply_thermometry_patch( uint8_t *buf, size_t len, const HikOptions *opts );
 
 int hik_execute_profile( const HikSession *session,
                          const HikOptions *opts,
