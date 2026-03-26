@@ -26,11 +26,11 @@ Because it's a usable UVC device, simple incantations using `mpv` and `ffmpeg` p
 - Realtime view: `mpv av://v4l2:/dev/video0 --profile=low-latency --untimed`
 - Record to file: `sudo ffmpeg -input_format yuyv422 -video_size 256x128 -i /dev/video0 test6.mkv`
 
-> Use 256x392 for a dual output image (green ratiometric + shaded thermal view)
+> Use 256x392 for the dual output image (green ratiometric + shaded thermal view)
 
-TODO put a screencapture of the two feeds with metadata pixels to demonstrate what output looks like.
+![Vertical stack with green artifact view is top-half, blue-cold to red-hot scaled output on bottom half](img/256x392-human.png)
 
-The top image is a YUYV formatted raw ratiometric feed, and the bottom image is processed on-camera with autoscaled colour palette.
+The top-half of the image is the `YUYV` formatted raw ratiometric feed, and the bottom image is processed on-camera with autoscaled colour palette.
 
 # Reverse Engineering
 
