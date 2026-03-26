@@ -1,0 +1,684 @@
+#include "hik_probe.h"
+
+#include <ctype.h>
+#include <errno.h>
+#include <inttypes.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+static void print_hexdump( const uint8_t *data, size_t len )
+{
+    for( size_t offset = 0; offset < len; offset += 16 )
+    {
+        size_t row_len = len - offset;
+
+        if( row_len > 16 )
+        {
+            row_len = 16;
+        }
+
+        printf( "%04zx  ", offset );
+        for( size_t i = 0; i < 16; ++i )
+        {
+            if( i < row_len )
+            {
+                printf( "%02x ", data[offset + i] );
+            }
+            else
+            {
+                printf( "   " );
+            }
+        }
+
+        printf( " " );
+        for( size_t i = 0; i < row_len; ++i )
+        {
+            unsigned char c = data[offset + i];
+
+            putchar( isprint( c ) ? (int)c : '.' );
+        }
+        putchar( '\n' );
+    }
+}
+
+static void print_ascii_fragments( const uint8_t *data, size_t len )
+{
+    size_t i     = 0;
+    int    index = 0;
+
+    puts( "Printable ASCII fragments:" );
+    while( i < len )
+    {
+        size_t start = 0;
+
+        while( i < len && !isprint( data[i] ) )
+        {
+            ++i;
+        }
+
+        start = i;
+        while( i < len && isprint( data[i] ) )
+        {
+            ++i;
+        }
+
+        if( i > start && ( i - start ) >= 3 )
+        {
+            printf( "  [%d] %.*s\n", ++index, (int)( i - start ), (const char *)( data + start ) );
+        }
+    }
+
+    if( index == 0 )
+    {
+        puts( "  (none found)" );
+    }
+}
+
+static void print_ascii_string_value( const uint8_t *data, size_t len )
+{
+    char   buf[256];
+    size_t out = 0;
+
+    for( size_t i = 0; i < len && out + 1 < sizeof( buf ); ++i )
+    {
+        if( data[i] == '\0' )
+        {
+            break;
+        }
+        buf[out++] = isprint( data[i] ) ? (char)data[i] : '.';
+    }
+    buf[out] = '\0';
+
+    printf( "ASCII value: %s\n", out == 0 ? "<empty>" : buf );
+}
+
+static void print_hex_bytes_inline( const uint8_t *data, size_t len )
+{
+    for( size_t i = 0; i < len; ++i )
+    {
+        printf( "%s%02x", ( i == 0 ) ? "" : " ", data[i] );
+    }
+}
+
+static int write_blob( const char *path, const uint8_t *buf, size_t len )
+{
+    FILE  *fp      = fopen( path, "wb" );
+    size_t written = 0;
+
+    if( fp == NULL )
+    {
+        fprintf( stderr, "error: could not open %s for writing: %s\n", path, strerror( errno ) );
+        return -1;
+    }
+
+    written = fwrite( buf, 1, len, fp );
+    if( written != len )
+    {
+        fprintf( stderr, "error: short write to %s\n", path );
+        fclose( fp );
+        return -1;
+    }
+
+    if( fclose( fp ) != 0 )
+    {
+        fprintf( stderr, "error: fclose(%s) failed: %s\n", path, strerror( errno ) );
+        return -1;
+    }
+
+    return 0;
+}
+
+static int run_paired_init( const HikSession *session, const HikOptions *opts )
+{
+    HikLengthInfo length_info;
+    uint8_t       protocol_buf[16];
+    uint8_t       prelude_payload[2] = { 0x01, 0x01 };
+    int           rc                 = 0;
+
+    puts( "Running paired-capture preamble:" );
+
+    rc = hik_fetch_control_length( session, opts, HIK_PROTOCOL_SELECTOR, &length_info );
+    if( rc != 0 )
+    {
+        fprintf( stderr,
+                 "error: selector 0x%02x GET_LEN failed: %s\n",
+                 HIK_PROTOCOL_SELECTOR,
+                 hik_transport_error( session->transport, rc ) );
+        return rc;
+    }
+    hik_print_length_report( "  selector 0x04 GET_LEN", &length_info );
+
+    if( length_info.decoded_length > 0 && length_info.decoded_length <= sizeof( protocol_buf ) )
+    {
+        rc = hik_fetch_current_value( session, opts, HIK_PROTOCOL_SELECTOR, protocol_buf, length_info.decoded_length );
+        if( rc < 0 )
+        {
+            fprintf( stderr,
+                     "error: selector 0x%02x GET_CUR failed: %s\n",
+                     HIK_PROTOCOL_SELECTOR,
+                     hik_transport_error( session->transport, rc ) );
+            return rc;
+        }
+        printf( "  selector 0x04 GET_CUR returned %d byte(s): ", rc );
+        for( int i = 0; i < rc; ++i )
+        {
+            putchar( isprint( protocol_buf[i] ) ? protocol_buf[i] : '.' );
+        }
+        putchar( '\n' );
+    }
+
+    rc = hik_fetch_control_length( session, opts, HIK_PRELUDE_SELECTOR, &length_info );
+    if( rc != 0 )
+    {
+        fprintf( stderr,
+                 "error: selector 0x%02x GET_LEN failed: %s\n",
+                 HIK_PRELUDE_SELECTOR,
+                 hik_transport_error( session->transport, rc ) );
+        return rc;
+    }
+    hik_print_length_report( "  selector 0x05 GET_LEN", &length_info );
+
+    rc = hik_set_current_value( session, opts, HIK_PRELUDE_SELECTOR, prelude_payload, sizeof( prelude_payload ) );
+    if( rc < 0 )
+    {
+        fprintf( stderr,
+                 "error: selector 0x%02x SET_CUR failed: %s\n",
+                 HIK_PRELUDE_SELECTOR,
+                 hik_transport_error( session->transport, rc ) );
+        return rc;
+    }
+    printf( "  selector 0x05 SET_CUR wrote %d byte(s): 01 01\n", rc );
+
+    return 0;
+}
+
+static int run_write_stage( const HikSession *session,
+                            const HikOptions *opts,
+                            uint8_t           selector,
+                            const uint8_t    *payload,
+                            size_t            payload_len,
+                            uint16_t          expected_len,
+                            const char       *label )
+{
+    HikLengthInfo length_info;
+    uint16_t      effective_len = 0;
+    int           rc            = 0;
+
+    rc = hik_fetch_control_length( session, opts, selector, &length_info );
+    if( rc != 0 )
+    {
+        fprintf( stderr,
+                 "error: %s GET_LEN failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        return rc;
+    }
+
+    hik_print_length_report( label, &length_info );
+    effective_len = opts->force_len_set ? opts->force_len
+                                        : hik_select_reported_length( length_info.decoded_length, expected_len );
+    if( expected_len != 0 && effective_len != expected_len )
+    {
+        fprintf( stderr,
+                 "warning: %s expected length %u but device reported %u\n",
+                 label,
+                 expected_len,
+                 length_info.decoded_length );
+    }
+    if( opts->force_len_set )
+    {
+        printf( "%s using forced length override: %u byte(s)\n", label, opts->force_len );
+    }
+
+    rc = hik_set_current_value( session, opts, selector, payload, (uint16_t)payload_len );
+    if( rc < 0 )
+    {
+        fprintf( stderr,
+                 "error: %s SET_CUR failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        return rc;
+    }
+
+    printf( "%s SET_CUR wrote %d byte(s): ", label, rc );
+    print_hex_bytes_inline( payload, payload_len );
+    printf( "\n" );
+    return 0;
+}
+
+static int maybe_run_profile_prewrite( const HikSession *session,
+                                       const HikOptions *opts,
+                                       const HikProfile *profile )
+{
+    int rc = 0;
+
+    if( profile->prewrite_payload_len == 0 )
+    {
+        return 0;
+    }
+
+    rc = run_write_stage( session,
+                          opts,
+                          profile->prewrite_selector,
+                          profile->prewrite_payload,
+                          profile->prewrite_payload_len,
+                          (uint16_t)profile->prewrite_payload_len,
+                          "Profile prewrite" );
+    if( rc == 0 )
+    {
+        puts( "" );
+    }
+    return rc;
+}
+
+static int run_selector_state_scan( const HikSession *session, const HikOptions *opts )
+{
+    uint8_t payload[HIK_MAX_SCAN_PAYLOAD_BYTES];
+    uint8_t cur_buf[HIK_MAX_REASONABLE_BLOB];
+    uint8_t prewrite_selector = opts->scan_prewrite_selector_set
+                                    ? opts->scan_prewrite_selector
+                                    : HIK_PRELUDE_SELECTOR;
+    uint8_t target_selector   = opts->scan_target_selector_set
+                                    ? opts->scan_target_selector
+                                    : HIK_ENHANCEMENT_SELECTOR;
+    int     rc                = 0;
+
+    if( opts->scan_prefix_len + 1 > sizeof( payload ) )
+    {
+        fprintf( stderr, "error: scan prefix too long\n" );
+        return 2;
+    }
+
+    printf( "Selector-state scan: prewrite selector 0x%02x, target selector 0x%02x, range 0x%02x..0x%02x\n",
+            prewrite_selector,
+            target_selector,
+            opts->scan_range_start,
+            opts->scan_range_end );
+    printf( "Fixed prefix bytes:" );
+    if( opts->scan_prefix_len == 0 )
+    {
+        printf( " <none>" );
+    }
+    else
+    {
+        printf( " " );
+        print_hex_bytes_inline( opts->scan_prefix, opts->scan_prefix_len );
+    }
+    printf( "\n" );
+    if( opts->scan_read_cur )
+    {
+        puts( "GET_CUR sampling is enabled for each candidate." );
+    }
+    puts( "" );
+
+    memcpy( payload, opts->scan_prefix, opts->scan_prefix_len );
+    for( unsigned int candidate = opts->scan_range_start; candidate <= opts->scan_range_end; ++candidate )
+    {
+        HikLengthInfo length_info;
+        uint16_t      effective_len = 0;
+        int           cur_rc        = 0;
+        size_t        payload_len   = opts->scan_prefix_len + 1;
+
+        payload[payload_len - 1] = (uint8_t)candidate;
+        rc                       = hik_set_current_value( session, opts, prewrite_selector, payload, (uint16_t)payload_len );
+        if( rc < 0 )
+        {
+            fprintf( stderr,
+                     "error: scan prewrite 0x%02x failed for candidate 0x%02x: %s\n",
+                     prewrite_selector,
+                     candidate,
+                     hik_transport_error( session->transport, rc ) );
+            return rc;
+        }
+
+        rc = hik_fetch_control_length( session, opts, target_selector, &length_info );
+        if( rc != 0 )
+        {
+            fprintf( stderr,
+                     "error: target selector 0x%02x GET_LEN failed after candidate 0x%02x: %s\n",
+                     target_selector,
+                     candidate,
+                     hik_transport_error( session->transport, rc ) );
+            return rc;
+        }
+
+        printf( "prewrite " );
+        print_hex_bytes_inline( payload, payload_len );
+        printf( " -> len raw=" );
+        print_hex_bytes_inline( length_info.raw, (size_t)length_info.raw_len );
+        printf( " len=%u", (unsigned int)length_info.decoded_length );
+
+        if( opts->scan_read_cur )
+        {
+            effective_len = opts->force_len_set ? opts->force_len
+                                                : hik_select_reported_length( length_info.decoded_length, 0 );
+            if( effective_len == 0 || effective_len > sizeof( cur_buf ) )
+            {
+                printf( " cur=skipped" );
+            }
+            else
+            {
+                memset( cur_buf, 0, effective_len );
+                cur_rc = hik_fetch_current_value( session, opts, target_selector, cur_buf, effective_len );
+                if( cur_rc < 0 )
+                {
+                    printf( " cur=error(%s)", hik_transport_error( session->transport, cur_rc ) );
+                }
+                else
+                {
+                    printf( " cur[%d]=", cur_rc );
+                    print_hex_bytes_inline( cur_buf, (size_t)cur_rc );
+                }
+            }
+        }
+
+        putchar( '\n' );
+    }
+
+    return 0;
+}
+
+static int run_read_selector( const HikSession *session,
+                              const HikOptions *opts,
+                              const HikProfile *profile,
+                              const char       *label,
+                              const char       *raw_out_path )
+{
+    HikLengthInfo length_info;
+    uint8_t      *blob               = NULL;
+    uint16_t      effective_blob_len = 0;
+    int           rc                 = 0;
+
+    if( profile->auto_paired_init && opts->paired_init )
+    {
+        rc = run_paired_init( session, opts );
+        if( rc != 0 )
+        {
+            return rc;
+        }
+    }
+
+    rc = hik_fetch_control_length( session, opts, profile->selector, &length_info );
+    if( rc != 0 )
+    {
+        fprintf( stderr,
+                 "error: %s GET_LEN failed: %s (raw rc=%d)\n",
+                 label,
+                 hik_transport_error( session->transport, rc ),
+                 length_info.raw_len );
+        return rc;
+    }
+
+    hik_print_length_report( label, &length_info );
+    effective_blob_len = opts->force_len_set ? opts->force_len
+                                             : hik_select_reported_length( length_info.decoded_length,
+                                                                           profile->expected_len );
+    if( opts->force_len_set )
+    {
+        printf( "%s using forced length override: %u byte(s)\n", label, opts->force_len );
+    }
+
+    if( profile->expected_len != 0 && effective_blob_len != profile->expected_len )
+    {
+        fprintf( stderr,
+                 "warning: %s expected length %u but device reported %u\n",
+                 label,
+                 profile->expected_len,
+                 length_info.decoded_length );
+    }
+
+    if( effective_blob_len == 0 || effective_blob_len > HIK_MAX_REASONABLE_BLOB )
+    {
+        fprintf( stderr,
+                 "error: %s refusing suspicious blob length %" PRIu16 "\n",
+                 label,
+                 length_info.decoded_length );
+        return 1;
+    }
+
+    blob = calloc( effective_blob_len, 1 );
+    if( blob == NULL )
+    {
+        fprintf( stderr, "error: out of memory allocating %" PRIu16 " bytes\n", effective_blob_len );
+        return 1;
+    }
+
+    rc = hik_fetch_current_value( session, opts, profile->selector, blob, effective_blob_len );
+    if( rc < 0 )
+    {
+        fprintf( stderr,
+                 "error: %s GET_CUR failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        free( blob );
+        return rc;
+    }
+
+    printf( "%s GET_CUR returned %d byte(s)\n", label, rc );
+    if( (uint16_t)rc != effective_blob_len )
+    {
+        fprintf( stderr,
+                 "warning: %s GET_CUR returned %d bytes but GET_LEN advertised %" PRIu16 "\n",
+                 label,
+                 rc,
+                 effective_blob_len );
+    }
+
+    if( raw_out_path != NULL && write_blob( raw_out_path, blob, (size_t)rc ) != 0 )
+    {
+        free( blob );
+        return 1;
+    }
+
+    puts( "" );
+    if( profile->read_output_kind == HIK_READ_OUTPUT_ASCII_STRING )
+    {
+        print_ascii_string_value( blob, (size_t)rc );
+    }
+    else if( profile->read_output_kind == HIK_READ_OUTPUT_IMAGE_ENHANCEMENT )
+    {
+        hik_print_enhancement_summary( blob, (size_t)rc );
+    }
+    else
+    {
+        print_ascii_fragments( blob, (size_t)rc );
+    }
+
+    puts( "" );
+    puts( "Hexdump:" );
+    print_hexdump( blob, (size_t)rc );
+
+    free( blob );
+    return 0;
+}
+
+static int run_enhancement_patch( const HikSession *session,
+                                  const HikOptions *opts,
+                                  const HikProfile *profile,
+                                  const char       *label )
+{
+    HikLengthInfo length_info;
+    uint8_t      *current            = NULL;
+    uint8_t      *updated            = NULL;
+    uint16_t      effective_blob_len = 0;
+    int           rc                 = 0;
+    size_t        changed            = 0;
+
+    if( !hik_enhancement_overrides_requested( opts ) )
+    {
+        fprintf( stderr,
+                 "error: %s requires at least one enhancement option such as --palette or --noise-reduce-mode\n",
+                 profile->name );
+        return 1;
+    }
+
+    rc = hik_fetch_control_length( session, opts, profile->selector, &length_info );
+    if( rc != 0 )
+    {
+        fprintf( stderr,
+                 "error: %s GET_LEN failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        return rc;
+    }
+
+    hik_print_length_report( label, &length_info );
+    effective_blob_len = opts->force_len_set ? opts->force_len
+                                             : hik_select_reported_length( length_info.decoded_length,
+                                                                           profile->expected_len );
+    if( opts->force_len_set )
+    {
+        printf( "%s using forced length override: %u byte(s)\n", label, opts->force_len );
+    }
+    if( effective_blob_len != HIK_EXPECTED_ENHANCEMENT_LEN )
+    {
+        fprintf( stderr,
+                 "error: %s expected a %u-byte enhancement payload but the device reported %u\n",
+                 label,
+                 HIK_EXPECTED_ENHANCEMENT_LEN,
+                 length_info.decoded_length );
+        if( !opts->force_len_set && length_info.decoded_length == 2 )
+        {
+            fprintf( stderr,
+                     "hint: selector 0x02 is currently exposing the 2-byte scalar form on this device state.\n"
+                     "hint: try reproducing the Android/vendor initialization first, or experiment with\n"
+                     "hint: --force-len 24 or the selector-state-scan profile.\n" );
+        }
+        return 1;
+    }
+
+    current = calloc( effective_blob_len, 1 );
+    updated = calloc( effective_blob_len, 1 );
+    if( current == NULL || updated == NULL )
+    {
+        fprintf( stderr, "error: out of memory allocating %" PRIu16 " bytes\n", effective_blob_len );
+        free( current );
+        free( updated );
+        return 1;
+    }
+
+    rc = hik_fetch_current_value( session, opts, profile->selector, current, effective_blob_len );
+    if( rc < 0 )
+    {
+        fprintf( stderr,
+                 "error: %s GET_CUR failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        free( current );
+        free( updated );
+        return rc;
+    }
+
+    if( (uint16_t)rc != effective_blob_len )
+    {
+        fprintf( stderr,
+                 "warning: %s GET_CUR returned %d bytes but GET_LEN advertised %" PRIu16 "\n",
+                 label,
+                 rc,
+                 effective_blob_len );
+    }
+
+    memcpy( updated, current, effective_blob_len );
+    changed = hik_apply_enhancement_patch( updated, effective_blob_len, opts );
+
+    puts( "Current image enhancement state:" );
+    hik_print_enhancement_summary( current, effective_blob_len );
+    printf( "Current payload bytes: " );
+    print_hex_bytes_inline( current, effective_blob_len );
+    printf( "\n" );
+
+    if( changed == 0 )
+    {
+        puts( "Requested enhancement values already match the current payload." );
+    }
+    else
+    {
+        printf( "Patched %zu byte(s) in the enhancement payload.\n", changed );
+    }
+
+    puts( "Updated image enhancement state:" );
+    hik_print_enhancement_summary( updated, effective_blob_len );
+    printf( "Updated payload bytes: " );
+    print_hex_bytes_inline( updated, effective_blob_len );
+    printf( "\n" );
+
+    rc = hik_set_current_value( session, opts, profile->selector, updated, effective_blob_len );
+    if( rc < 0 )
+    {
+        fprintf( stderr,
+                 "error: %s SET_CUR failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        free( current );
+        free( updated );
+        return rc;
+    }
+
+    printf( "%s SET_CUR wrote %d byte(s): ", label, rc );
+    print_hex_bytes_inline( updated, effective_blob_len );
+    printf( "\n" );
+
+    if( opts->raw_out_path != NULL && write_blob( opts->raw_out_path, updated, effective_blob_len ) != 0 )
+    {
+        free( current );
+        free( updated );
+        return 1;
+    }
+
+    free( current );
+    free( updated );
+    return 0;
+}
+
+int hik_execute_profile( const HikSession *session, const HikOptions *opts, const HikProfile *profile )
+{
+    uint8_t payload[4];
+    size_t  payload_len = 0;
+    int     rc          = 0;
+
+    if( profile->kind == HIK_PROFILE_SCAN )
+    {
+        return run_selector_state_scan( session, opts );
+    }
+
+    if( profile->kind == HIK_PROFILE_READ )
+    {
+        rc = maybe_run_profile_prewrite( session, opts, profile );
+        if( rc != 0 )
+        {
+            return rc;
+        }
+        return run_read_selector( session, opts, profile, "Selector read", opts->raw_out_path );
+    }
+
+    if( profile->write_shape == HIK_WRITE_SHAPE_ENHANCEMENT_PATCH )
+    {
+        rc = maybe_run_profile_prewrite( session, opts, profile );
+        if( rc != 0 )
+        {
+            return rc;
+        }
+        return run_enhancement_patch( session, opts, profile, "Image enhancement" );
+    }
+
+    if( !hik_build_profile_payload( profile, opts, payload, &payload_len ) )
+    {
+        fprintf( stderr, "error: could not build payload for profile %s\n", profile->name );
+        return 1;
+    }
+
+    rc = maybe_run_profile_prewrite( session, opts, profile );
+    if( rc != 0 )
+    {
+        return rc;
+    }
+
+    return run_write_stage( session,
+                            opts,
+                            profile->selector,
+                            payload,
+                            payload_len,
+                            profile->expected_len,
+                            "Main stage" );
+}

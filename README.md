@@ -61,7 +61,7 @@ These images were used to guide the development of `/decoder` to iterate on diff
 
 Through APK reverse engineering of `HT-105-203U Smart Thermal-V-1.0.3.30-RELEASE.apk`, I've been able to re-implement a few basic controls over the *pre-processed* image in the same manner as the official app. 
 
-Currently supported options include dumping the hardware info blob, setting brightness, contrast a range of additional 'image enhancement' settings including:
+Currently supported options include dumping the hardware info blob, setting brightness and contrast, and a range of additional 'image enhancement' settings including:
 
 - Colour palette
 - Noise reduction mode and strength
@@ -77,6 +77,7 @@ Here's examples of the hardware's internally selectable colour palettes:
 
 There are notes in `/apk-re` along with `.pcap` files. The tool `/hik-info-probe` implements these for experimentation, use the `--transport v4l2` argument if making changes alongside a realtime stream or existing connections will be closed.
 
+> The camera appears to remember these settings across power-cycles. _I take no responsibility for what could happen_ with different hardware/firmware or when exploring with the override/scan args. 
 
 
 
