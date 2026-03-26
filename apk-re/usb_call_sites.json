@@ -1,0 +1,308 @@
+{
+  "summary": {
+    "repo_root": "sandbox",
+    "direct_android_usb_transfer_api_calls_found": false,
+    "notes": [
+      "No Java/Kotlin-smali call site was found for android.hardware.usb.UsbDeviceConnection.controlTransfer.",
+      "No Java/Kotlin-smali call site was found for android.hardware.usb.UsbDeviceConnection.bulkTransfer.",
+      "No Java/Kotlin-smali call site was found for android.hardware.usb.UsbRequest queue/wait paths.",
+      "Managed code enumerates devices and opens a UsbDeviceConnection, but data/control transport is delegated to HCUSBSDK via JNA/JNI."
+    ]
+  },
+  "direct_android_usb_api_calls": {
+    "controlTransfer": [],
+    "bulkTransfer": [],
+    "UsbRequest": []
+  },
+  "managed_usb_enumeration_and_permission": [
+    {
+      "kind": "device_filter_check",
+      "symbol": "com.hti.xtherm.hti160203u.helper.UsbHelper.check_f2_device",
+      "file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/UsbHelper.smali",
+      "lines": [146, 151, 155, 159, 166],
+      "apis": [
+        "android.hardware.usb.UsbDevice.getVendorId",
+        "android.hardware.usb.UsbDevice.getProductId"
+      ],
+      "details": "Checks VID 0x2bdf and PID 0x101/0x102."
+    },
+    {
+      "kind": "enumeration",
+      "symbol": "com.hti.xtherm.hti160203u.helper.UsbHelper",
+      "file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/UsbHelper.smali",
+      "lines": [187, 269, 358, 428],
+      "apis": [
+        "android.hardware.usb.UsbManager.getDeviceList",
+        "android.hardware.usb.UsbManager.hasPermission",
+        "android.hardware.usb.UsbManager.requestPermission"
+      ]
+    },
+    {
+      "kind": "enumeration_and_open",
+      "symbol": "com.hcusbsdk.Interface.EnumerateDevice",
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/EnumerateDevice.smali",
+      "lines": [1391, 1485, 1565, 1569],
+      "apis": [
+        "android.hardware.usb.UsbManager.getDeviceList",
+        "android.hardware.usb.UsbManager.hasPermission",
+        "android.hardware.usb.UsbManager.requestPermission",
+        "android.hardware.usb.UsbManager.openDevice"
+      ],
+      "details": "Obtains UsbDeviceConnection and stores file descriptors for later native use."
+    },
+    {
+      "kind": "java_wrapper_enumeration",
+      "symbol": "com.hcusbsdk.Interface.JavaInterface.USB_EnumDevices_Java",
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "lines": [4104, 4188, 4197, 4206, 4215, 4224, 4242],
+      "apis": [
+        "android.hardware.usb.UsbDevice.getVendorId",
+        "android.hardware.usb.UsbDevice.getProductId",
+        "android.hardware.usb.UsbDevice.getManufacturerName",
+        "android.hardware.usb.UsbDevice.getDeviceName",
+        "android.hardware.usb.UsbDevice.getSerialNumber"
+      ],
+      "details": "Copies enumerated UsbDevice metadata and fd into USB_DEVICE_INFO."
+    }
+  ],
+  "app_to_vendor_wrapper_calls": [
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/thread/LoginThread.smali",
+      "line": 125,
+      "caller_symbol": "com.hti.xtherm.hti160203u.thread.LoginThread.run",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_Login"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 363,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_Init"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 450,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetThermometryMode"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 493,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetImageBrightNess"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 534,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetImageContrast"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 644,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetImageEnhancement"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 675,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetThermometryBasicParam"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 827,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetThermometryBasicParam"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 863,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetThermometryExpertRegions"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 920,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetSysTemDeviceInfo"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 1609,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper.startPreview",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetVideoParam"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 1635,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper.startPreview",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetImageVideoAdjust"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 1690,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper.startPreview",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetImageVideoAdjust"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 1713,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper.startPreview",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_StartStreamCallback"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 1766,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper.startPreview",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetThermalStreamParam"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 1817,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_StopChannel"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 1837,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_Cleanup"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 1867,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetDeviceCount"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 1888,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_EnumDevices"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 2044,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetDeviceCount"
+    },
+    {
+      "call_site_file": "sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali",
+      "line": 3512,
+      "caller_symbol": "com.hti.xtherm.hti160203u.helper.F2Helper",
+      "callee_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetImageManualCorrect"
+    }
+  ],
+  "java_to_native_bridge_calls": [
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_EnumDevices",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 4063,
+      "bridge_call_line": 4089,
+      "bridge_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_EnumDevices_C",
+      "native_target": "USB_EnumDevices",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNA/C export"
+    },
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_StartStreamCallback_jni",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 3600,
+      "bridge_call_line": 3646,
+      "bridge_symbol": "com.hcusbsdk.jni.HCUSBSDKByJNI.USB_StartStreamCallback",
+      "native_target": "Java_com_hcusbsdk_jni_HCUSBSDKByJNI_USB_1StartStreamCallback",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNI"
+    },
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetJpegpicWithAppendData_jni",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 1299,
+      "bridge_call_line": 1338,
+      "bridge_symbol": "com.hcusbsdk.jni.HCUSBSDKByJNI.USB_GetDeviceConfig",
+      "native_target": "Java_com_hcusbsdk_jni_HCUSBSDKByJNI_USB_1GetDeviceConfig",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNI"
+    },
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetROITemperatureSearch_jni",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 2628,
+      "bridge_call_line": 2838,
+      "bridge_symbol": "com.hcusbsdk.jni.HCUSBSDKByJNI.USB_GetDeviceConfig",
+      "native_target": "Java_com_hcusbsdk_jni_HCUSBSDKByJNI_USB_1GetDeviceConfig",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNI"
+    },
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_StopChannel",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 25663,
+      "bridge_call_line": 25671,
+      "bridge_symbol": "com.hcusbsdk.jni.HCUSBSDKByJNI.USB_StopChannel",
+      "native_target": "Java_com_hcusbsdk_jni_HCUSBSDKByJNI_USB_1StopChannel",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNI"
+    },
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_Init",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 15115,
+      "bridge_call_line": 15126,
+      "bridge_symbol": "com.hcusbsdk.jna.HCUSBSDKByJNA.USB_Init",
+      "native_target": "USB_Init",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNA/C export"
+    },
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_Login",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 15157,
+      "bridge_call_line": 15359,
+      "bridge_symbol": "com.hcusbsdk.jna.HCUSBSDKByJNA.USB_Login",
+      "native_target": "USB_Login",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNA/C export"
+    },
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_Logout",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 15583,
+      "bridge_call_line": 15591,
+      "bridge_symbol": "com.hcusbsdk.jna.HCUSBSDKByJNA.USB_Logout",
+      "native_target": "USB_Logout",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNA/C export"
+    },
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetImageBackGroundCorrect",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 17512,
+      "bridge_call_line": 17561,
+      "bridge_symbol": "com.hcusbsdk.jna.HCUSBSDKByJNA.USB_Control",
+      "native_target": "USB_Control",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNA/C export"
+    },
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetImageManualCorrect",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 18632,
+      "bridge_call_line": 18681,
+      "bridge_symbol": "com.hcusbsdk.jna.HCUSBSDKByJNA.USB_Control",
+      "native_target": "USB_Control",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNA/C export"
+    },
+    {
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_StartExpertCorrection",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "wrapper_line": 25470,
+      "bridge_call_line": 25519,
+      "bridge_symbol": "com.hcusbsdk.jna.HCUSBSDKByJNA.USB_Control",
+      "native_target": "USB_Control",
+      "library": "libHCUSBSDK.so",
+      "bridge_type": "JNA/C export"
+    }
+  ]
+}

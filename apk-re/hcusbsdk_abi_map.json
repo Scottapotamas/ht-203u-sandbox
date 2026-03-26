@@ -1,0 +1,464 @@
+{
+  "library": "libHCUSBSDK.so",
+  "repo_root": "sandbox",
+  "generic_abi": {
+    "USB_GetDeviceConfig": {
+      "managed_declaration": "com.hcusbsdk.jna.HCUSBSDKByJNA.USB_GetDeviceConfig(int lUserID, int dwCommand, Pointer pConfigInputInfo, Pointer pConfigOutputInfo)",
+      "managed_declaration_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali:162",
+      "native_symbol": "USB_GetDeviceConfig",
+      "native_export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3293",
+      "native_dispatch_symbol": "HC_USBCamera_GetConfig",
+      "native_dispatch_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3320",
+      "call_shape": {
+        "arg1": "lUserID / login handle",
+        "arg2": "dwCommand / request ID",
+        "arg3": "USB_CONFIG_INPUT_INFO* with lpCondBuffer set, lpInBuffer usually null",
+        "arg4": "USB_CONFIG_OUTPUT_INFO* with lpOutBuffer pointing at output structure"
+      },
+      "evidence": [
+        "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:12001",
+        "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:12023",
+        "sandbox/corpus/libHCUSBSDK.so.strings.txt:18299"
+      ]
+    },
+    "USB_SetDeviceConfig": {
+      "managed_declaration": "com.hcusbsdk.jna.HCUSBSDKByJNA.USB_SetDeviceConfig(int lUserID, int dwCommand, Pointer pConfigInputInfo, Pointer pConfigOutputInfo)",
+      "managed_declaration_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali:186",
+      "native_symbol": "USB_SetDeviceConfig",
+      "native_export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3291",
+      "native_dispatch_symbol": "HC_USBCamera_SetConfig",
+      "native_dispatch_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3322",
+      "call_shape": {
+        "arg1": "lUserID / login handle",
+        "arg2": "dwCommand / request ID",
+        "arg3": "USB_CONFIG_INPUT_INFO* with lpCondBuffer and lpInBuffer both populated",
+        "arg4": "USB_CONFIG_OUTPUT_INFO* usually present but often empty for setters"
+      },
+      "evidence": [
+        "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:22258",
+        "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:22294",
+        "sandbox/corpus/libHCUSBSDK.so.strings.txt:18355"
+      ]
+    },
+    "USB_Control": {
+      "managed_declaration": "com.hcusbsdk.jna.HCUSBSDKByJNA.USB_Control(int lUserID, int dwCommand, Pointer pInputInfo)",
+      "managed_declaration_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali:150",
+      "native_symbol": "USB_Control",
+      "native_export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3295",
+      "related_native_symbol": "USB_ControlTransfer",
+      "related_native_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3304",
+      "call_shape": {
+        "arg1": "lUserID / login handle",
+        "arg2": "dwCommand / control opcode",
+        "arg3": "USB_CONTROL_INPUT_INFO* or NULL"
+      },
+      "evidence": [
+        "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:17529",
+        "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:17561",
+        "sandbox/corpus/libHCUSBSDK.so.strings.txt:18256"
+      ]
+    },
+    "USB_StartStreamCallback": {
+      "managed_jni_declaration": "com.hcusbsdk.jni.HCUSBSDKByJNI.USB_StartStreamCallback(int lUserID, USB_STREAM_CALLBACK_PARAM param, StreamCallBack_JNI cb)",
+      "managed_jni_declaration_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jni/HCUSBSDKByJNI.smali:112",
+      "native_symbol": "Java_com_hcusbsdk_jni_HCUSBSDKByJNI_USB_1StartStreamCallback",
+      "native_export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3344",
+      "related_c_export": "USB_StartStreamCallback",
+      "related_c_export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3307",
+      "call_shape": {
+        "arg1": "lUserID / login handle",
+        "arg2": "USB_STREAM_CALLBACK_PARAM",
+        "arg3": "callback interface"
+      },
+      "evidence": [
+        "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:25565",
+        "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:25596",
+        "sandbox/corpus/libHCUSBSDK.so.strings.txt:18277",
+        "sandbox/corpus/libHCUSBSDK.so.strings.txt:18418"
+      ]
+    },
+    "USB_StopChannel": {
+      "managed_jni_declaration": "com.hcusbsdk.jni.HCUSBSDKByJNI.USB_StopChannel(int lUserID, int iHandle)",
+      "managed_jni_declaration_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jni/HCUSBSDKByJNI.smali:115",
+      "native_symbol": "Java_com_hcusbsdk_jni_HCUSBSDKByJNI_USB_1StopChannel",
+      "native_export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3345"
+    }
+  },
+  "generic_structs": {
+    "USB_COMMON_COND": {
+      "java_class": "com.hcusbsdk.jna.HCUSBSDKByJNA$USB_COMMON_COND",
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_COMMON_COND.smali",
+      "field_order": ["dwSize", "byChannelID", "bySID", "byRes[6]"],
+      "observed_usage": "Wrappers set byChannelID=1 and usually leave bySID/reserved zeroed."
+    },
+    "USB_CONFIG_INPUT_INFO": {
+      "java_class": "com.hcusbsdk.jna.HCUSBSDKByJNA$USB_CONFIG_INPUT_INFO",
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_CONFIG_INPUT_INFO.smali",
+      "field_order": ["lpCondBuffer", "dwCondBufferSize", "lpInBuffer", "dwInBufferSize", "byRes[48]"]
+    },
+    "USB_CONFIG_OUTPUT_INFO": {
+      "java_class": "com.hcusbsdk.jna.HCUSBSDKByJNA$USB_CONFIG_OUTPUT_INFO",
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_CONFIG_OUTPUT_INFO.smali",
+      "field_order": ["lpOutBuffer", "dwOutBufferSize", "byRes[56]"]
+    },
+    "USB_CONTROL_INPUT_INFO": {
+      "java_class": "com.hcusbsdk.jna.HCUSBSDKByJNA$USB_CONTROL_INPUT_INFO",
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_CONTROL_INPUT_INFO.smali",
+      "field_order": ["lpCondBuffer", "dwCondBufferSize", "lpInBuffer", "dwInBufferSize", "byRes[48]"],
+      "note": "Same effective layout as USB_CONFIG_INPUT_INFO."
+    },
+    "USB_STREAM_CALLBACK_PARAM_JNA": {
+      "java_class": "com.hcusbsdk.jna.HCUSBSDKByJNA$USB_STREAM_CALLBACK_PARAM",
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_STREAM_CALLBACK_PARAM.smali",
+      "field_order": ["dwSize", "dwStreamType", "fnStreamCallBack", "pUser", "byRes[128]"]
+    },
+    "USB_STREAM_CALLBACK_PARAM_JNI": {
+      "java_class": "com.hcusbsdk.jni.USB_STREAM_CALLBACK_PARAM",
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jni/USB_STREAM_CALLBACK_PARAM.smali",
+      "fields": ["dwSize", "dwStreamType", "byRes[128]"],
+      "note": "JNI callback object is passed separately, not embedded in the Java class."
+    },
+    "USB_FRAME_INFO_JNA": {
+      "java_class": "com.hcusbsdk.jna.HCUSBSDKByJNA$USB_FRAME_INFO",
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_FRAME_INFO.smali",
+      "field_order": ["nStamp", "dwStreamType", "dwWidth", "dwHeight", "dwFrameRate", "dwFrameType", "dwDataType", "nFrameNum", "pBuf", "dwBufSize", "byRes[128]"]
+    },
+    "USB_FRAME_INFO_JNI": {
+      "java_class": "com.hcusbsdk.jni.USB_FRAME_INFO",
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jni/USB_FRAME_INFO.smali",
+      "fields": ["nStamp", "dwStreamType", "dwWidth", "dwHeight", "dwFrameRate", "dwFrameType", "dwDataType", "nFrameNum", "pBuf[0x7e9000]", "dwBufSize", "byRes[128]"]
+    }
+  },
+  "thermal_structs": {
+    "USB_VIDEO_PARAM": {
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_VIDEO_PARAM.smali",
+      "field_order": ["dwVideoFormat", "dwWidth", "dwHeight", "dwFramerate", "dwBitrate", "dwParamType", "dwValue", "byRes[128]"]
+    },
+    "USB_THERMAL_STREAM_PARAM": {
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_THERMAL_STREAM_PARAM.smali",
+      "field_order": ["dwSize", "byVideoCodingType", "byRes[15]"]
+    },
+    "USB_THERMOMETRY_BASIC_PARAM": {
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_THERMOMETRY_BASIC_PARAM.smali",
+      "field_order": [
+        "dwSize",
+        "byRes3",
+        "byEnabled",
+        "byDisplayMaxTemperatureEnabled",
+        "byDisplayMinTemperatureEnabled",
+        "byDisplayAverageTemperatureEnabled",
+        "byTemperatureUnit",
+        "byTemperatureRange",
+        "byCalibrationCoefficientEnabled",
+        "dwCalibrationCoefficient",
+        "dwExternalOpticsWindowCorrection",
+        "dwEmissivity",
+        "byDistanceUnit",
+        "byShowAlarmColorEnabled",
+        "byRes1[2]",
+        "dwDistance",
+        "byReflectiveEnable",
+        "byRes2[3]",
+        "dwReflectiveTemperature",
+        "byThermomrtryInfoDisplayPosition",
+        "byThermometryStreamOverlay",
+        "byDisplayCenTempEnabled",
+        "byBackcolorEnabled",
+        "dwAlert",
+        "dwAlarm",
+        "dwExternalOpticsTransmit",
+        "byRes[204]"
+      ]
+    },
+    "USB_TEMPERATURE_CORRECT": {
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_TEMPERATURE_CORRECT.smali",
+      "field_order": ["dwSize", "byRes1", "byEnabled", "byStreamOverlay", "byCorrectEnabled", "dwEmissivity", "dwDistance", "dwTemperature", "dwCentrePointX", "dwCentrePointY", "dwCorrectTemperature", "byRes[36]"]
+    },
+    "USB_P2P_PARAM": {
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_P2P_PARAM.smali",
+      "field_order": ["dwSize", "byJpegPicEnabled", "byRes[31]"]
+    },
+    "USB_JPEGPIC_WITH_APPENDDATA": {
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_JPEGPIC_WITH_APPENDDATA.smali",
+      "field_order": ["dwSize", "dwJpegPicLen", "dwJpegPicWidth", "dwJpegPicHeight", "dwP2pDataLen", "byIsFreezedata", "byTemperatureDataLength", "byRes2[2]", "dwScale", "iOffset", "pJpegPic", "pP2pData", "byRes[28]"]
+    },
+    "THERMAL_ROI_REGION": {
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$THERMAL_ROI_REGION.smali",
+      "field_order": ["byROIRegionID", "byROIRegionEnabled", "byRes1[2]", "dwROIRegionX", "dwROIRegionY", "dwROIRegionWidth", "dwROIRegionHeight", "dwDistance", "byRes[8]"]
+    },
+    "THERMAL_ROI_REGION_INFO": {
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$THERMAL_ROI_REGION_INFO.smali",
+      "field_order": ["byROIRegionID", "byRes1[3]", "dwMaxROIRegionTemperature", "dwVisibleROIRegionMaxTemperaturePointX", "dwVisibleROIRegionMaxTemperaturePointY", "dwThermalROIRegionMaxTemperaturePointX", "dwThermalROIRegionMaxTemperaturePointY", "byRes[8]"]
+    },
+    "USB_ROI_MAX_TEMPERATURE_SEARCH": {
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_ROI_MAX_TEMPERATURE_SEARCH.smali",
+      "field_order": ["dwSize", "wMillisecond", "byRes2", "bySecond", "byMinute", "byHour", "byDay", "byMonth", "wYear", "byJpegPicEnabled", "byMaxTemperatureOverlay", "byRegionsOverlay", "byROIRegionNum", "byRes1[2]", "struThermalROIRegion[10]", "byRes[176]"]
+    },
+    "USB_ROI_MAX_TEMPERATURE_SEARCH_RESULT": {
+      "file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA$USB_ROI_MAX_TEMPERATURE_SEARCH_RESULT.smali",
+      "field_order": ["dwSize", "dwMaxP2PTemperature", "dwVisibleP2PMaxTemperaturePointX", "dwVisibleP2PMaxTemperaturePointY", "dwThermalP2PMaxTemperaturePointX", "dwThermalP2PMaxTemperaturePointY", "byROIRegionNum", "byRes2[3]", "dwJpegPicLen", "struThermalROIRegionInfo[10]", "pJpegPic", "byRes[160]"]
+    }
+  },
+  "command_map": [
+    {
+      "request_id_name": "USB_SET_VIDEO_PARAM",
+      "request_id_value": "0x0bbc",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetVideoParam",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:24915",
+      "transport": "USB_SetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": "USB_VIDEO_PARAM",
+      "output_struct": null,
+      "native_expected_struct": "USB_SET_VIDEO_PARAM / USB_CAMERA_VIDEO_PARAM",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:17115"
+    },
+    {
+      "request_id_name": "USB_GET_THERMAL_STREAM_PARAM",
+      "request_id_value": "0x07f6",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetThermalStreamParam",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:11784",
+      "transport": "USB_GetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": null,
+      "output_struct": "USB_THERMAL_STREAM_PARAM",
+      "native_expected_struct": "USB_CAMERA_THERMAL_STREAM_PARAM",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18332"
+    },
+    {
+      "request_id_name": "USB_SET_THERMAL_STREAM_PARAM",
+      "request_id_value": "0x07f7",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetThermalStreamParam",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:21917",
+      "transport": "USB_SetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": "USB_THERMAL_STREAM_PARAM",
+      "output_struct": null,
+      "native_expected_struct": "USB_CAMERA_THERMAL_STREAM_PARAM",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18384"
+    },
+    {
+      "request_id_name": "USB_GET_THERMOMETRY_BASIC_PARAM",
+      "request_id_value": "0x07ee",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetThermometryBasicParam",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:11960",
+      "transport": "USB_GetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": null,
+      "output_struct": "USB_THERMOMETRY_BASIC_PARAM",
+      "native_expected_struct": "USB_CAMERA_THERMAL_THERMOMETRY_BASIC_PARAM",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18325"
+    },
+    {
+      "request_id_name": "USB_SET_THERMOMETRY_BASIC_PARAM",
+      "request_id_value": "0x07ef",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetThermometryBasicParam",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:22100",
+      "transport": "USB_SetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": "USB_THERMOMETRY_BASIC_PARAM",
+      "output_struct": null,
+      "native_expected_struct": "USB_CAMERA_THERMAL_THERMOMETRY_BASIC_PARAM",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18378"
+    },
+    {
+      "request_id_name": "USB_GET_TEMPERATURE_CORRECT",
+      "request_id_value": "0x07f8",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetTemperatureCorrect",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:11198",
+      "transport": "USB_GetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": null,
+      "output_struct": "USB_TEMPERATURE_CORRECT",
+      "native_expected_struct": "USB_CAMERA_THERMAL_TEMPERATURE_CORRECT",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18333"
+    },
+    {
+      "request_id_name": "USB_SET_TEMPERATURE_CORRECT",
+      "request_id_value": "0x07f9",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetTemperatureCorrect",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:21518",
+      "transport": "USB_SetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": "USB_TEMPERATURE_CORRECT",
+      "output_struct": null,
+      "native_expected_struct": "USB_CAMERA_THERMAL_TEMPERATURE_CORRECT",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18386"
+    },
+    {
+      "request_id_name": "USB_GET_P2P_PARAM",
+      "request_id_value": "0x0800",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetP2PParam",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "transport": "USB_GetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": null,
+      "output_struct": "USB_P2P_PARAM",
+      "native_expected_struct": "USB_CAMERA_THERMAL_P2P_PARAM",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18342"
+    },
+    {
+      "request_id_name": "USB_SET_P2P_PARAM",
+      "request_id_value": "0x0801",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetP2PParam",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:20118",
+      "transport": "USB_SetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": "USB_P2P_PARAM",
+      "output_struct": null,
+      "native_expected_struct": "USB_CAMERA_THERMAL_P2P_PARAM",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18395"
+    },
+    {
+      "request_id_name": "USB_GET_JPEGPIC_WITH_APPENDDATA",
+      "request_id_value": "0x07fe",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetJpegpicWithAppendData",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:8840",
+      "transport": "USB_GetDeviceConfig (JNI helper path in app)",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": null,
+      "output_struct": "USB_JPEGPIC_WITH_APPENDDATA",
+      "native_expected_struct": "USB_CAMERA_THERMAL_JPEGPIC_WITH_APPENDDATA",
+      "native_evidence": [
+        "sandbox/corpus/libHCUSBSDK.so.strings.txt:18339",
+        "sandbox/corpus/libHCUSBSDK.so.strings.txt:18448"
+      ]
+    },
+    {
+      "request_id_name": "USB_GET_ROI_MAX_TEMPERATURE_SEARCH",
+      "request_id_value": "0x07ff",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetROITemperatureSearch",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:9056",
+      "transport": "USB_GetDeviceConfig/USB_SetDeviceConfig hybrid wrapper; app uses JNI helper",
+      "condition_struct": "USB_COMMON_COND or embedded in request wrapper",
+      "input_struct": "USB_ROI_MAX_TEMPERATURE_SEARCH",
+      "output_struct": "USB_ROI_MAX_TEMPERATURE_SEARCH_RESULT",
+      "native_expected_struct": [
+        "USB_CAMERA_THERMAL_ROI_MAX_TEMPERATURE_SEARCH",
+        "USB_CAMERA_THERMAL_ROI_MAX_TEMPERATURE_SEARCH_RESULT"
+      ],
+      "native_evidence": [
+        "sandbox/corpus/libHCUSBSDK.so.strings.txt:18392",
+        "sandbox/corpus/libHCUSBSDK.so.strings.txt:18474"
+      ]
+    },
+    {
+      "request_id_name": "USB_GET_THERMOMETRY_CALIBRATION_FILE",
+      "request_id_value": "0x0806",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetThermometryCalibrationFile",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:12775",
+      "transport": "USB_GetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": null,
+      "output_struct": "USB_THERMOMETRY_CALIBRATION_FILE",
+      "native_expected_struct": "USB_CAMERA_THERMAL_THERMOMETRY_CALIBRATION_FILE",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18346"
+    },
+    {
+      "request_id_name": "USB_SET_THERMOMETRY_CALIBRATION_FILE",
+      "request_id_value": "0x0807",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetThermometryCalibrationFile",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:22922",
+      "transport": "USB_SetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": "USB_THERMOMETRY_CALIBRATION_FILE",
+      "output_struct": null,
+      "native_expected_struct": "USB_CAMERA_THERMAL_THERMOMETRY_CALIBRATION_FILE",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18401"
+    },
+    {
+      "request_id_name": "USB_GET_EXPERT_CORRECTION_PARAM",
+      "request_id_value": "0x080a",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_GetExpertCorrectionParam",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "transport": "USB_GetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": null,
+      "output_struct": "USB_THERMOMETRY_EXPERT_CORRECTION_PARAM",
+      "native_expected_struct": "USB_CAMERA_THERMAL_THERMOMETRY_EXPERT_CORRECTION_PARAM",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18352"
+    },
+    {
+      "request_id_name": "USB_SET_EXPERT_CORRECTION_PARAM",
+      "request_id_value": "0x080b",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetExpertCorrectionParam",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali",
+      "transport": "USB_SetDeviceConfig",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": "USB_THERMOMETRY_EXPERT_CORRECTION_PARAM",
+      "output_struct": null,
+      "native_expected_struct": "USB_CAMERA_THERMAL_THERMOMETRY_EXPERT_CORRECTION_PARAM",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18406"
+    },
+    {
+      "request_id_name": "USB_START_EXPERT_CORRECTION",
+      "request_id_value": "0x080c",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_StartExpertCorrection",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:25470",
+      "transport": "USB_Control",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": null,
+      "output_struct": null,
+      "native_expected_struct": "control opcode only",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18408"
+    },
+    {
+      "request_id_name": "USB_SET_IMAGE_BACKGROUND_CORRECT",
+      "request_id_value": "0x07e7",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetImageBackGroundCorrect",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:17512",
+      "transport": "USB_Control",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": null,
+      "output_struct": null,
+      "native_expected_struct": "control opcode only",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18370"
+    },
+    {
+      "request_id_name": "USB_SET_IMAGE_MANUAL_CORRECT",
+      "request_id_value": "0x07e9",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetImageManualCorrect",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:18632",
+      "transport": "USB_Control",
+      "condition_struct": "USB_COMMON_COND",
+      "input_struct": null,
+      "output_struct": null,
+      "native_expected_struct": "control opcode only",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18372"
+    },
+    {
+      "request_id_name": "USB_SET_SYSTEM_REBOOT",
+      "request_id_value": "0x07dc",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetSystemReboot",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:21410",
+      "transport": "USB_Control",
+      "condition_struct": null,
+      "input_struct": null,
+      "output_struct": null,
+      "native_expected_struct": "opcode-only control",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18361"
+    },
+    {
+      "request_id_name": "USB_SET_SYSTEM_RESET",
+      "request_id_value": "0x07dd",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_SetSystemReset",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:21470",
+      "transport": "USB_Control",
+      "condition_struct": null,
+      "input_struct": null,
+      "output_struct": null,
+      "native_expected_struct": "opcode-only control",
+      "native_evidence": "sandbox/corpus/libHCUSBSDK.so.strings.txt:18362"
+    },
+    {
+      "request_id_name": "USB_CTRL_STOP_CARD_OPER",
+      "request_id_value": "0x03ed",
+      "wrapper_symbol": "com.hcusbsdk.Interface.JavaInterface.USB_StopCardOperation",
+      "wrapper_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:25603",
+      "transport": "USB_Control",
+      "condition_struct": null,
+      "input_struct": null,
+      "output_struct": null,
+      "native_expected_struct": "opcode-only control"
+    }
+  ]
+}

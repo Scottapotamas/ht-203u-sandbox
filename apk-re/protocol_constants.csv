@@ -1,0 +1,101 @@
+category,name,value,source_path,notes
+usb_id,F2_160_VID,0x2bdf,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config.smali:53,F2 160 vendor ID
+usb_id,F2_160_PID,0x0101,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config.smali:51,F2 160 product ID
+usb_id,F2_256_VID,0x2bdf,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config.smali:57,F2 256 vendor ID
+usb_id,F2_256_PID,0x0102,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config.smali:55,F2 256 product ID
+usb_filter,device_filter_vendor_1,11231,sandbox/apktool/smartthermal/res/xml/device_filter.xml:3,decimal 0x2bdf
+usb_filter,device_filter_product_1,258,sandbox/apktool/smartthermal/res/xml/device_filter.xml:3,decimal 0x0102
+usb_filter,device_filter_vendor_2,11231,sandbox/apktool/smartthermal/res/xml/device_filter.xml:4,decimal 0x2bdf
+usb_filter,device_filter_product_2,257,sandbox/apktool/smartthermal/res/xml/device_filter.xml:4,decimal 0x0101
+usb_filter,device_filter_class,239,sandbox/apktool/smartthermal/res/xml/device_filter.xml:5,USB class match
+usb_filter,device_filter_subclass,2,sandbox/apktool/smartthermal/res/xml/device_filter.xml:5,USB subclass match
+stream_param,dwVideoFormat,0x67,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali:1572,USB_VIDEO_PARAM.dwVideoFormat
+stream_param,dwFramerate,0x19,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali:1591,25 fps
+stream_param,dwBitrate,0x0,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali:1594,USB_VIDEO_PARAM.dwBitrate
+stream_param,dwParamType,0x0,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali:1597,USB_VIDEO_PARAM.dwParamType
+stream_param,dwValue,0x0,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali:1600,USB_VIDEO_PARAM.dwValue
+stream_param,callback_dwStreamType,0x67,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali:1698,USB_STREAM_CALLBACK_PARAM.dwStreamType
+stream_param,thermal_byVideoCodingType,0x08,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/F2Helper.smali:1757,USB_THERMAL_STREAM_PARAM.byVideoCodingType
+buffer_size,MAX_CONFIG_COND_BUFFER_SIZE,0x400,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jni/HCUSBSDKByJNI.smali:7,JNI config condition buffer
+buffer_size,MAX_CONFIG_INPUT_BUFFER_SIZE,0x100000,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jni/HCUSBSDKByJNI.smali:9,JNI config input buffer
+buffer_size,MAX_CONFIG_OUTPUT_BUFFER_SIZE,0x100000,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jni/HCUSBSDKByJNI.smali:11,JNI config output buffer
+buffer_size,MAX_FRAME_SIZE,0x7e9000,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jni/HCUSBSDKByJNI.smali:13,JNI max frame size
+buffer_size,MAX_ROI_REGIONS,0x0a,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jni/HCUSBSDKByJNI.smali:15,JNI max ROI regions
+buffer_size,FINGER_PRINT_LEN,0x400,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali:116,JNA struct constant
+buffer_size,MAX_EXPERT_REGIONS,0x15,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali:120,JNA struct constant
+buffer_size,MAX_ROI_REGIONS_JNA,0x0a,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali:128,JNA struct constant
+buffer_size,MAX_TEMPERATURE_NUM,0x04,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali:132,JNA struct constant
+buffer_size,MAX_THERMAL_REGIONS,0x0a,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali:134,JNA struct constant
+buffer_size,PIC_LEN,0x400,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali:138,JNA struct constant
+buffer_size,WORD_LEN,0x100,sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali:140,JNA struct constant
+media,MEDIA_RESOLUTION_WIDTH,0x500,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config.smali:131,1280
+media,MEDIA_RESOLUTION_HEIGHT,0x3c0,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config.smali:131,960
+media,RECORD_VIDEO_MIN_TIME,0x7d0,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config.smali:77,2000 ms
+request_id,USB_GET_EXPERT_CORRECTION_PARAM,0x080a,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:121,Get expert correction parameters
+request_id,USB_GET_JPEGPIC_WITH_APPENDDATA,0x07fe,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:139,Get JPEG plus thermal append-data
+request_id,USB_GET_ROI_MAX_TEMPERATURE_SEARCH,0x07ff,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:149,ROI temperature search
+request_id,USB_GET_TEMPERATURE_CORRECT,0x07f8,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:171,Get temperature correction
+request_id,USB_GET_THERMAL_STREAM_PARAM,0x07f6,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:175,Get thermal stream params
+request_id,USB_GET_THERMOMETRY_BASIC_PARAM,0x07ee,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:177,Get thermometry basic params
+request_id,USB_GET_THERMOMETRY_CALIBRATION_FILE,0x0806,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:179,Get calibration blob/file
+request_id,USB_GET_VIDEO_GAIN,0x0bd9,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:197,Get video gain
+request_id,USB_SET_EXPERT_CORRECTION_PARAM,0x080b,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:259,Set expert correction parameters
+request_id,USB_SET_IMAGE_BACKGROUND_CORRECT,0x07e7,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:265,Background correction control
+request_id,USB_SET_IMAGE_MANUAL_CORRECT,0x07e9,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:273,Manual correction control
+request_id,USB_SET_TEMPERATURE_CORRECT,0x07f9,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:331,Set temperature correction
+request_id,USB_SET_THERMAL_STREAM_PARAM,0x07f7,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:333,Set thermal stream params
+request_id,USB_SET_THERMOMETRY_BASIC_PARAM,0x07ef,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:335,Set thermometry basic params
+request_id,USB_SET_THERMOMETRY_CALIBRATION_FILE,0x0807,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:337,Set calibration blob/file
+request_id,USB_SET_VIDEO_GAIN,0x0bda,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:353,Set video gain
+request_id,USB_START_EXPERT_CORRECTION,0x080c,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali:367,Start expert correction
+control_id,USB_CTRL_M1_BLOCK_TO_REG,0x03f4,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Control opcode constant in JavaInterface
+control_id,USB_CTRL_M1_REG_TO_BLOCK,0x03f5,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Control opcode constant in JavaInterface
+control_id,USB_CTRL_RESET_RFC,0x03ea,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Control opcode constant in JavaInterface
+control_id,USB_CTRL_STOP_CARD_OPER,0x03ed,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Used by USB_Control path near line 25615
+control_id,USB_SET_SYSTEM_REBOOT,0x07dc,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Used by USB_Control path near line 21410
+control_id,USB_SET_SYSTEM_RESET,0x07dd,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Used by USB_Control path near line 21470
+palette,WHITE_HOT,0x01,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:117,Palette enum ID
+palette,BLACK_HOT,0x02,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:128,Palette enum ID
+palette,BLEND_1,0x0a,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:139,Palette enum ID
+palette,BLEND_2,0x0c,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:152,Palette enum ID
+palette,RAINBOW,0x0b,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:165,Palette enum ID
+palette,IRON_1,0x0d,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:178,Palette enum ID
+palette,IRON_2,0x0e,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:191,Palette enum ID
+palette,BROWN,0x0f,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:204,Palette enum ID
+palette,COLOR_1,0x10,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:217,Palette enum ID
+palette,COLOR_2,0x11,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:230,Palette enum ID
+palette,ICE_FIRE,0x12,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:241,Palette enum ID
+palette,RAIN,0x13,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:252,Palette enum ID
+palette,RED_HOT,0x14,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:263,Palette enum ID
+palette,GREEN_HOT,0x15,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:274,Palette enum ID
+palette,BLUE,0x16,sandbox/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/helper/Config$PaletteType.smali:285,Palette enum ID
+calibration_key,byEnabled,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byDisplayMaxTemperatureEnabled,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byDisplayMinTemperatureEnabled,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byDisplayAverageTemperatureEnabled,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byTemperatureUnit,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byTemperatureRange,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byCalibrationCoefficientEnabled,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,dwCalibrationCoefficient,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,dwExternalOpticsWindowCorrection,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,dwEmissivity,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byDistanceUnit,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,dwDistance,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byReflectiveEnable,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,dwReflectiveTemperature,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byThermomrtryInfoDisplayPosition,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byThermometryStreamOverlay,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,dwAlert,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,dwAlarm,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,dwExternalOpticsTransmit,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byDisplayCenTempEnabled,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byBackcolorEnabled,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+calibration_key,byShowAlarmColorEnabled,,sandbox/apktool/smartthermal/smali/com/hcusbsdk/Interface/JavaInterface.smali,Field name seen in thermometry basic param handling
+frame_field,dwJpegPicLen,,sandbox/corpus/libHCUSBSDK.so.strings.txt,Native append-data field string
+frame_field,dwJpegPicWidth,,sandbox/corpus/libHCUSBSDK.so.strings.txt,Native append-data field string
+frame_field,dwJpegPicHeight,,sandbox/corpus/libHCUSBSDK.so.strings.txt,Native append-data field string
+frame_field,dwP2pDataLen,,sandbox/corpus/libHCUSBSDK.so.strings.txt,Native append-data field string
+frame_field,byIsFreezedata,,sandbox/corpus/libHCUSBSDK.so.strings.txt,Native append-data field string
+frame_field,byTemperatureDataLength,,sandbox/corpus/libHCUSBSDK.so.strings.txt,Native append-data field string
+frame_field,dwScale,,sandbox/corpus/libHCUSBSDK.so.strings.txt,Native append-data field string
+frame_field,iOffset,,sandbox/corpus/libHCUSBSDK.so.strings.txt,Native append-data field string

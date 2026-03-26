@@ -1,0 +1,202 @@
+{
+  "repo_root": "sandbox",
+  "jni_libraries": [
+    {
+      "java_class": "com.hcusbsdk.jni.HCUSBSDKByJNI",
+      "java_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jni/HCUSBSDKByJNI.smali",
+      "load_library": {
+        "line": 37,
+        "name": "HCUSBSDK",
+        "resolved_library": "libHCUSBSDK.so"
+      },
+      "native_methods": [
+        {
+          "java_method": "USB_GetDeviceConfig",
+          "descriptor": "(IILcom/hcusbsdk/jni/USB_CONFIG;Lcom/hcusbsdk/jni/USB_CONFIG;Lcom/hcusbsdk/jni/USB_CONFIG;)Z",
+          "declaration_line": 109,
+          "jni_symbol": "Java_com_hcusbsdk_jni_HCUSBSDKByJNI_USB_1GetDeviceConfig",
+          "implementation_library": "libHCUSBSDK.so",
+          "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3349"
+        },
+        {
+          "java_method": "USB_StartStreamCallback",
+          "descriptor": "(ILcom/hcusbsdk/jni/USB_STREAM_CALLBACK_PARAM;Lcom/hcusbsdk/jni/StreamCallBack_JNI;)I",
+          "declaration_line": 112,
+          "jni_symbol": "Java_com_hcusbsdk_jni_HCUSBSDKByJNI_USB_1StartStreamCallback",
+          "implementation_library": "libHCUSBSDK.so",
+          "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3344"
+        },
+        {
+          "java_method": "USB_StopChannel",
+          "descriptor": "(II)Z",
+          "declaration_line": 115,
+          "jni_symbol": "Java_com_hcusbsdk_jni_HCUSBSDKByJNI_USB_1StopChannel",
+          "implementation_library": "libHCUSBSDK.so",
+          "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3345"
+        }
+      ]
+    },
+    {
+      "java_class": "com.xiao.yuvtools.LibYuv",
+      "java_file": "sandbox/apktool/smartthermal/smali/com/xiao/yuvtools/LibYuv.smali",
+      "load_library": {
+        "line": 13,
+        "name": "yuvtools",
+        "resolved_library": "libyuvtools.so"
+      },
+      "native_methods": [
+        {
+          "java_method": "ARGB_TO_I420",
+          "descriptor": "([B[BII)Z",
+          "declaration_line": 29,
+          "jni_symbol": "Java_com_xiao_yuvtools_LibYuv_ARGB_1TO_1I420",
+          "implementation_library": "libyuvtools.so",
+          "export_evidence": "sandbox/corpus/libyuvtools.so.symbols.txt:15"
+        },
+        {
+          "java_method": "ARGB_TO_NV21",
+          "descriptor": "([B[BII)Z",
+          "declaration_line": 32,
+          "jni_symbol": "Java_com_xiao_yuvtools_LibYuv_ARGB_1TO_1NV21",
+          "implementation_library": "libyuvtools.so",
+          "export_evidence": "sandbox/corpus/libyuvtools.so.symbols.txt:13"
+        },
+        {
+          "java_method": "UYVY_TO_ARGB",
+          "descriptor": "([B[BII)Z",
+          "declaration_line": 35,
+          "jni_symbol": "Java_com_xiao_yuvtools_LibYuv_UYVY_1TO_1ARGB",
+          "implementation_library": "libyuvtools.so",
+          "export_evidence": "sandbox/corpus/libyuvtools.so.symbols.txt:17"
+        },
+        {
+          "java_method": "YUV2_TO_ARGB",
+          "descriptor": "([B[BII)Z",
+          "declaration_line": 38,
+          "jni_symbol": "Java_com_xiao_yuvtools_LibYuv_YUV2_1TO_1ARGB",
+          "implementation_library": "libyuvtools.so",
+          "export_evidence": "sandbox/corpus/libyuvtools.so.symbols.txt:8"
+        },
+        {
+          "java_method": "stringFromJNI",
+          "descriptor": "()Ljava/lang/String;",
+          "declaration_line": 41,
+          "jni_symbol": "Java_com_xiao_yuvtools_LibYuv_stringFromJNI",
+          "implementation_library": "libyuvtools.so",
+          "export_evidence": "sandbox/corpus/libyuvtools.so.symbols.txt:7"
+        }
+      ]
+    }
+  ],
+  "jna_exports": {
+    "java_interface": "com.hcusbsdk.jna.HCUSBSDKByJNA",
+    "java_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDKByJNA.smali",
+    "library_loader_file": "sandbox/apktool/smartthermal/smali/com/hcusbsdk/jna/HCUSBSDK.smali",
+    "load_library": {
+      "loader_line": 89,
+      "name": "HCUSBSDK",
+      "resolved_library": "libHCUSBSDK.so"
+    },
+    "mappings": [
+      {
+        "java_method": "USB_Init",
+        "declaration_line": 177,
+        "native_symbol": "USB_Init",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3260"
+      },
+      {
+        "java_method": "USB_Cleanup",
+        "declaration_line": 144,
+        "native_symbol": "USB_Cleanup",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3261"
+      },
+      {
+        "java_method": "USB_GetDeviceCount",
+        "declaration_line": 165,
+        "native_symbol": "USB_GetDeviceCount",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3262"
+      },
+      {
+        "java_method": "USB_EnumDevices",
+        "declaration_line": 153,
+        "native_symbol": "USB_EnumDevices",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3264"
+      },
+      {
+        "java_method": "USB_Login",
+        "declaration_line": 180,
+        "native_symbol": "USB_Login",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3268"
+      },
+      {
+        "java_method": "USB_Logout",
+        "declaration_line": 183,
+        "native_symbol": "USB_Logout",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3270"
+      },
+      {
+        "java_method": "USB_Upgrade",
+        "declaration_line": 201,
+        "native_symbol": "USB_Upgrade",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3274"
+      },
+      {
+        "java_method": "USB_FileTransfer",
+        "declaration_line": 156,
+        "native_symbol": "USB_FileTransfer",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3278"
+      },
+      {
+        "java_method": "USB_GetDeviceConfig",
+        "declaration_line": 162,
+        "native_symbol": "USB_GetDeviceConfig",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3293"
+      },
+      {
+        "java_method": "USB_SetDeviceConfig",
+        "declaration_line": 186,
+        "native_symbol": "USB_SetDeviceConfig",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3291"
+      },
+      {
+        "java_method": "USB_Control",
+        "declaration_line": 150,
+        "native_symbol": "USB_Control",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3295"
+      },
+      {
+        "java_method": "USB_StartStreamCallback",
+        "declaration_line": 195,
+        "native_symbol": "USB_StartStreamCallback",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3307"
+      },
+      {
+        "java_method": "USB_StopChannel",
+        "declaration_line": 198,
+        "native_symbol": "USB_StopChannel",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3310"
+      },
+      {
+        "java_method": "USB_ControlTransfer",
+        "declaration_line": null,
+        "native_symbol": "USB_ControlTransfer",
+        "implementation_library": "libHCUSBSDK.so",
+        "export_evidence": "sandbox/corpus/libHCUSBSDK.so.symbols.txt:3304",
+        "note": "Export present in native library; no direct managed declaration found in this APK."
+      }
+    ]
+  }
+}
