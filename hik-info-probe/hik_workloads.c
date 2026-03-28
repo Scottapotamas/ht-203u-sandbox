@@ -158,6 +158,76 @@ static int write_blob( const char *path, const uint8_t *buf, size_t len )
     return 0;
 }
 
+static uint32_t read_le32_local( const uint8_t *buf )
+{
+    return (uint32_t)buf[0] | ( (uint32_t)buf[1] << 8 ) | ( (uint32_t)buf[2] << 16 ) |
+           ( (uint32_t)buf[3] << 24 );
+}
+
+static bool ensure_capacity( uint8_t **buf_out, size_t *capacity_out, size_t needed )
+{
+    uint8_t *grown        = NULL;
+    size_t   new_capacity = *capacity_out;
+
+    if( needed <= *capacity_out )
+    {
+        return true;
+    }
+
+    if( new_capacity == 0 )
+    {
+        new_capacity = 4096;
+    }
+    while( new_capacity < needed )
+    {
+        new_capacity *= 2;
+    }
+
+    grown = realloc( *buf_out, new_capacity );
+    if( grown == NULL )
+    {
+        return false;
+    }
+
+    *buf_out      = grown;
+    *capacity_out = new_capacity;
+    return true;
+}
+
+static size_t find_subsequence( const uint8_t *haystack,
+                                size_t         haystack_len,
+                                const uint8_t *needle,
+                                size_t         needle_len )
+{
+    if( needle_len == 0 || haystack_len < needle_len )
+    {
+        return SIZE_MAX;
+    }
+
+    for( size_t i = 0; i + needle_len <= haystack_len; ++i )
+    {
+        if( memcmp( haystack + i, needle, needle_len ) == 0 )
+        {
+            return i;
+        }
+    }
+
+    return SIZE_MAX;
+}
+
+static void print_calibration_preview( const char *label, const uint8_t *buf, size_t len )
+{
+    size_t preview_len = len;
+
+    if( preview_len > 128 )
+    {
+        preview_len = 128;
+    }
+
+    printf( "%s first %zu byte(s):\n", label, preview_len );
+    print_hexdump( buf, preview_len );
+}
+
 static int run_paired_init( const HikSession *session, const HikOptions *opts )
 {
     HikLengthInfo length_info;
@@ -535,6 +605,300 @@ static int run_read_selector( const HikSession *session,
     print_hexdump( blob, (size_t)rc );
 
     free( blob );
+    return 0;
+}
+
+static int run_calibration_file_read( const HikSession *session,
+                                      const HikOptions *opts,
+                                      const HikProfile *profile,
+                                      const char       *label )
+{
+    static const uint8_t kCalibrationSignature[] = {
+        0x04, 0x04, 0x00, 0x00, 0x00, 0x38, 0x00, 0x00, 0x53, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00,
+    };
+
+    HikLengthInfo length_info;
+    uint8_t       session_header[32];
+    uint8_t      *wrapped            = NULL;
+    uint8_t      *dechunked          = NULL;
+    size_t        wrapped_capacity   = 0;
+    size_t        wrapped_len        = 0;
+    size_t        dechunked_capacity = 0;
+    size_t        dechunked_len      = 0;
+    size_t        extracted_offset   = SIZE_MAX;
+    size_t        chunk_count        = 0;
+    uint32_t      declared_stream_len = 0;
+    uint16_t      header_len         = 0;
+    uint16_t      chunk_len          = 0;
+    bool          extracted          = false;
+    int           rc                 = 0;
+
+    rc = hik_fetch_control_length( session, opts, profile->selector, &length_info );
+    if( rc != 0 )
+    {
+        fprintf( stderr,
+                 "error: %s session-header GET_LEN failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        return rc;
+    }
+
+    hik_print_length_report( "Calibration session header GET_LEN", &length_info );
+    header_len = length_info.decoded_length;
+    if( header_len == 0 || header_len > sizeof( session_header ) )
+    {
+        bool looks_ascii = false;
+
+        if( length_info.raw_len >= 4 &&
+            isprint( length_info.raw[0] ) &&
+            isprint( length_info.raw[1] ) &&
+            isprint( length_info.raw[2] ) &&
+            isprint( length_info.raw[3] ) )
+        {
+            looks_ascii = true;
+        }
+
+        fprintf( stderr,
+                 "error: %s reported an unexpected session-header length %u\n",
+                 label,
+                 (unsigned int)header_len );
+        if( looks_ascii )
+        {
+            fprintf( stderr,
+                     "hint: selector 0x%02x appears to still be in its default printable state (%c%c%c%c), not the calibration-file state.\n"
+                     "hint: the March 28 capture likely reflects a prior SDK/device-config staging step that is not yet reproduced here.\n"
+                     "hint: try probing selector-state-scan with selector 0x05 writes against selector 0x03, for example:\n"
+                     "hint:   ./build/hik-info-probe --profile selector-state-scan --scan-prewrite-selector 0x05 --scan-target-selector 0x03 --scan-prefix-hex 03 --scan-range 0:31\n",
+                     profile->selector,
+                     length_info.raw[0],
+                     length_info.raw[1],
+                     length_info.raw[2],
+                     length_info.raw[3] );
+        }
+        return 1;
+    }
+    if( header_len != HIK_CALIBRATION_HEADER_LEN )
+    {
+        fprintf( stderr,
+                 "warning: %s expected a %u-byte session header but the device reported %u\n",
+                 label,
+                 HIK_CALIBRATION_HEADER_LEN,
+                 (unsigned int)header_len );
+    }
+
+    memset( session_header, 0, sizeof( session_header ) );
+    rc = hik_fetch_current_value( session, opts, profile->selector, session_header, header_len );
+    if( rc < 0 )
+    {
+        fprintf( stderr,
+                 "error: %s session-header GET_CUR failed: %s\n",
+                 label,
+                 hik_transport_error( session->transport, rc ) );
+        return rc;
+    }
+
+    printf( "Calibration session header (%d byte(s)): ", rc );
+    print_hex_bytes_inline( session_header, (size_t)rc );
+    printf( "\n" );
+    if( rc >= HIK_CALIBRATION_HEADER_LEN )
+    {
+        declared_stream_len = read_le32_local( session_header + 1 );
+        printf( "  status byte: 0x%02x\n", session_header[0] );
+        printf( "  declared stream length: %" PRIu32 " byte(s)\n", declared_stream_len );
+    }
+    puts( "" );
+
+    for( ;; )
+    {
+        rc = hik_fetch_control_length( session, opts, profile->selector, &length_info );
+        if( rc != 0 )
+        {
+            fprintf( stderr,
+                     "error: %s chunk %zu GET_LEN failed: %s\n",
+                     label,
+                     chunk_count + 1,
+                     hik_transport_error( session->transport, rc ) );
+            free( wrapped );
+            free( dechunked );
+            return rc;
+        }
+
+        chunk_len = length_info.decoded_length;
+        printf( "Chunk %zu length probe: ", chunk_count + 1 );
+        print_hex_bytes_inline( length_info.raw, (size_t)length_info.raw_len );
+        printf( " -> %u byte(s)\n", (unsigned int)chunk_len );
+
+        if( chunk_len == 0 || chunk_len > HIK_MAX_REASONABLE_BLOB )
+        {
+            fprintf( stderr,
+                     "error: %s refusing suspicious chunk length %u\n",
+                     label,
+                     (unsigned int)chunk_len );
+            free( wrapped );
+            free( dechunked );
+            return 1;
+        }
+
+        if( !ensure_capacity( &wrapped, &wrapped_capacity, wrapped_len + chunk_len ) )
+        {
+            fprintf( stderr, "error: out of memory growing calibration buffer to %zu bytes\n", wrapped_len + chunk_len );
+            free( wrapped );
+            free( dechunked );
+            return 1;
+        }
+
+        rc = hik_fetch_current_value( session, opts, profile->selector, wrapped + wrapped_len, chunk_len );
+        if( rc < 0 )
+        {
+            fprintf( stderr,
+                     "error: %s chunk %zu GET_CUR failed: %s\n",
+                     label,
+                     chunk_count + 1,
+                     hik_transport_error( session->transport, rc ) );
+            free( wrapped );
+            free( dechunked );
+            return rc;
+        }
+        if( (uint16_t)rc != chunk_len )
+        {
+            fprintf( stderr,
+                     "warning: %s chunk %zu returned %d byte(s) after advertising %u\n",
+                     label,
+                     chunk_count + 1,
+                     rc,
+                     (unsigned int)chunk_len );
+        }
+
+        wrapped_len += (size_t)rc;
+        ++chunk_count;
+
+        if( (size_t)rc < HIK_CALIBRATION_HEADER_LEN )
+        {
+            fprintf( stderr,
+                     "error: %s chunk %zu is too short to contain the expected 5-byte chunk header\n",
+                     label,
+                     chunk_count );
+            free( wrapped );
+            free( dechunked );
+            return 1;
+        }
+
+        if( wrapped[wrapped_len - (size_t)rc] != 0x02 )
+        {
+            fprintf( stderr,
+                     "warning: %s chunk %zu starts with 0x%02x instead of the expected 0x02 chunk marker\n",
+                     label,
+                     chunk_count,
+                     wrapped[wrapped_len - (size_t)rc] );
+        }
+        if( wrapped[wrapped_len - (size_t)rc + 1] != (uint8_t)chunk_count )
+        {
+            fprintf( stderr,
+                     "warning: %s chunk %zu reports sequence byte 0x%02x\n",
+                     label,
+                     chunk_count,
+                     wrapped[wrapped_len - (size_t)rc + 1] );
+        }
+
+        if( !ensure_capacity( &dechunked,
+                              &dechunked_capacity,
+                              dechunked_len + ( (size_t)rc - HIK_CALIBRATION_HEADER_LEN ) ) )
+        {
+            fprintf( stderr,
+                     "error: out of memory growing dechunked calibration buffer to %zu bytes\n",
+                     dechunked_len + ( (size_t)rc - HIK_CALIBRATION_HEADER_LEN ) );
+            free( wrapped );
+            free( dechunked );
+            return 1;
+        }
+        memcpy( dechunked + dechunked_len,
+                wrapped + ( wrapped_len - (size_t)rc ) + HIK_CALIBRATION_HEADER_LEN,
+                (size_t)rc - HIK_CALIBRATION_HEADER_LEN );
+        dechunked_len += (size_t)rc - HIK_CALIBRATION_HEADER_LEN;
+
+        if( chunk_count == 1 || chunk_len != HIK_CALIBRATION_CHUNK_LEN )
+        {
+            print_calibration_preview( "Chunk preview", wrapped + ( wrapped_len - (size_t)rc ), (size_t)rc );
+            puts( "" );
+        }
+
+        if( (uint16_t)rc < HIK_CALIBRATION_CHUNK_LEN )
+        {
+            break;
+        }
+        if( chunk_count >= 128 )
+        {
+            fprintf( stderr, "error: %s exceeded the safety limit of 128 chunks\n", label );
+            free( wrapped );
+            free( dechunked );
+            return 1;
+        }
+    }
+
+    printf( "Wrapped calibration stream: %zu chunk(s), %zu byte(s)\n", chunk_count, wrapped_len );
+    printf( "Dechunked calibration payload: %zu byte(s)\n", dechunked_len );
+    if( declared_stream_len != 0 )
+    {
+        printf( "Declared session payload length: %" PRIu32 " byte(s)\n", declared_stream_len );
+        if( declared_stream_len != dechunked_len )
+        {
+            fprintf( stderr,
+                     "warning: dechunked payload length %zu does not match declared session payload length %" PRIu32 "\n",
+                     dechunked_len,
+                     declared_stream_len );
+        }
+    }
+
+    extracted_offset = find_subsequence( dechunked,
+                                         dechunked_len,
+                                         kCalibrationSignature,
+                                         sizeof( kCalibrationSignature ) );
+    if( extracted_offset != SIZE_MAX &&
+        dechunked_len >= extracted_offset + HIK_EXPECTED_CALIBRATION_LEN )
+    {
+        extracted = true;
+        printf( "Extracted calibration-file candidate at dechunked offset %zu (%u byte(s)).\n",
+                extracted_offset,
+                HIK_EXPECTED_CALIBRATION_LEN );
+        print_calibration_preview( "Extracted calibration-file preview",
+                                   dechunked + extracted_offset,
+                                   HIK_EXPECTED_CALIBRATION_LEN );
+    }
+    else
+    {
+        puts( "Could not carve a clean calibration-file candidate from the dechunked payload with the current header heuristic." );
+        print_calibration_preview( "Dechunked payload preview", dechunked, dechunked_len );
+    }
+
+    puts( "" );
+    print_ascii_fragments( dechunked, dechunked_len );
+
+    if( opts->raw_out_path != NULL )
+    {
+        const uint8_t *to_write = dechunked;
+        size_t         write_len = dechunked_len;
+
+        if( extracted )
+        {
+            to_write  = dechunked + extracted_offset;
+            write_len = HIK_EXPECTED_CALIBRATION_LEN;
+        }
+
+        if( write_blob( opts->raw_out_path, to_write, write_len ) != 0 )
+        {
+            free( wrapped );
+            free( dechunked );
+            return 1;
+        }
+
+        printf( "\nSaved %s to %s (%zu byte(s)).\n",
+                extracted ? "extracted calibration-file candidate" : "dechunked calibration payload",
+                opts->raw_out_path,
+                write_len );
+    }
+
+    free( wrapped );
+    free( dechunked );
     return 0;
 }
 
@@ -939,6 +1303,10 @@ int hik_execute_profile( const HikSession *session, const HikOptions *opts, cons
         if( rc != 0 )
         {
             return rc;
+        }
+        if( profile->read_output_kind == HIK_READ_OUTPUT_THERMOMETRY_CALIBRATION )
+        {
+            return run_calibration_file_read( session, opts, profile, "Thermometry calibration file" );
         }
         return run_read_selector( session, opts, profile, "Selector read", opts->raw_out_path );
     }

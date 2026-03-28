@@ -27,6 +27,7 @@ This tool has been built using a concept of test profiles validated against hard
 - `image-enhancement`
 - `image-enhancement-set`
 - `thermometry-basic`
+- `thermometry-calibration-file`
 - `thermometry-basic-set`
 - `manual-correct`
 - `brightness`
@@ -129,6 +130,26 @@ The goal is to replicate the different configuration and control transactions fr
   - external optics window correction and transmit
   - alert and alarm thresholds
   - the known thermometry display and overlay flags
+
+### `thermometry-calibration-file`
+
+- Selector `0x03`
+- Automatically staged by selector `0x05` payload `03 0e`
+- Replays the captured chunked getter behind `USB_GetThermometryCalibrationFile`
+- Current transport model:
+  - selector `0x03` `GET_LEN` returns `5`
+  - selector `0x03` `GET_CUR(5)` returns a short session header
+  - selector `0x03` then loops through `GET_LEN` / `GET_CUR`
+  - chunk sizes are usually `512` bytes, with one final short chunk
+- Current extraction model:
+  - the wrapped control stream contains a 5-byte header on every chunk
+  - the tool first dechunks that stream into the declared `14404`-byte payload
+  - it then looks for the embedded `14336`-byte calibration-file candidate inside the dechunked payload
+  - if `--raw-out PATH` is supplied and extraction succeeds, the extracted candidate is written to `PATH`
+  - if extraction does not succeed, `--raw-out PATH` falls back to saving the dechunked payload instead
+- Current limitation:
+  - the first live Linux run without a thermometry-page prewrite still returned selector-`0x03` raw bytes `41 50 50 20` (`APP `) instead of the expected `5`-byte session-header length
+  - a follow-up selector-state scan showed `03 0e` is the strongest missing prewrite candidate because it exposes selector `0x03` as a `5`-byte page without colliding with the already mapped thermometry pages
 
 ### `thermometry-basic-set`
 
@@ -296,6 +317,13 @@ sudo ./build/hik-info-probe --profile thermometry-basic-set --thermometry-distan
 sudo ./build/hik-info-probe --profile thermometry-basic-set --thermometry-reflective-enable 1 --thermometry-reflective-temperature 1080
 ```
 
+Dump the thermometry calibration file candidate:
+
+```bash
+sudo ./build/hik-info-probe --profile thermometry-calibration-file
+sudo ./build/hik-info-probe --profile thermometry-calibration-file --raw-out thermometry_calibration.bin
+```
+
 Trigger a shutter NUC/FFC correction:
 
 ```bash
@@ -340,6 +368,7 @@ That V4L2 mode uses `UVCIOC_CTRL_QUERY` against `/dev/video0`, so it avoids `lib
 - The final enhancement byte is still slightly ambiguous: Android getter traces usually report AGC as `1`, while setter traces often write `2`. The tool preserves the current byte unless you explicitly pass `--agc-mode`.
 - Android-side captures show selector `0x03` also carries at least three higher-value thermal pages on this hardware:
   - `03 01` -> 69-byte thermometry-basic mailbox
+  - `03 0e` -> strongest current candidate for the thermometry calibration-file getter prewrite
   - `03 10` -> 53-byte expert-correction setter mailbox
   - `03 06` -> 53-byte temperature-correct setter mailbox
   - `03 0f` -> zero-region expert-regions chunked mailbox
