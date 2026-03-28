@@ -61,7 +61,7 @@ These images were used to guide the development of `/decoder` to iterate on diff
 
 Through APK reverse engineering of `HT-105-203U Smart Thermal-V-1.0.3.30-RELEASE.apk`, I've been able to re-implement a few basic controls over the *pre-processed* image in the same manner as the official app. 
 
-Currently supported options include dumping the hardware info blob, setting brightness and contrast, and a range of additional 'image enhancement' settings including:
+Currently supported options include dumping the hardware info blob, triggering the calibration shutter, setting brightness and contrast along with a range of additional 'image enhancement' settings on the onboard processed feed including:
 
 - Colour palette
 - Noise reduction mode and strength

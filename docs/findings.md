@@ -55,7 +55,24 @@ Current footer observations:
 
 ## Camera Control
 
-- TODO: Find FFC trigger/controls
+## Shutter control
+
+The android app has a shutter refresh button. Hooking it with Frida then capturing a pcap of hte refresh allowed a re-implementation of the command.
+
+```
+[scott@octagonal hik-info-probe]$ sudo ./build/hik-info-probe --profile manual-correct
+Opened 2bdf:0102
+  manufacturer: HIK
+  product:      HikCamera
+  serial:       F10615613
+Using profile manual-correct
+Using transport libusb
+Using interface 0, unit 0x0a, selector 0x02
+Profile prewrite returned 2 byte(s): 02 00
+Decoded length: 2
+Profile prewrite SET_CUR wrote 2 byte(s): 02 04
+Profile prewrite SET_CUR completion time: 15 ms
+```
 
 ## Colour Palettes
 

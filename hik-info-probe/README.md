@@ -20,7 +20,7 @@ Requirements:
 
 # How it works
 
-This tool has been built using a concept of test profiles:
+This tool has been built using a concept of test profiles validated against hardware:
 
 - `system-device-info`
 - `protocol-version`
@@ -28,15 +28,21 @@ This tool has been built using a concept of test profiles:
 - `image-enhancement-set`
 - `thermometry-basic`
 - `thermometry-basic-set`
+- `manual-correct`
+- `brightness`
+- `contrast`
+
+Untested additional profiles:
+
 - `expert-correction-set`
 - `temperature-correct-set`
 - `thermometry-expert-regions-set`
-- `manual-correct`
 - `background-correct`
 - `start-expert-correction`
+
+And for testing:
+
 - `selector-state-scan`
-- `brightness`
-- `contrast`
 
 The default profile remains `system-device-info`, which mirrors the immediate preamble and read sequence seen in `apk-re/dynamic/hik-usb-paired-notes.md`:
 
@@ -111,21 +117,6 @@ The goal is to replicate the different configuration and control transactions fr
 - Also supports experimental probing helpers:
   - `--force-len N`
 
-### `selector-state-scan`
-
-- Writes a candidate payload to a staging selector, then reads a target selector
-- Intended for hunting the state change that switches selector `0x02` between scalar and enhancement forms
-- Accepts these flags:
-  - `--scan-prewrite-selector HEX`
-  - `--scan-target-selector HEX`
-  - `--scan-prefix-hex HEXBYTES`
-  - `--scan-range A:B`
-  - `--scan-read-cur`
-  - `--force-len N` if you want `GET_CUR` to use a fixed size during the scan
-- Defaults:
-  - prewrite selector `0x05`
-  - target selector `0x02`
-
 ### `thermometry-basic`
 
 - Selector `0x03`
@@ -168,6 +159,78 @@ The goal is to replicate the different configuration and control transactions fr
   - `--thermometry-display-center 0|1`
   - `--thermometry-backcolor 0|1`
   - `--thermometry-show-alarm-color 0|1`
+
+### `manual-correct`
+
+- Selector `0x05`, then selector `0x02`
+- Staged action sequence:
+  - prewrite selector `0x05` payload `02 04`
+  - main selector `0x02` payload `01`
+- This is the validated Linux `libusb` path for `USB_SetImageManualCorrect`
+- Expected behavior:
+  - after the prewrite, selector `0x02` should behave like a 1-byte control
+  - `SET_CUR` may take about `600 ms` to complete on the wire
+
+
+### `selector-state-scan`
+
+- Writes a candidate payload to a staging selector, then reads a target selector
+- Intended for hunting the state change that switches selector `0x02` between scalar and enhancement forms
+- Accepts these flags:
+  - `--scan-prewrite-selector HEX`
+  - `--scan-target-selector HEX`
+  - `--scan-prefix-hex HEXBYTES`
+  - `--scan-range A:B`
+  - `--scan-read-cur`
+  - `--force-len N` if you want `GET_CUR` to use a fixed size during the scan
+- Defaults:
+  - prewrite selector `0x05`
+  - target selector `0x02`
+
+
+### `expert-correction-set`
+
+- Selector `0x03`
+- Automatically staged by selector `0x05` payload `03 10`
+- Replays the captured 53-byte `USB_SetExpertCorrectionParam` roundtrip payload
+- Current confidence:
+  - transport shape is confirmed by capture
+  - full field semantics are not decoded yet
+
+### `temperature-correct-set`
+
+- Selector `0x03`
+- Automatically staged by selector `0x05` payload `03 06`
+- Replays the captured 53-byte `USB_SetTemperatureCorrect` payload
+- Current confidence:
+  - transport shape is confirmed by capture
+  - the public getter looks mis-marshalled on this camera, so treat this as replay-grade tooling for now
+
+### `thermometry-expert-regions-set`
+
+- Selector `0x03`
+- Automatically staged by selector `0x05` payload `03 0f`
+- Replays the captured zero-region `USB_SetThermometryExpertRegions` transfer:
+  - 5-byte header
+  - five 512-byte chunks
+  - one 392-byte tail chunk
+- Current scope:
+  - only the zero-region roundtrip is implemented
+
+### `background-correct`
+
+- Selector `0x05`
+- Direct 2-byte action trigger payload `02 03`
+- Correlated with `USB_SetImageBackGroundCorrect`
+
+### `start-expert-correction`
+
+- Selector `0x05`
+- Direct 2-byte action trigger payload `03 11`
+- Correlated with `USB_StartExpertCorrection`
+
+
+
 ## Example usage
 
 ```bash
@@ -177,7 +240,6 @@ The goal is to replicate the different configuration and control transactions fr
 
 ./build/hik-info-probe --transport v4l2 --video-device /dev/video0
 ./build/hik-info-probe --selector 0x04
-./build/hik-info-probe --no-paired-init
 ./build/hik-info-probe --timeout-ms 8000
 ```
 
@@ -218,16 +280,6 @@ GREEN_HOT = 0x15
 BLUE = 0x16
 ```
 
-Experimental selector-`0x02` multiplexing probes:
-
-```bash
-sudo ./build/hik-info-probe --profile image-enhancement-set --palette black-hot --force-len 24
-sudo ./build/hik-info-probe --selector 0x02 --force-len 24 --raw-out selector2.bin
-sudo ./build/hik-info-probe --profile selector-state-scan --scan-prefix-hex 02 --scan-range 0:15
-sudo ./build/hik-info-probe --profile selector-state-scan --scan-prefix-hex 02 --scan-range 0:255 --scan-read-cur
-sudo ./build/hik-info-probe --profile selector-state-scan --transport v4l2 --video-device /dev/video0 --scan-prefix-hex 02 --scan-range 0:31
-```
-
 Set the brightness and contrast:
 
 ```bash
@@ -235,7 +287,7 @@ sudo ./build/hik-info-probe --profile brightness --value 60
 sudo ./build/hik-info-probe --profile contrast --value 20
 ```
 
-Read and patch the thermometry-basic payload:
+Read and patch the thermometry-basic payload.
 
 ```bash
 sudo ./build/hik-info-probe --profile thermometry-basic
@@ -243,11 +295,29 @@ sudo ./build/hik-info-probe --profile thermometry-basic-set --thermometry-emissi
 sudo ./build/hik-info-probe --profile thermometry-basic-set --thermometry-distance 120 --thermometry-distance-unit 2
 sudo ./build/hik-info-probe --profile thermometry-basic-set --thermometry-reflective-enable 1 --thermometry-reflective-temperature 1080
 ```
+
+Trigger a shutter NUC/FFC correction:
+
+```bash
+sudo ./build/hik-info-probe --profile manual-correct
+```
+
+Experimental selector-`0x02` multiplexing probes:
+
+```bash
+sudo ./build/hik-info-probe --selector 0x02 --force-len 24 --raw-out selector2.bin
+sudo ./build/hik-info-probe --profile selector-state-scan --scan-prefix-hex 02 --scan-range 0:15
+sudo ./build/hik-info-probe --profile selector-state-scan --scan-prefix-hex 02 --scan-range 0:255 --scan-read-cur
+sudo ./build/hik-info-probe --profile selector-state-scan --transport v4l2 --video-device /dev/video0 --scan-prefix-hex 02 --scan-range 0:31
+```
+
+
 Monitor the live feed in `mpv` while changing values through `uvcvideo` instead of detaching the interface:
 
 ```bash
 mpv av://v4l2:/dev/video0 --profile=low-latency --untimed
 sudo ./build/hik-info-probe --transport v4l2 --video-device /dev/video0 --profile brightness --value 60 
+sudo ./build/hik-info-probe --transport v4l2 --video-device /dev/video0 --profile manual-correct
 ```
 
 That V4L2 mode uses `UVCIOC_CTRL_QUERY` against `/dev/video0`, so it avoids `libusb_claim_interface()`. On the current driver it works for brightness and contrast writes, but not the 24-byte enhancement mode settings.
@@ -262,8 +332,20 @@ That V4L2 mode uses `UVCIOC_CTRL_QUERY` against `/dev/video0`, so it avoids `lib
 - The same scans also show selector `0x02` is a wider multiplexer:
   - `02 01` -> 2-byte brightness state
   - `02 02` -> 2-byte contrast state
-  - `02 03` and `02 04` -> 1-byte state
+  - direct selector `0x02` writes can also expose a 1-byte state family, including the manual shutter trigger recovered on 2026-03-28
   - `02 05` -> 24-byte image-enhancement state
   - `02 00` and `02 06+` -> 31-byte state that is not decoded yet
+- A fresh Linux session may still need selector `0x05` payload `02 04` to prime selector `0x02` into the expected 1-byte mode before the final `SET_CUR 01`.
 - `--force-len` and `selector-state-scan` remain available as reverse-engineering aids for the still-unknown 1-byte and 31-byte selector-`0x02` modes.
 - The final enhancement byte is still slightly ambiguous: Android getter traces usually report AGC as `1`, while setter traces often write `2`. The tool preserves the current byte unless you explicitly pass `--agc-mode`.
+- Android-side captures show selector `0x03` also carries at least three higher-value thermal pages on this hardware:
+  - `03 01` -> 69-byte thermometry-basic mailbox
+  - `03 10` -> 53-byte expert-correction setter mailbox
+  - `03 06` -> 53-byte temperature-correct setter mailbox
+  - `03 0f` -> zero-region expert-regions chunked mailbox
+- shutter-button PCAP got a working manual trigger:
+  - `USB_SetImageManualCorrect` is best modeled as selector `0x02` `GET_LEN` plus direct `SET_CUR 01`
+  - however, fresh Linux runs may still need selector `0x05` payload `02 04` first to prime selector `0x02` into the same 1-byte mode seen in that capture
+- Linux reproduction also confirmed that the staged `manual-correct` path works over `libusb`, with observed completion times around 597 ms to 619 ms
+- The new correction and expert-region profiles intentionally mirror those captures closely. They are useful for live experimentation, but they are not yet fully decoded in the same way `thermometry-basic-set` is.
+- On some kernels, selector-`0x02` V4L2 writes only work when the payload is padded to the control's larger backing size even if `GET_LEN` reports a shorter logical length. `hik-info-probe` now retries short selector-`0x02` V4L2 writes with a padded 31-byte buffer for this reason.

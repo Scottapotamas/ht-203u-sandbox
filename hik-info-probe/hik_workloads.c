@@ -116,6 +116,14 @@ static void sleep_ms( long milliseconds )
     nanosleep( &delay, NULL );
 }
 
+static long diff_milliseconds( const struct timespec *start, const struct timespec *end )
+{
+    long seconds = (long)( end->tv_sec - start->tv_sec );
+    long nanos   = end->tv_nsec - start->tv_nsec;
+
+    return ( seconds * 1000L ) + ( nanos / 1000000L );
+}
+
 static void verify_thermometry_after_write( const HikSession *session,
                                             const HikOptions *opts,
                                             const HikProfile *profile,
@@ -224,6 +232,9 @@ static int run_write_stage( const HikSession *session,
 {
     HikLengthInfo length_info;
     uint16_t      effective_len = 0;
+    struct timespec write_start;
+    struct timespec write_end;
+    bool          have_timing   = false;
     int           rc            = 0;
 
     rc = hik_fetch_control_length( session, opts, selector, &length_info );
@@ -252,6 +263,11 @@ static int run_write_stage( const HikSession *session,
         printf( "%s using forced length override: %u byte(s)\n", label, opts->force_len );
     }
 
+    if( clock_gettime( CLOCK_MONOTONIC, &write_start ) == 0 )
+    {
+        have_timing = true;
+    }
+
     rc = hik_set_current_value( session, opts, selector, payload, (uint16_t)payload_len );
     if( rc < 0 )
     {
@@ -265,6 +281,10 @@ static int run_write_stage( const HikSession *session,
     printf( "%s SET_CUR wrote %d byte(s): ", label, rc );
     print_hex_bytes_inline( payload, payload_len );
     printf( "\n" );
+    if( have_timing && clock_gettime( CLOCK_MONOTONIC, &write_end ) == 0 )
+    {
+        printf( "%s SET_CUR completion time: %ld ms\n", label, diff_milliseconds( &write_start, &write_end ) );
+    }
     return 0;
 }
 
