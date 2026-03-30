@@ -1,0 +1,17 @@
+     ____
+    / _  |   Frida 17.8.2 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    > _  |   Commands:
+   /_/ |_|       help      -> Displays the help system
+   . . . .       object?   -> Display information about 'object'
+   . . . .       exit/quit -> Exit
+   . . . .
+   . . . .   More info at https://frida.re/docs/home/
+   . . . .
+   . . . .   Connected to Android Emulator 5554 (id=emulator-5554)
+{"ts":"2026-03-28T11:32:16.974Z","kind":"setup","payload":{"tracer":"frida-thermalcam-dump-calibration-file.js","mode":"attach-running-process"}}
+{"ts":"2026-03-28T11:32:16.978Z","kind":"checkpoint","payload":{"step":"pre_getter","login_userid":72,"out_path":"/data/data/com.hti.xtherm.hti160203u/cache/thermometry_calibration_2026-03-28.bin"}}
+{"ts":"2026-03-28T11:32:17.404Z","kind":"checkpoint","payload":{"step":"post_getter","ok":true,"length":14336}}
+{"ts":"2026-03-28T11:32:17.406Z","kind":"result","payload":{"ok":true,"login_userid":72,"length":14336,"out_path":"/data/data/com.hti.xtherm.hti160203u/cache/thermometry_calibration_2026-03-28.bin"}}
+[Android Emulator 5554::com.hti.xtherm.hti160203u ]-> 
+Thank you for using Frida!

@@ -1,0 +1,7 @@
+message: {'type': 'send', 'payload': {'ts': '2026-03-28T11:43:45.280Z', 'kind': 'setup', 'payload': {'tracer': 'frida-thermalcam-shutter-ui-pcap.js', 'expected_view_id': 2131231017}}} data: None
+message: {'type': 'send', 'payload': {'ts': '2026-03-28T11:43:46.835Z', 'kind': 'checkpoint', 'payload': {'step': 'pre_click', 'view_id': 2131231017, 'expected_view_id': 2131231017}}} data: None
+message: {'type': 'send', 'payload': {'ts': '2026-03-28T11:43:46.876Z', 'kind': 'result', 'payload': {'step': 'performClick', 'ok': True, 'view_id': 2131231017}}} data: None
+message: {'type': 'send', 'payload': {'ts': '2026-03-28T11:43:46.878Z', 'kind': 'enter', 'payload': {'class_name': 'com.hti.xtherm.hti160203u.helper.F2Helper', 'method': 'shutter', 'login_userid': 72}}} data: None
+message: {'type': 'send', 'payload': {'ts': '2026-03-28T11:43:46.878Z', 'kind': 'enter', 'payload': {'class_name': 'com.hcusbsdk.Interface.JavaInterface', 'method': 'USB_SetImageManualCorrect', 'login_userid': 72}}} data: None
+message: {'type': 'send', 'payload': {'ts': '2026-03-28T11:43:47.509Z', 'kind': 'exit', 'payload': {'class_name': 'com.hcusbsdk.Interface.JavaInterface', 'method': 'USB_SetImageManualCorrect', 'login_userid': 72, 'duration_ms': 631, 'retval': 'true'}}} data: None
+message: {'type': 'send', 'payload': {'ts': '2026-03-28T11:43:47.509Z', 'kind': 'exit', 'payload': {'class_name': 'com.hti.xtherm.hti160203u.helper.F2Helper', 'method': 'shutter', 'login_userid': 72, 'duration_ms': 631, 'retval': None}}} data: None

@@ -1,0 +1,24 @@
+     ____
+    / _  |   Frida 17.8.2 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    > _  |   Commands:
+   /_/ |_|       help      -> Displays the help system
+   . . . .       object?   -> Display information about 'object'
+   . . . .       exit/quit -> Exit
+   . . . .
+   . . . .   More info at https://frida.re/docs/home/
+   . . . .
+   . . . .   Connected to Android Emulator 5554 (id=emulator-5554)
+Attaching...
+[Android Emulator 5554::PID::5190 ]-> {"ts":"2026-03-30T07:02:26.033Z","kind":"roi_context","payload":{"activity":"com.hti.xtherm.hti160203u.ui.activity.HomeActivity@df37b8e","helper":"com.hti.xtherm.hti160203u.helper.F2Helper@b0790f","login_userid":68,"is_preview":true}}
+{"ts":"2026-03-30T07:02:26.037Z","kind":"roi_attempt_enter","payload":{"label":"thermal_full_no_overlay","login_userid":68,"is_preview":true,"thermometry_distance":30,"thermometry_channel":0,"request":{"jpeg_enabled":0,"max_overlay":0,"region_overlay":0,"region_num":1,"region0":{"id":1,"enabled":1,"x":0,"y":0,"width":256,"height":192,"distance":30}}}}
+{"ts":"2026-03-30T07:02:26.057Z","kind":"roi_attempt_exit","payload":{"label":"thermal_full_no_overlay","call_kind":"public_jni","ok":false,"result":{"byROIRegionNum":0,"dwJpegPicLen":0,"dwMaxP2PTemperature":0,"dwMaxP2PTemperature_c_frame_formula":-50,"visibleP2P":{"x":0,"y":0},"thermalP2P":{"x":0,"y":0},"regions":[]}}}
+{"ts":"2026-03-30T07:02:26.058Z","kind":"roi_attempt_enter","payload":{"label":"thermal_full_with_overlay","login_userid":68,"is_preview":true,"thermometry_distance":30,"thermometry_channel":0,"request":{"jpeg_enabled":0,"max_overlay":1,"region_overlay":1,"region_num":1,"region0":{"id":1,"enabled":1,"x":0,"y":0,"width":256,"height":192,"distance":30}}}}
+{"ts":"2026-03-30T07:02:26.076Z","kind":"roi_attempt_exit","payload":{"label":"thermal_full_with_overlay","call_kind":"public_jni","ok":false,"result":{"byROIRegionNum":0,"dwJpegPicLen":0,"dwMaxP2PTemperature":0,"dwMaxP2PTemperature_c_frame_formula":-50,"visibleP2P":{"x":0,"y":0},"thermalP2P":{"x":0,"y":0},"regions":[]}}}
+{"ts":"2026-03-30T07:02:26.077Z","kind":"roi_attempt_enter","payload":{"label":"center_box_64x64","login_userid":68,"is_preview":true,"thermometry_distance":30,"thermometry_channel":0,"request":{"jpeg_enabled":0,"max_overlay":0,"region_overlay":0,"region_num":1,"region0":{"id":1,"enabled":1,"x":96,"y":64,"width":64,"height":64,"distance":30}}}}
+{"ts":"2026-03-30T07:02:26.095Z","kind":"roi_attempt_exit","payload":{"label":"center_box_64x64","call_kind":"public_jni","ok":false,"result":{"byROIRegionNum":0,"dwJpegPicLen":0,"dwMaxP2PTemperature":0,"dwMaxP2PTemperature_c_frame_formula":-50,"visibleP2P":{"x":0,"y":0},"thermalP2P":{"x":0,"y":0},"regions":[]}}}
+{"ts":"2026-03-30T07:02:26.097Z","kind":"roi_attempt_enter","payload":{"label":"thermal_full_no_overlay","call_kind":"private_jna_reflect","login_userid":68,"is_preview":true,"thermometry_distance":30,"thermometry_channel":0,"request":{"jpeg_enabled":0,"max_overlay":0,"region_overlay":0,"region_num":1,"region0":{"id":1,"enabled":1,"x":0,"y":0,"width":256,"height":192,"distance":30}}}}
+{"ts":"2026-03-30T07:02:26.124Z","kind":"roi_attempt_exit","payload":{"label":"thermal_full_no_overlay","call_kind":"private_jna_reflect","ok":false,"retval_raw":"false","result":{"byROIRegionNum":0,"dwJpegPicLen":0,"dwMaxP2PTemperature":0,"dwMaxP2PTemperature_c_frame_formula":-50,"visibleP2P":{"x":0,"y":0},"thermalP2P":{"x":0,"y":0},"regions":[]}}}
+{"ts":"2026-03-30T07:02:26.375Z","kind":"roi_probe_done","payload":{}}
+
+Thank you for using Frida!
