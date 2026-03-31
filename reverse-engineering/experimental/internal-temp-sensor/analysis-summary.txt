@@ -1,0 +1,4 @@
+dataset_frames=13
+warmup_rows=22496
+w20_plateaus=22
+w25_prev_w20_matches=21

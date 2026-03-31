@@ -4,6 +4,8 @@ This section of the repo has extracts from static and dynamic analysis of the `S
 
 > This is my first Android RE target, so I'm sure there are probably better tools and techniques available (suggestions appreciated via email or GitHub issue).
 
+> AI Disclosure: GPT5.4 was instructed to write the Frida hooks for each test based on a description of the function to hook and enough context to understand the emulator environment.
+
 ## Environment and Tooling
 
 I used a Ubuntu 25.04 virtual machine running on my x86 Proxmox server. I passed the camera hardware into the VM using Proxmox's UI. This is because I like the freedom of trying different/random tools and techniques without cluttering my workstation.

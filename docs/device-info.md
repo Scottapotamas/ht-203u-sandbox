@@ -443,9 +443,9 @@ ffmpeg version n8.1 Copyright (c) 2000-2026 the FFmpeg developers
 
 ## Android Findings
 
-To better poke at the camera, I setup an Ubuntu 25.04 VM (x86 based with Android SDK, Frida, Ghidra etc) and ran the Smart Thermal app with the emulator.
+To better poke at the camera, I setup an Ubuntu VM (x86 based with Android SDK, Frida, Ghidra etc) and ran the Smart Thermal app with the emulator.
 
-Passing the camera into the VM from Proxmox, and then into the Android emulator required some gross permissions overrides and Frida bridge. Some pcap of USB traffic are in the `/apk-re/dynamic` folder.
+Passing the camera into the VM from Proxmox, and then into the Android emulator required some gross permissions overrides and Frida bridge. Some pcap of USB traffic are in the `/reverse-engineering/dynamic-analysis` folder.
 
 Reproducing the simplest communications path from linux successfully gets the device info:
 
@@ -524,48 +524,19 @@ Streaming was then active,
 - frame buffers around 200704 / 201248
 
 
-Other reproduced comms reproducing the pcap:
+# Shutter Behaviour
 
-```
-Attempting protocol-version
-    Using interface 0, unit 0x0a, selector 0x04
-    Selector read returned 2 byte(s): 04 00
-    Decoded length: little-endian=4, big-endian=1024
-    Selector read GET_CUR returned 4 byte(s)
+When streaming, the shutter automatically closes for uniformity/flat-field correction.
 
-    ASCII value: 2.0
+I timed the automatic shutter behaviour against a wall and it appears to trigger every 600 seconds. If the scene changes substantially (or some other metric exceeds some threshold) the camera may perform this early.
 
-    Hexdump:
-    0000  32 2e 30 00
+Manually triggering the shutter refresh does reset the automatic timer, so for static or low variance scenes the shutter behaviour can be completely controlled by manually triggering it when convenient at a faster interval.
 
-Attempting thermometry-mode
-    Using interface 0, unit 0x0a, selector 0x03
-    Prelude stage returned 2 byte(s): 02 00
-    Decoded length: little-endian=2, big-endian=512
-    Prelude stage SET_CUR wrote 2 byte(s): 03 02
+The duration of the shutter's closure seems to vary. I've seen ~1 second for the 600 second automatic closures, and most manual closures are between 580 and 620ms.
 
-    Main stage returned 2 byte(s): 03 00
-    Decoded length: little-endian=3, big-endian=768
-    Main stage SET_CUR wrote 3 byte(s): 01 02 00
+# Internal temperature sensing
 
-Attempting brightness-40
-    Using interface 0, unit 0x0a, selector 0x02
-    Prelude stage returned 2 byte(s): 02 00
-    Decoded length: little-endian=2, big-endian=512
-    Prelude stage SET_CUR wrote 2 byte(s): 02 01
+The `r1_u32_10` value in the ratiometric footer appears to be a deci-degrees celcius temperature value that's not tied to the thermal output. It's highly likely this is either an internal temperature sensor or a biasing value for the conversion of data.
 
-    Main stage returned 2 byte(s): 02 00
-    Decoded length: little-endian=2, big-endian=512
-    Main stage SET_CUR wrote 2 byte(s): 01 28
-
-Attempting contrast-35
-    Using interface 0, unit 0x0a, selector 0x02
-    Prelude stage returned 2 byte(s): 02 00
-    Decoded length: little-endian=2, big-endian=512
-    Prelude stage SET_CUR wrote 2 byte(s): 02 02
-
-    Main stage returned 2 byte(s): 02 00
-    Decoded length: little-endian=2, big-endian=512
-    Main stage SET_CUR wrote 2 byte(s): 01 23
-```
+By watching this value during warmups from room temperature or from a fridge-cooled test, it normally takes 10-15 minutes to settle properly.
 

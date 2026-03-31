@@ -1,4 +1,4 @@
-# Min/Max Marker And ROI Investigation
+# Min/Max Marker & ROI Investigation
 
 The Smart Thermal app does not appear to use `USB_GetROITemperatureSearch` / `THERMAL_ROI_REGION_INFO` for the normal min/max/center markers shown on the live preview.
 
@@ -189,4 +189,4 @@ Basic protocol mix from `tshark -q -z io,phs`:
 
 The beginning of the capture shows ordinary EP0 enumeration and UVC control traffic for device `5` on bus `2`, followed by sustained streaming traffic.
 
-I did not decode a vendor ROI-search control exchange out of this session, and that aligns with the Frida trace: the app never called the ROI getter.
+I did not decode a vendor ROI-search control exchange out of this session, and that aligns with the Frida trace because the app never called the ROI getter.
