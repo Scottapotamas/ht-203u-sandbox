@@ -1,0 +1,5 @@
+{"host_ts": 1774545079.4795723, "event": "spawn", "pid": 5022, "package": "com.hti.xtherm.hti160203u"}
+{"host_ts": 1774545079.673103, "message": {"type": "error", "description": "ReferenceError: 'Java' is not defined", "stack": "ReferenceError: 'Java' is not defined\n    at <eval> (/script1.js:1)", "fileName": "/script1.js", "lineNumber": 1, "columnNumber": 1}}
+{"host_ts": 1774545079.6748576, "event": "resume", "pid": 5022}
+{"host_ts": 1774545169.6991646, "event": "done_wait", "sequence_done": false}
+{"host_ts": 1774545169.699499, "event": "detached"}

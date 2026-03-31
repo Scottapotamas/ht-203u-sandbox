@@ -1,0 +1,5 @@
+{"event": "spawn", "pid": 5096}
+{"event": "resume", "pid": 5096}
+{"host_ts": 1774545155.025845, "message": {"type": "error", "description": "ReferenceError: 'Java' is not defined", "stack": "ReferenceError: 'Java' is not defined\n    at <eval> (/script1.js:1)", "fileName": "/script1.js", "lineNumber": 1, "columnNumber": 1}, "data_len": null}
+{"event": "loaded"}
+{"event": "detached"}

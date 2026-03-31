@@ -1,0 +1,25 @@
+03-27 03:39:50.747 I/ActivityManager(  517): Force stopping com.hti.xtherm.hti160203u appid=10167 user=0: from pid 4944
+03-27 03:39:50.749 I/ActivityManager(  517): Killing 4883:com.hti.xtherm.hti160203u/u0a167 (adj 0): stop com.hti.xtherm.hti160203u due to from pid 4944
+03-27 03:39:50.757 W/ActivityTaskManager(  517): Force removing ActivityRecord{dad589e u0 com.hti.xtherm.hti160203u/.ui.activity.HomeActivity t37 f}}: app died, no saved state
+03-27 03:40:03.023 I/ActivityManager(  517): Force stopping com.hti.xtherm.hti160203u appid=10167 user=0: from pid 4817
+03-27 03:40:03.028 I/ActivityTaskManager(  517): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 pkg=com.hti.xtherm.hti160203u cmp=com.hti.xtherm.hti160203u/.ui.activity.HomeActivity} from uid 0
+03-27 03:40:03.130 I/ActivityManager(  517): Start proc 4963:com.hti.xtherm.hti160203u/u0a167 for pre-top-activity {com.hti.xtherm.hti160203u/com.hti.xtherm.hti160203u.ui.activity.HomeActivity}
+03-27 03:40:04.769 I/[JavaInterface]( 4963): USB_Init Success!
+03-27 03:40:05.338 W/system_server(  517): Failed to determine oat file name for dex location /data/app/~~05XBWSKJc-IzHtieUm7lQg==/com.hti.xtherm.hti160203u-d1zonj6b0Z1JWRb8jElNOQ==/base.apk: Dalvik cache directory does not exist
+03-27 03:40:05.347 D/ArtManagerInternalImpl(  517): /data/misc/iorapd/com.hti.xtherm.hti160203u/10000330/com.hti.xtherm.hti160203u.ui.activity.HomeActivity/compiled_traces/compiled_trace.pb doesn't exist
+03-27 03:40:05.382 I/ActivityTaskManager(  517): Displayed com.hti.xtherm.hti160203u/.ui.activity.HomeActivity: +2s305ms
+03-27 03:40:06.260 I/chatty  ( 4963): uid=10167(com.hti.xtherm.hti160203u) NDK MediaCodec_ identical 1 line
+03-27 03:40:08.065 I/iorapd  (  446): Perfetto TraceBuffer saved to file: /data/misc/iorapd/com.hti.xtherm.hti160203u/10000330/com.hti.xtherm.hti160203u.ui.activity.HomeActivity/raw_traces/1774545008063967331.perfetto_trace.pb
+03-27 03:41:17.991 I/ActivityManager(  517): Force stopping com.hti.xtherm.hti160203u appid=10167 user=0: from pid 4817
+03-27 03:41:17.992 I/ActivityManager(  517): Killing 4963:com.hti.xtherm.hti160203u/u0a167 (adj 0): stop com.hti.xtherm.hti160203u due to from pid 4817
+03-27 03:41:17.996 W/ActivityTaskManager(  517): Force removing ActivityRecord{431338 u0 com.hti.xtherm.hti160203u/.ui.activity.HomeActivity t38 f}}: app died, no saved state
+03-27 03:41:18.062 I/ActivityTaskManager(  517): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 pkg=com.hti.xtherm.hti160203u cmp=com.hti.xtherm.hti160203u/.ui.activity.HomeActivity} from uid 0
+03-27 03:41:18.201 I/ActivityManager(  517): Start proc 5022:com.hti.xtherm.hti160203u/u0a167 for pre-top-activity {com.hti.xtherm.hti160203u/com.hti.xtherm.hti160203u.ui.activity.HomeActivity}
+03-27 03:41:19.558 I/[JavaInterface]( 5022): USB_Init Success!
+03-27 03:41:20.115 W/system_server(  517): Failed to determine oat file name for dex location /data/app/~~05XBWSKJc-IzHtieUm7lQg==/com.hti.xtherm.hti160203u-d1zonj6b0Z1JWRb8jElNOQ==/base.apk: Dalvik cache directory does not exist
+03-27 03:41:20.143 D/ArtManagerInternalImpl(  517): /data/misc/iorapd/com.hti.xtherm.hti160203u/10000330/com.hti.xtherm.hti160203u.ui.activity.HomeActivity/compiled_traces/compiled_trace.pb doesn't exist
+03-27 03:41:20.161 I/ActivityTaskManager(  517): Displayed com.hti.xtherm.hti160203u/.ui.activity.HomeActivity: +2s39ms
+03-27 03:41:23.089 I/iorapd  (  446): Perfetto TraceBuffer saved to file: /data/misc/iorapd/com.hti.xtherm.hti160203u/10000330/com.hti.xtherm.hti160203u.ui.activity.HomeActivity/raw_traces/1774545083085341578.perfetto_trace.pb
+03-27 03:42:21.686 I/ActivityManager(  517): Force stopping com.hti.xtherm.hti160203u appid=10167 user=0: from pid 5080
+03-27 03:42:21.687 I/ActivityManager(  517): Killing 5022:com.hti.xtherm.hti160203u/u0a167 (adj 0): stop com.hti.xtherm.hti160203u due to from pid 5080
+03-27 03:42:21.692 W/ActivityTaskManager(  517): Force removing ActivityRecord{52310da u0 com.hti.xtherm.hti160203u/.ui.activity.HomeActivity t39 f}}: app died, no saved state

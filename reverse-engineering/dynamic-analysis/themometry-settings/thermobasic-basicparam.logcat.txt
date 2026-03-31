@@ -1,0 +1,1183 @@
+03-27 03:47:25.098 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:25.098 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:76273 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1907 dwBufSize:201248
+03-27 03:47:25.213 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:25.224 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:76293 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1908 dwBufSize:201248
+03-27 03:47:25.331 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:25.331 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:76509 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1913 dwBufSize:201248
+03-27 03:47:25.433 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:25.447 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:76536 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1914 dwBufSize:201248
+03-27 03:47:25.536 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:25.537 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:76730 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1915 dwBufSize:201248
+03-27 03:47:25.622 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:25.622 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:76735 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1916 dwBufSize:201248
+03-27 03:47:25.705 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:25.715 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:76774 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1917 dwBufSize:201248
+03-27 03:47:25.805 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:25.806 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77001 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1922 dwBufSize:201248
+03-27 03:47:25.889 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:25.900 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77013 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1923 dwBufSize:201248
+03-27 03:47:25.987 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:25.988 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77185 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1928 dwBufSize:201248
+03-27 03:47:26.071 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.082 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77214 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1929 dwBufSize:201248
+03-27 03:47:26.165 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.166 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77367 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1934 dwBufSize:201248
+03-27 03:47:26.254 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.255 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77373 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1935 dwBufSize:201248
+03-27 03:47:26.344 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.355 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77413 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1936 dwBufSize:201248
+03-27 03:47:26.446 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.446 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77640 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1941 dwBufSize:201248
+03-27 03:47:26.532 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.542 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77653 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1942 dwBufSize:201248
+03-27 03:47:26.630 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.631 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77828 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1943 dwBufSize:201248
+03-27 03:47:26.714 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.725 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:77854 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1944 dwBufSize:201248
+03-27 03:47:26.806 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.806 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78010 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1949 dwBufSize:201248
+03-27 03:47:26.893 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.893 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78013 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1950 dwBufSize:201248
+03-27 03:47:26.980 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:26.990 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78053 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1951 dwBufSize:201248
+03-27 03:47:27.076 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:27.076 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78276 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1956 dwBufSize:201248
+03-27 03:47:27.165 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:27.176 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78296 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1957 dwBufSize:201248
+03-27 03:47:27.264 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:27.265 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78462 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1962 dwBufSize:201248
+03-27 03:47:27.352 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:27.363 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78493 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1963 dwBufSize:201248
+03-27 03:47:27.450 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:27.450 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78648 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1964 dwBufSize:201248
+03-27 03:47:27.535 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:27.535 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78653 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1965 dwBufSize:201248
+03-27 03:47:27.622 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:27.633 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78693 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1966 dwBufSize:201248
+03-27 03:47:27.720 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:27.720 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78919 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1971 dwBufSize:201248
+03-27 03:47:27.812 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:27.823 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:78934 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1972 dwBufSize:201248
+03-27 03:47:27.920 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:27.921 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:79109 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1977 dwBufSize:201248
+03-27 03:47:28.010 I/[JavaInterface]( 5356): fStreamCallback_JNI OUT!
+03-27 03:47:28.021 I/[JavaInterface]( 5356): fStreamCallback_JNI Success! nStamp:79135 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1978 dwBufSize:201248
+03-27 03:47:28.066 I/ActivityManager(  517): Force stopping com.hti.xtherm.hti160203u appid=10167 user=0: from pid 5411
+03-27 03:47:28.068 I/ActivityManager(  517): Killing 5356:com.hti.xtherm.hti160203u/u0a167 (adj 0): stop com.hti.xtherm.hti160203u due to from pid 5411
+03-27 03:47:28.071 W/ActivityTaskManager(  517): Force removing ActivityRecord{b395d79 u0 com.hti.xtherm.hti160203u/.ui.activity.HomeActivity t44 f}}: app died, no saved state
+03-27 03:47:36.471 I/ActivityManager(  517): Force stopping com.hti.xtherm.hti160203u appid=10167 user=0: from pid 4817
+03-27 03:47:36.474 I/ActivityTaskManager(  517): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 pkg=com.hti.xtherm.hti160203u cmp=com.hti.xtherm.hti160203u/.ui.activity.HomeActivity} from uid 0
+03-27 03:47:36.606 I/ActivityManager(  517): Start proc 5428:com.hti.xtherm.hti160203u/u0a167 for pre-top-activity {com.hti.xtherm.hti160203u/com.hti.xtherm.hti160203u.ui.activity.HomeActivity}
+03-27 03:47:37.388 I/herm.hti160203u( 5428): type=1400 audit(0.0:41): avc: denied { read } for name="devices" dev="sysfs" ino=4998 scontext=u:r:untrusted_app:s0:c167,c256,c512,c768 tcontext=u:object_r:sysfs:s0 tclass=dir permissive=1 app=com.hti.xtherm.hti160203u
+03-27 03:47:37.392 I/herm.hti160203u( 5428): type=1400 audit(0.0:43): avc: denied { read } for name="idVendor" dev="sysfs" ino=25543 scontext=u:r:untrusted_app:s0:c167,c256,c512,c768 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1 app=com.hti.xtherm.hti160203u
+03-27 03:47:37.392 I/herm.hti160203u( 5428): type=1400 audit(0.0:45): avc: denied { getattr } for path="/sys/devices/pci0000:00/0000:00:17.0/usb5/idVendor" dev="sysfs" ino=25543 scontext=u:r:untrusted_app:s0:c167,c256,c512,c768 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1 app=com.hti.xtherm.hti160203u
+03-27 03:47:38.087 I/[JavaInterface]( 5428): USB_Init Success!
+03-27 03:47:38.106 D/[JavaInterface]( 5428): FilterAcsWithID, iResultCount[0]
+03-27 03:47:38.106 D/[JavaInterface]( 5428): FilterCameraWithID, iResultCount[0]
+03-27 03:47:38.106 D/[JavaInterface]( 5428): FilterThermalWithID, dwVid[11231] dwPid [258]
+03-27 03:47:38.106 D/[JavaInterface]( 5428): FilterThermalWithID, iResultCount[1]
+03-27 03:47:38.106 D/[JavaInterface]( 5428): FilterTransmissionWithID, iResultCount[0]
+03-27 03:47:38.107 I/[JavaInterface]( 5428): EnumDevice [1]Device  VendorId: 11231 Device ProductId: 258
+03-27 03:47:38.108 I/herm.hti160203u( 5428): type=1400 audit(0.0:46): avc: denied { search } for name="usb" dev="tmpfs" ino=8490 scontext=u:r:untrusted_app:s0:c167,c256,c512,c768 tcontext=u:object_r:usb_device:s0 tclass=dir permissive=1 app=com.hti.xtherm.hti160203u
+03-27 03:47:38.108 I/herm.hti160203u( 5428): type=1400 audit(0.0:47): avc: denied { open } for path="/dev/bus/usb/004/002" dev="tmpfs" ino=10248 scontext=u:r:untrusted_app:s0:c167,c256,c512,c768 tcontext=u:object_r:usb_device:s0 tclass=chr_file permissive=1 app=com.hti.xtherm.hti160203u
+03-27 03:47:38.246 I/[JavaInterface]( 5428): EnumDevice [3]openDevice succ, fd: 77
+03-27 03:47:38.246 I/[JavaInterface]( 5428): USB_GetDeviceCount Device count is :1
+03-27 03:47:38.247 I/[JavaInterface]( 5428): USB_EnumDevices Device info is dwIndex:1 dwVID:11231 dwPID:258 szManufacturer:HIK szDeviceName:/dev/bus/usb/004/002 szSerialNumber:F10615613 byHaveAudio:0 dwFd:77
+03-27 03:47:38.942 W/system_server(  517): Failed to determine oat file name for dex location /data/app/~~05XBWSKJc-IzHtieUm7lQg==/com.hti.xtherm.hti160203u-d1zonj6b0Z1JWRb8jElNOQ==/base.apk: Dalvik cache directory does not exist
+03-27 03:47:38.950 D/ArtManagerInternalImpl(  517): /data/misc/iorapd/com.hti.xtherm.hti160203u/10000330/com.hti.xtherm.hti160203u.ui.activity.HomeActivity/compiled_traces/compiled_trace.pb doesn't exist
+03-27 03:47:38.987 I/ActivityTaskManager(  517): Displayed com.hti.xtherm.hti160203u/.ui.activity.HomeActivity: +2s411ms
+03-27 03:47:39.750 I/[JavaInterface]( 5428): USB_Login Success! iUserID:77 dwDevIndex:1 dwVID:11231 dwPID:258 dwFd:77
+03-27 03:47:39.901 I/[JavaInterface]( 5428): USB_GetDeviceConfig USB_GET_SYSTEM_DEVICE_INFO Success! byFirmwareVersion:APP  20012 BUILD 20240409¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä byEncoderVersion:¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä byHardwareVersion:FPGA 10101 BUILD 20240129¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä byDeviceType:FPGA UVC Camera¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä byProtocolVersion:2.0¿Ä bySerialNumber:EA3046573¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä bySecondHardwareVersion:XinTai_TM32_PHONE¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä byModuleID:0953560200¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä byDeviceID:HM-TM32-CJ20241111AACHEA3046573¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä¿Ä
+03-27 03:47:40.126 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_THERMOMETRY_MODE Success! byThermometryMode:2 byThermometryROIEnabled:0
+03-27 03:47:40.487 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_IMAGE_BRIGHTNESS Success! dwBrightness:40
+03-27 03:47:40.742 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_IMAGE_CONTRAST Success! dwContrast:35
+03-27 03:47:40.833 I/[JavaInterface]( 5428): USB_GetDeviceConfig USB_GET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1030 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:41.208 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_IMAGE_ENHANCEMENT Success! byNoiseReduceMode:2 dwGeneralLevel:0 dwFrameNoiseReduceLevel:50 dwInterFrameNoiseReduceLevel:50 byPaletteMode:1 byLSEDetailEnabled:0 dwLSEDetailLevel:25 byBirdWatchingMode:0 byHighLightMode:0 byHighLightLevel:0 byHookEdgeMode:0 byHookEdgeLevel:0 byWideTemperatureMode:0 dwWideTemperatureUpThreshold:0 dwWideTemperatureDownThreshold:0 byWideTemperatureWork:0 byIspAgcMode:2
+03-27 03:47:41.294 I/[JavaInterface]( 5428): USB_GetDeviceConfig USB_GET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1030 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:41.311 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1030 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:41.503 I/iorapd  (  446): Perfetto TraceBuffer saved to file: /data/misc/iorapd/com.hti.xtherm.hti160203u/10000330/com.hti.xtherm.hti160203u.ui.activity.HomeActivity/raw_traces/1774545461501506133.perfetto_trace.pb
+03-27 03:47:41.694 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_THERMOMETRY_EXPERT_REGIONS Success! byRegionNum:0
+03-27 03:47:42.733 I/[JavaInterface]( 5428): USB_GetDeviceConfig USB_GET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1030 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:43.697 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_VIDEO_PARAM Success! dwVideoFormat:103 dwWidth:256 dwHeight:392 dwFramerate:25 dwBitrate:0 dwParamType:0 dwValue:0
+03-27 03:47:43.764 I/[JavaInterface]( 5428): USB_GetDeviceConfig USB_GET_IMAGE_VIDEO_ADJUST Success! byImageFlipStyle:0 byPowerLineFrequencyMode:1 byCorridor:0 byDigitalZoom:0 byCursor:0 byBadPointCursor:0 byBadPointCursorShiftMode:0 dwCursorPointX:500 dwCursorPointY:500 dwBadCursorPointX:500 dwBadCursorPointY:500 byPointXShiftLeft:0 byPointXShiftRight:0 byPointYShiftUp:0 byPointYShiftDown:0 byDeleteBadPoint:0
+03-27 03:47:43.992 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_IMAGE_VIDEO_ADJUST Success! byImageFlipStyle:0 byPowerLineFrequencyMode:1 byCorridor:0 byDigitalZoom:0 byCursor:0 byBadPointCursor:0 byBadPointCursorShiftMode:0 dwCursorPointX:500 dwCursorPointY:500 dwBadCursorPointX:500 dwBadCursorPointY:500 byPointXShiftLeft:0 byPointXShiftRight:0 byPointYShiftUp:0 byPointYShiftDown:0 byDeleteBadPoint:0
+03-27 03:47:44.115 I/[JavaInterface]( 5428): USB_StartStreamCallback_jni Success! lUserID:77 iHandle:0
+03-27 03:47:44.150 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1 dwBufSize:200704
+03-27 03:47:44.151 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:44.169 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:55 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:2 dwBufSize:200704
+03-27 03:47:44.169 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:44.208 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:91 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:3 dwBufSize:200704
+03-27 03:47:44.210 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:44.243 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:130 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:4 dwBufSize:200704
+03-27 03:47:44.243 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:44.285 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:170 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:5 dwBufSize:200704
+03-27 03:47:44.285 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:44.317 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:210 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:6 dwBufSize:200704
+03-27 03:47:44.317 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:44.345 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_THERMAL_STREAM_PARAM Success! byVideoCodingType:8
+03-27 03:47:44.359 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:251 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:7 dwBufSize:200704
+03-27 03:47:44.359 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:44.401 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:290 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:8 dwBufSize:200704
+03-27 03:47:44.401 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:44.436 I/[JavaInterface]( 5428): USB_GetDeviceConfig USB_GET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1030 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:44.449 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:335 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:9 dwBufSize:196608
+03-27 03:47:44.449 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:44.485 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:372 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:10 dwBufSize:201248
+03-27 03:47:44.850 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:44.860 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:410 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:11 dwBufSize:201248
+03-27 03:47:45.019 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:45.020 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:746 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:16 dwBufSize:201248
+03-27 03:47:45.159 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:45.162 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1045 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:45.170 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:770 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:17 dwBufSize:201248
+03-27 03:47:45.264 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:45.264 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:1055 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:26 dwBufSize:201248
+03-27 03:47:45.390 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:45.401 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:1090 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:27 dwBufSize:201248
+03-27 03:47:45.507 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:45.508 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:1286 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:32 dwBufSize:201248
+03-27 03:47:45.604 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:45.605 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:1291 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:33 dwBufSize:201248
+03-27 03:47:45.691 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:45.691 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:1330 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:34 dwBufSize:201248
+03-27 03:47:45.791 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:45.792 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:1403 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:35 dwBufSize:201248
+03-27 03:47:45.879 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:45.879 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:1688 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:40 dwBufSize:201248
+03-27 03:47:45.966 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:45.977 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:1690 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:41 dwBufSize:201248
+03-27 03:47:46.063 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:46.064 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:1862 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:46 dwBufSize:201248
+03-27 03:47:46.125 I/[JavaInterface]( 5428): USB_GetDeviceConfig USB_GET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1045 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:46.152 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:46.164 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:1890 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:47 dwBufSize:201248
+03-27 03:47:46.255 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:46.256 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2049 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:48 dwBufSize:201248
+03-27 03:47:46.342 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:46.343 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2050 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:49 dwBufSize:201248
+03-27 03:47:46.430 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:46.441 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2090 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:50 dwBufSize:201248
+03-27 03:47:46.533 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:46.534 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2326 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:55 dwBufSize:201248
+03-27 03:47:46.621 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:46.622 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2330 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:56 dwBufSize:201248
+03-27 03:47:46.709 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:46.721 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2370 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:57 dwBufSize:201248
+03-27 03:47:46.806 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:46.806 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2605 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:62 dwBufSize:201248
+03-27 03:47:46.846 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1045 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:1 dwReflectiveTemperature:1080 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:46.897 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:46.897 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2610 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:63 dwBufSize:201248
+03-27 03:47:46.988 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.000 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2650 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:64 dwBufSize:201248
+03-27 03:47:47.089 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.090 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2884 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:69 dwBufSize:201248
+03-27 03:47:47.175 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.175 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2890 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:70 dwBufSize:201248
+03-27 03:47:47.267 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.278 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:2930 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:71 dwBufSize:201248
+03-27 03:47:47.368 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.369 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3164 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:76 dwBufSize:201248
+03-27 03:47:47.459 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.460 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3170 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:77 dwBufSize:201248
+03-27 03:47:47.551 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.562 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3210 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:78 dwBufSize:201248
+03-27 03:47:47.654 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.655 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3448 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:83 dwBufSize:201248
+03-27 03:47:47.744 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.745 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3450 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:84 dwBufSize:201248
+03-27 03:47:47.808 I/[JavaInterface]( 5428): USB_GetDeviceConfig USB_GET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1045 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:1 dwReflectiveTemperature:1080 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:47.837 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.848 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3490 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:85 dwBufSize:201248
+03-27 03:47:47.936 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:47.937 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3733 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:94 dwBufSize:201248
+03-27 03:47:48.026 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.037 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3771 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:95 dwBufSize:201248
+03-27 03:47:48.127 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.127 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3922 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:96 dwBufSize:201248
+03-27 03:47:48.211 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.211 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3930 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:97 dwBufSize:201248
+03-27 03:47:48.296 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.307 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:3970 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:98 dwBufSize:201248
+03-27 03:47:48.395 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.396 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:4192 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:103 dwBufSize:201248
+03-27 03:47:48.485 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.496 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:4210 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:104 dwBufSize:201248
+03-27 03:47:48.534 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1045 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:48.584 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.585 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:4381 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:109 dwBufSize:201248
+03-27 03:47:48.674 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.685 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:4410 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:110 dwBufSize:201248
+03-27 03:47:48.785 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.786 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:4571 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:115 dwBufSize:201248
+03-27 03:47:48.873 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.873 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:4610 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:116 dwBufSize:201248
+03-27 03:47:48.956 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:48.958 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:4769 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:117 dwBufSize:201248
+03-27 03:47:49.045 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:49.045 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:4770 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:118 dwBufSize:201248
+03-27 03:47:49.130 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:49.131 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:4853 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:119 dwBufSize:201248
+03-27 03:47:49.218 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:49.228 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:4892 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:120 dwBufSize:201248
+03-27 03:47:49.316 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:49.316 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:5114 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:125 dwBufSize:201248
+03-27 03:47:49.406 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:49.417 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:5130 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:126 dwBufSize:201248
+03-27 03:47:49.511 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:49.511 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:5302 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:131 dwBufSize:201248
+03-27 03:47:49.537 I/[JavaInterface]( 5428): USB_GetDeviceConfig USB_GET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1045 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:49.600 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:49.611 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:5330 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:132 dwBufSize:201248
+03-27 03:47:49.697 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:49.698 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:5496 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:137 dwBufSize:201248
+03-27 03:47:49.788 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:49.799 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:5510 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:138 dwBufSize:201248
+03-27 03:47:49.906 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:49.906 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:5684 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:139 dwBufSize:201248
+03-27 03:47:50.005 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:50.005 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:5710 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:140 dwBufSize:201248
+03-27 03:47:50.117 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:50.118 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:5802 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:145 dwBufSize:201248
+03-27 03:47:50.222 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:50.233 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:5829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:146 dwBufSize:201248
+03-27 03:47:50.270 I/[JavaInterface]( 5428): USB_SetDeviceConfig USB_SET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1030 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:50.337 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:50.339 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:6119 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:151 dwBufSize:201248
+03-27 03:47:50.441 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:50.452 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:6150 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:152 dwBufSize:201248
+03-27 03:47:50.560 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:50.560 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:6337 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:157 dwBufSize:201248
+03-27 03:47:50.663 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:50.674 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:6350 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:158 dwBufSize:201248
+03-27 03:47:50.782 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:50.784 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:6559 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:163 dwBufSize:201248
+03-27 03:47:50.884 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:50.885 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:6590 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:164 dwBufSize:201248
+03-27 03:47:50.997 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:51.007 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:6680 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:165 dwBufSize:201248
+03-27 03:47:51.113 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:51.114 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:6893 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:170 dwBufSize:201248
+03-27 03:47:51.213 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:51.224 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:6910 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:171 dwBufSize:201248
+03-27 03:47:51.239 I/[JavaInterface]( 5428): USB_GetDeviceConfig USB_GET_THERMOMETRY_BASIC_PARAM Success! byEnabled:0 byDisplayMaxTemperatureEnabled:0 byDisplayMinTemperatureEnabled:0 byDisplayAverageTemperatureEnabled:0 byTemperatureUnit:1 byTemperatureRange:2 byCalibrationCoefficientEnabled:0 dwCalibrationCoefficient:0 dwExternalOpticsWindowCorrection:1030 dwEmissivity:95 byDistanceUnit:2 dwDistance:30 byReflectiveEnable:0 dwReflectiveTemperature:1050 byThermomrtryInfoDisplayPosition:2 byThermometryStreamOverlay:1 dwAlert:1600 dwAlarm:1800 dwExternalOpticsTransmit:100 byDisplayCenTempEnabled:0 byBackcolorEnabled:0 byShowAlarmColorEnabled:1
+03-27 03:47:51.330 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:51.330 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:7109 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:176 dwBufSize:201248
+03-27 03:47:51.440 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:51.441 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:7110 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:177 dwBufSize:201248
+03-27 03:47:51.549 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:51.560 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:7149 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:178 dwBufSize:201248
+03-27 03:47:51.663 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:51.663 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:7445 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:183 dwBufSize:201248
+03-27 03:47:51.760 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:51.771 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:7469 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:184 dwBufSize:201248
+03-27 03:47:51.881 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:51.882 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:7656 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:189 dwBufSize:201248
+03-27 03:47:51.990 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:52.001 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:7670 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:190 dwBufSize:201248
+03-27 03:47:52.115 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:52.115 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:7886 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:195 dwBufSize:201248
+03-27 03:47:52.223 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:52.234 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:7909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:196 dwBufSize:201248
+03-27 03:47:52.331 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:52.332 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:8120 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:201 dwBufSize:201248
+03-27 03:47:52.441 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:52.452 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:8151 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:202 dwBufSize:201248
+03-27 03:47:52.558 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:52.558 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:8337 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:207 dwBufSize:201248
+03-27 03:47:52.662 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:52.674 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:8350 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:208 dwBufSize:201248
+03-27 03:47:52.758 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:52.758 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:8558 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:213 dwBufSize:201248
+03-27 03:47:52.847 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:52.858 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:8590 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:214 dwBufSize:201248
+03-27 03:47:52.952 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:52.953 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:8743 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:215 dwBufSize:201248
+03-27 03:47:53.038 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:53.038 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:8750 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:216 dwBufSize:201248
+03-27 03:47:53.125 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:53.137 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:8792 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:217 dwBufSize:201248
+03-27 03:47:53.243 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:53.243 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9021 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:222 dwBufSize:201248
+03-27 03:47:53.346 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:53.347 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9030 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:223 dwBufSize:201248
+03-27 03:47:53.435 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:53.445 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9069 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:224 dwBufSize:201248
+03-27 03:47:53.537 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:53.537 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9331 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:233 dwBufSize:201248
+03-27 03:47:53.626 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:53.638 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9350 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:234 dwBufSize:201248
+03-27 03:47:53.724 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:53.724 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9523 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:235 dwBufSize:201248
+03-27 03:47:53.808 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:53.818 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9551 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:236 dwBufSize:201248
+03-27 03:47:53.913 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:53.914 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9704 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:241 dwBufSize:201248
+03-27 03:47:54.002 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.003 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9710 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:242 dwBufSize:201248
+03-27 03:47:54.090 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.101 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9749 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:243 dwBufSize:201248
+03-27 03:47:54.198 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.198 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9987 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:248 dwBufSize:201248
+03-27 03:47:54.288 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.288 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:9989 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:249 dwBufSize:201248
+03-27 03:47:54.375 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.386 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:10030 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:250 dwBufSize:201248
+03-27 03:47:54.471 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.471 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:10271 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:255 dwBufSize:201248
+03-27 03:47:54.557 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.568 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:10309 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:256 dwBufSize:201248
+03-27 03:47:54.651 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.652 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:10454 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:261 dwBufSize:201248
+03-27 03:47:54.737 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.748 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:10471 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:262 dwBufSize:201248
+03-27 03:47:54.831 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.832 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:10633 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:263 dwBufSize:201248
+03-27 03:47:54.920 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:54.931 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:10669 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:264 dwBufSize:201248
+03-27 03:47:55.016 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:55.017 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:10817 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:269 dwBufSize:201248
+03-27 03:47:55.105 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:55.115 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:10830 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:270 dwBufSize:201248
+03-27 03:47:55.200 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:55.201 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:11001 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:275 dwBufSize:201248
+03-27 03:47:55.304 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:55.305 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:11030 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:276 dwBufSize:201248
+03-27 03:47:55.399 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:55.400 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:11200 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:277 dwBufSize:201248
+03-27 03:47:55.510 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:55.521 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:11229 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:278 dwBufSize:201248
+03-27 03:47:55.609 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:55.610 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:11407 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:283 dwBufSize:201248
+03-27 03:47:55.709 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:55.720 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:11431 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:284 dwBufSize:201248
+03-27 03:47:55.823 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:55.823 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:11606 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:289 dwBufSize:201248
+03-27 03:47:55.918 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:55.929 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:11629 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:290 dwBufSize:201248
+03-27 03:47:56.032 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:56.033 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:11815 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:295 dwBufSize:201248
+03-27 03:47:56.120 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:56.131 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:11829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:296 dwBufSize:201248
+03-27 03:47:56.220 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:56.220 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12016 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:297 dwBufSize:201248
+03-27 03:47:56.307 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:56.317 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12029 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:298 dwBufSize:201248
+03-27 03:47:56.412 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:56.413 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12203 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:303 dwBufSize:201248
+03-27 03:47:56.520 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:56.531 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12229 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:304 dwBufSize:201248
+03-27 03:47:56.631 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:56.631 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12417 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:309 dwBufSize:201248
+03-27 03:47:56.728 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:56.741 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12430 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:310 dwBufSize:201248
+03-27 03:47:56.828 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:56.829 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12624 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:315 dwBufSize:201248
+03-27 03:47:56.920 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:56.921 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12630 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:316 dwBufSize:201248
+03-27 03:47:57.009 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:57.020 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12670 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:317 dwBufSize:201248
+03-27 03:47:57.103 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:57.104 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12906 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:322 dwBufSize:201248
+03-27 03:47:57.191 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:57.191 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:323 dwBufSize:201248
+03-27 03:47:57.274 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:57.285 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:12949 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:324 dwBufSize:201248
+03-27 03:47:57.388 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:57.389 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:13170 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:329 dwBufSize:201248
+03-27 03:47:57.487 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:57.499 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:13189 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:330 dwBufSize:201248
+03-27 03:47:57.598 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:57.598 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:13383 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:331 dwBufSize:201248
+03-27 03:47:57.712 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:57.712 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:13389 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:332 dwBufSize:201248
+03-27 03:47:57.818 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:57.829 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:13429 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:333 dwBufSize:201248
+03-27 03:47:57.923 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:57.924 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:13715 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:342 dwBufSize:201248
+03-27 03:47:58.030 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:58.042 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:13750 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:343 dwBufSize:201248
+03-27 03:47:58.128 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:58.129 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:13927 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:348 dwBufSize:201248
+03-27 03:47:58.209 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:58.221 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:13952 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:349 dwBufSize:201248
+03-27 03:47:58.311 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:58.312 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:14106 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:350 dwBufSize:201248
+03-27 03:47:58.407 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:58.408 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:14109 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:351 dwBufSize:201248
+03-27 03:47:58.507 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:58.518 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:14151 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:352 dwBufSize:201248
+03-27 03:47:58.621 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:58.622 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:14403 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:357 dwBufSize:201248
+03-27 03:47:58.720 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:58.731 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:14430 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:358 dwBufSize:201248
+03-27 03:47:58.836 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:58.836 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:14617 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:363 dwBufSize:201248
+03-27 03:47:58.969 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:58.986 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:14631 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:364 dwBufSize:201248
+03-27 03:47:59.111 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:59.112 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:14866 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:369 dwBufSize:201248
+03-27 03:47:59.235 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:59.236 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:14871 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:370 dwBufSize:201248
+03-27 03:47:59.360 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:59.372 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:14909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:371 dwBufSize:201248
+03-27 03:47:59.507 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:59.507 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:15257 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:380 dwBufSize:201248
+03-27 03:47:59.628 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:59.640 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:15273 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:381 dwBufSize:201248
+03-27 03:47:59.751 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:59.751 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:15525 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:386 dwBufSize:201248
+03-27 03:47:59.854 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:59.864 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:15552 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:387 dwBufSize:201248
+03-27 03:47:59.967 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:47:59.967 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:15750 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:392 dwBufSize:201248
+03-27 03:48:00.071 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.081 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:15789 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:393 dwBufSize:201248
+03-27 03:48:00.175 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.175 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:15967 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:398 dwBufSize:201248
+03-27 03:48:00.265 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.275 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:15989 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:399 dwBufSize:201248
+03-27 03:48:00.362 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.363 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:16161 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:404 dwBufSize:201248
+03-27 03:48:00.448 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.459 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:16190 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:405 dwBufSize:201248
+03-27 03:48:00.545 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.545 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:16345 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:406 dwBufSize:201248
+03-27 03:48:00.629 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.630 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:16350 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:407 dwBufSize:201248
+03-27 03:48:00.712 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.723 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:16390 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:408 dwBufSize:201248
+03-27 03:48:00.805 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.806 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:16608 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:413 dwBufSize:201248
+03-27 03:48:00.887 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.897 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:16630 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:414 dwBufSize:201248
+03-27 03:48:00.981 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:00.982 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:16783 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:419 dwBufSize:201248
+03-27 03:48:01.065 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.066 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:16790 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:420 dwBufSize:201248
+03-27 03:48:01.158 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.169 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:16829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:421 dwBufSize:201248
+03-27 03:48:01.257 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.258 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17054 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:426 dwBufSize:201248
+03-27 03:48:01.346 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.357 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17072 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:427 dwBufSize:201248
+03-27 03:48:01.445 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.446 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17243 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:428 dwBufSize:201248
+03-27 03:48:01.533 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.544 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17270 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:429 dwBufSize:201248
+03-27 03:48:01.628 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.629 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17429 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:434 dwBufSize:201248
+03-27 03:48:01.713 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.724 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17469 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:435 dwBufSize:201248
+03-27 03:48:01.810 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.810 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17609 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:440 dwBufSize:201248
+03-27 03:48:01.895 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.896 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17629 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:441 dwBufSize:201248
+03-27 03:48:01.982 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:01.993 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17706 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:442 dwBufSize:201248
+03-27 03:48:02.077 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.077 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17878 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:447 dwBufSize:201248
+03-27 03:48:02.165 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.176 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:17910 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:448 dwBufSize:201248
+03-27 03:48:02.264 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.265 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18061 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:449 dwBufSize:201248
+03-27 03:48:02.352 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.352 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18070 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:450 dwBufSize:201248
+03-27 03:48:02.436 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.447 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18110 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:451 dwBufSize:201248
+03-27 03:48:02.529 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.530 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18332 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:456 dwBufSize:201248
+03-27 03:48:02.616 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.626 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18350 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:457 dwBufSize:201248
+03-27 03:48:02.707 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.708 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18512 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:462 dwBufSize:201248
+03-27 03:48:02.794 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.805 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18549 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:463 dwBufSize:201248
+03-27 03:48:02.895 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.896 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18691 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:464 dwBufSize:201248
+03-27 03:48:02.983 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:02.994 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18712 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:465 dwBufSize:201248
+03-27 03:48:03.076 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:03.077 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18879 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:470 dwBufSize:201248
+03-27 03:48:03.164 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:03.177 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:18910 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:471 dwBufSize:201248
+03-27 03:48:03.277 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:03.277 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19061 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:476 dwBufSize:201248
+03-27 03:48:03.377 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:03.380 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19070 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:477 dwBufSize:201248
+03-27 03:48:03.483 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:03.495 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19109 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:478 dwBufSize:201248
+03-27 03:48:03.585 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:03.585 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19380 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:483 dwBufSize:201248
+03-27 03:48:03.672 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:03.683 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19391 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:484 dwBufSize:201248
+03-27 03:48:03.769 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:03.769 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19568 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:489 dwBufSize:201248
+03-27 03:48:03.854 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:03.865 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19589 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:490 dwBufSize:201248
+03-27 03:48:03.949 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:03.950 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19750 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:491 dwBufSize:201248
+03-27 03:48:04.036 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:04.046 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19790 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:492 dwBufSize:201248
+03-27 03:48:04.150 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:04.150 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19932 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:497 dwBufSize:201248
+03-27 03:48:04.250 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:04.265 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:19949 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:498 dwBufSize:201248
+03-27 03:48:04.365 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:04.366 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:20147 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:503 dwBufSize:201248
+03-27 03:48:04.460 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:04.461 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:20150 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:504 dwBufSize:201248
+03-27 03:48:04.551 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:04.561 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:20189 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:505 dwBufSize:201248
+03-27 03:48:04.648 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:04.648 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:20447 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:510 dwBufSize:201248
+03-27 03:48:04.736 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:04.747 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:20470 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:511 dwBufSize:201248
+03-27 03:48:04.837 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:04.837 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:20632 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:516 dwBufSize:201248
+03-27 03:48:04.930 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:04.941 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:20669 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:517 dwBufSize:201248
+03-27 03:48:05.029 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.030 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:20826 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:518 dwBufSize:201248
+03-27 03:48:05.123 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.124 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:20829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:519 dwBufSize:201248
+03-27 03:48:05.223 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.234 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:20869 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:520 dwBufSize:201248
+03-27 03:48:05.326 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.326 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21119 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:525 dwBufSize:201248
+03-27 03:48:05.415 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.426 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21151 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:526 dwBufSize:201248
+03-27 03:48:05.513 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.514 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21311 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:531 dwBufSize:201248
+03-27 03:48:05.603 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.614 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21349 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:532 dwBufSize:201248
+03-27 03:48:05.702 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.702 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21499 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:537 dwBufSize:201248
+03-27 03:48:05.788 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.798 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21510 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:538 dwBufSize:201248
+03-27 03:48:05.886 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.887 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21684 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:539 dwBufSize:201248
+03-27 03:48:05.974 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:05.985 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21709 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:540 dwBufSize:201248
+03-27 03:48:06.075 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:06.076 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21870 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:545 dwBufSize:201248
+03-27 03:48:06.164 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:06.165 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21871 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:546 dwBufSize:201248
+03-27 03:48:06.249 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:06.260 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:21909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:547 dwBufSize:201248
+03-27 03:48:06.342 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:06.343 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:22145 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:552 dwBufSize:201248
+03-27 03:48:06.428 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:06.429 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:22150 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:553 dwBufSize:201248
+03-27 03:48:06.517 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:06.528 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:22189 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:554 dwBufSize:201248
+03-27 03:48:06.617 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:06.617 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:22414 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:559 dwBufSize:201248
+03-27 03:48:06.705 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:06.716 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:22431 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:560 dwBufSize:201248
+03-27 03:48:06.814 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:06.818 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:22601 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:565 dwBufSize:201248
+03-27 03:48:06.917 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:06.918 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:22629 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:566 dwBufSize:201248
+03-27 03:48:07.023 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.024 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:22711 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:567 dwBufSize:201248
+03-27 03:48:07.124 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.134 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:22749 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:568 dwBufSize:201248
+03-27 03:48:07.219 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.220 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23020 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:573 dwBufSize:201248
+03-27 03:48:07.303 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.303 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23029 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:574 dwBufSize:201248
+03-27 03:48:07.390 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.401 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23070 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:575 dwBufSize:201248
+03-27 03:48:07.487 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.487 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23286 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:580 dwBufSize:201248
+03-27 03:48:07.574 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.585 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23310 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:581 dwBufSize:201248
+03-27 03:48:07.667 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.667 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23470 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:586 dwBufSize:201248
+03-27 03:48:07.754 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.764 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23510 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:587 dwBufSize:201248
+03-27 03:48:07.852 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.853 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23650 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:588 dwBufSize:201248
+03-27 03:48:07.948 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:07.959 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23671 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:589 dwBufSize:201248
+03-27 03:48:08.053 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:08.053 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23844 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:594 dwBufSize:201248
+03-27 03:48:08.140 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:08.151 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:23871 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:595 dwBufSize:201248
+03-27 03:48:08.239 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:08.239 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:24037 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:600 dwBufSize:201248
+03-27 03:48:08.335 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:08.346 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:24069 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:601 dwBufSize:201248
+03-27 03:48:08.441 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:08.442 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:24232 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:606 dwBufSize:201248
+03-27 03:48:08.537 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:08.548 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:24270 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:607 dwBufSize:201248
+03-27 03:48:08.663 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:08.664 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:24433 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:608 dwBufSize:201248
+03-27 03:48:08.796 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:08.807 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:24470 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:609 dwBufSize:201248
+03-27 03:48:08.907 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:08.908 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:24693 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:614 dwBufSize:201248
+03-27 03:48:09.023 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:09.035 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:24709 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:615 dwBufSize:201248
+03-27 03:48:09.165 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:09.165 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:24919 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:620 dwBufSize:201248
+03-27 03:48:09.277 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:09.279 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:24952 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:621 dwBufSize:201248
+03-27 03:48:09.384 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:09.385 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:25174 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:626 dwBufSize:201248
+03-27 03:48:09.507 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:09.519 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:25192 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:627 dwBufSize:201248
+03-27 03:48:09.645 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:09.645 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:25404 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:632 dwBufSize:201248
+03-27 03:48:09.761 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:09.772 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:25430 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:633 dwBufSize:201248
+03-27 03:48:09.868 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:09.868 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:25657 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:638 dwBufSize:201248
+03-27 03:48:09.953 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:09.964 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:25671 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:639 dwBufSize:201248
+03-27 03:48:10.054 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.055 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:25850 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:644 dwBufSize:201248
+03-27 03:48:10.144 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.155 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:25870 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:645 dwBufSize:201248
+03-27 03:48:10.243 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.244 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26040 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:650 dwBufSize:201248
+03-27 03:48:10.330 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.342 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26069 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:651 dwBufSize:201248
+03-27 03:48:10.429 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.429 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26227 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:652 dwBufSize:201248
+03-27 03:48:10.516 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.516 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26230 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:653 dwBufSize:201248
+03-27 03:48:10.602 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.613 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26269 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:654 dwBufSize:201248
+03-27 03:48:10.697 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.697 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26499 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:659 dwBufSize:201248
+03-27 03:48:10.780 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.791 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26510 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:660 dwBufSize:201248
+03-27 03:48:10.876 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.876 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26676 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:665 dwBufSize:201248
+03-27 03:48:10.961 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:10.973 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26709 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:666 dwBufSize:201248
+03-27 03:48:11.055 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:11.056 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26858 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:671 dwBufSize:201248
+03-27 03:48:11.144 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:11.155 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:26870 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:672 dwBufSize:201248
+03-27 03:48:11.245 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:11.245 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27040 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:673 dwBufSize:201248
+03-27 03:48:11.329 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:11.341 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27069 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:674 dwBufSize:201248
+03-27 03:48:11.426 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:11.426 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27225 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:679 dwBufSize:201248
+03-27 03:48:11.510 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:11.510 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27229 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:680 dwBufSize:201248
+03-27 03:48:11.596 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:11.607 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27269 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:681 dwBufSize:201248
+03-27 03:48:11.689 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:11.689 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27492 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:686 dwBufSize:201248
+03-27 03:48:11.775 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:11.785 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27509 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:687 dwBufSize:201248
+03-27 03:48:11.886 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:11.887 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27671 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:692 dwBufSize:201248
+03-27 03:48:11.991 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:12.002 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27709 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:693 dwBufSize:201248
+03-27 03:48:12.117 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:12.118 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27887 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:694 dwBufSize:201248
+03-27 03:48:12.222 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:12.233 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:27909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:695 dwBufSize:201248
+03-27 03:48:12.337 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:12.339 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:28119 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:700 dwBufSize:201248
+03-27 03:48:12.439 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:12.450 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:28150 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:701 dwBufSize:201248
+03-27 03:48:12.552 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:12.552 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:28336 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:706 dwBufSize:201248
+03-27 03:48:12.649 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:12.660 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:28349 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:707 dwBufSize:201248
+03-27 03:48:12.746 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:12.746 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:28545 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:712 dwBufSize:201248
+03-27 03:48:12.827 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:12.828 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:28550 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:713 dwBufSize:201248
+03-27 03:48:12.912 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:12.923 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:28589 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:714 dwBufSize:201248
+03-27 03:48:13.011 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.012 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:28808 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:719 dwBufSize:201248
+03-27 03:48:13.097 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.108 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:28829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:720 dwBufSize:201248
+03-27 03:48:13.204 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.205 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:28993 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:725 dwBufSize:201248
+03-27 03:48:13.298 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.309 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:29029 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:726 dwBufSize:201248
+03-27 03:48:13.398 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.399 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:29194 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:727 dwBufSize:201248
+03-27 03:48:13.484 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.495 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:29230 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:728 dwBufSize:201248
+03-27 03:48:13.582 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.583 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:29381 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:733 dwBufSize:201248
+03-27 03:48:13.671 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.672 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:29390 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:734 dwBufSize:201248
+03-27 03:48:13.762 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.773 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:29429 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:735 dwBufSize:201248
+03-27 03:48:13.861 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.861 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:29659 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:740 dwBufSize:201248
+03-27 03:48:13.949 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:13.960 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:29669 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:741 dwBufSize:201248
+03-27 03:48:14.045 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:14.046 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:29846 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:746 dwBufSize:201248
+03-27 03:48:14.137 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:14.149 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:29869 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:747 dwBufSize:201248
+03-27 03:48:14.243 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:14.243 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30033 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:748 dwBufSize:201248
+03-27 03:48:14.331 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:14.343 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30069 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:749 dwBufSize:201248
+03-27 03:48:14.430 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:14.431 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30227 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:754 dwBufSize:201248
+03-27 03:48:14.515 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:14.516 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30229 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:755 dwBufSize:201248
+03-27 03:48:14.602 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:14.612 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30269 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:756 dwBufSize:201248
+03-27 03:48:14.700 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:14.701 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30498 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:761 dwBufSize:201248
+03-27 03:48:14.789 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:14.800 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30512 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:762 dwBufSize:201248
+03-27 03:48:14.908 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:14.909 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30686 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:767 dwBufSize:201248
+03-27 03:48:15.010 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.022 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30709 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:768 dwBufSize:201248
+03-27 03:48:15.108 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.108 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30906 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:769 dwBufSize:201248
+03-27 03:48:15.201 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.202 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:770 dwBufSize:201248
+03-27 03:48:15.296 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.307 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:30950 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:771 dwBufSize:201248
+03-27 03:48:15.397 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.397 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:31193 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:780 dwBufSize:201248
+03-27 03:48:15.485 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.496 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:31229 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:781 dwBufSize:201248
+03-27 03:48:15.588 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.589 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:31382 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:782 dwBufSize:201248
+03-27 03:48:15.676 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.676 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:31389 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:783 dwBufSize:201248
+03-27 03:48:15.762 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.773 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:31430 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:784 dwBufSize:201248
+03-27 03:48:15.862 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.862 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:31658 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:789 dwBufSize:201248
+03-27 03:48:15.946 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:15.957 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:31672 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:790 dwBufSize:201248
+03-27 03:48:16.045 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:16.046 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:31842 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:795 dwBufSize:201248
+03-27 03:48:16.132 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:16.142 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:31869 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:796 dwBufSize:201248
+03-27 03:48:16.233 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:16.233 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32028 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:797 dwBufSize:201248
+03-27 03:48:16.319 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:16.320 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32029 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:798 dwBufSize:201248
+03-27 03:48:16.407 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:16.419 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32069 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:799 dwBufSize:201248
+03-27 03:48:16.519 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:16.520 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32303 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:804 dwBufSize:201248
+03-27 03:48:16.620 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:16.623 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32309 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:805 dwBufSize:201248
+03-27 03:48:16.723 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:16.734 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32349 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:806 dwBufSize:201248
+03-27 03:48:16.819 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:16.819 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32619 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:815 dwBufSize:201248
+03-27 03:48:16.912 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:16.913 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32629 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:816 dwBufSize:201248
+03-27 03:48:16.998 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:17.009 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32669 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:817 dwBufSize:201248
+03-27 03:48:17.098 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:17.099 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32895 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:822 dwBufSize:201248
+03-27 03:48:17.186 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:17.198 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:32909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:823 dwBufSize:201248
+03-27 03:48:17.287 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:17.288 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:33083 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:824 dwBufSize:201248
+03-27 03:48:17.379 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:17.390 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:33110 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:825 dwBufSize:201248
+03-27 03:48:17.476 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:17.476 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:33275 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:830 dwBufSize:201248
+03-27 03:48:17.569 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:17.580 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:33309 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:831 dwBufSize:201248
+03-27 03:48:17.675 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:17.675 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:33465 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:836 dwBufSize:201248
+03-27 03:48:17.791 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:17.791 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:33469 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:837 dwBufSize:201248
+03-27 03:48:17.904 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:17.914 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:33509 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:838 dwBufSize:201248
+03-27 03:48:18.026 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:18.027 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:33800 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:843 dwBufSize:201248
+03-27 03:48:18.134 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:18.146 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:33829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:844 dwBufSize:201248
+03-27 03:48:18.244 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:18.244 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:34032 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:849 dwBufSize:201248
+03-27 03:48:18.338 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:18.349 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:34069 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:850 dwBufSize:201248
+03-27 03:48:18.437 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:18.437 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:34235 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:855 dwBufSize:201248
+03-27 03:48:18.553 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:18.566 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:34269 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:856 dwBufSize:201248
+03-27 03:48:18.706 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:18.707 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:34451 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:861 dwBufSize:201248
+03-27 03:48:18.812 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:18.823 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:34470 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:862 dwBufSize:201248
+03-27 03:48:18.913 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:18.914 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:34708 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:867 dwBufSize:201248
+03-27 03:48:19.004 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:19.004 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:34710 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:868 dwBufSize:201248
+03-27 03:48:19.111 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:19.122 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:34750 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:869 dwBufSize:201248
+03-27 03:48:19.210 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:19.211 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:35007 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:874 dwBufSize:201248
+03-27 03:48:19.300 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:19.311 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:35029 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:875 dwBufSize:201248
+03-27 03:48:19.395 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:19.396 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:35197 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:880 dwBufSize:201248
+03-27 03:48:19.502 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:19.513 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:35230 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:881 dwBufSize:201248
+03-27 03:48:19.611 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:19.612 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:35398 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:882 dwBufSize:201248
+03-27 03:48:19.720 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:19.731 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:35429 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:883 dwBufSize:201248
+03-27 03:48:19.839 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:19.839 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:35617 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:888 dwBufSize:201248
+03-27 03:48:19.954 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:19.965 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:35629 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:889 dwBufSize:201248
+03-27 03:48:20.074 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:20.074 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:35850 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:894 dwBufSize:201248
+03-27 03:48:20.175 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:20.186 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:35871 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:895 dwBufSize:201248
+03-27 03:48:20.287 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:20.288 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36072 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:900 dwBufSize:201248
+03-27 03:48:20.387 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:20.398 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36109 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:901 dwBufSize:201248
+03-27 03:48:20.486 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:20.486 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36283 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:906 dwBufSize:201248
+03-27 03:48:20.572 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:20.583 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36309 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:907 dwBufSize:201248
+03-27 03:48:20.673 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:20.673 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36469 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:908 dwBufSize:201248
+03-27 03:48:20.755 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:20.755 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36476 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:909 dwBufSize:201248
+03-27 03:48:20.841 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:20.852 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36509 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:910 dwBufSize:201248
+03-27 03:48:20.952 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:20.953 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36737 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:915 dwBufSize:201248
+03-27 03:48:21.043 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:21.054 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36749 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:916 dwBufSize:201248
+03-27 03:48:21.144 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:21.145 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36939 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:921 dwBufSize:201248
+03-27 03:48:21.230 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:21.241 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:36950 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:922 dwBufSize:201248
+03-27 03:48:21.326 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:21.327 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:37127 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:927 dwBufSize:201248
+03-27 03:48:21.419 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:21.431 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:37153 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:928 dwBufSize:201248
+03-27 03:48:21.567 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:21.568 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:37316 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:933 dwBufSize:201248
+03-27 03:48:21.655 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:21.666 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:37350 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:934 dwBufSize:201248
+03-27 03:48:21.766 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:21.766 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:37551 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:939 dwBufSize:201248
+03-27 03:48:21.870 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:21.881 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:37589 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:940 dwBufSize:201248
+03-27 03:48:21.997 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:21.997 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:37767 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:941 dwBufSize:201248
+03-27 03:48:22.109 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:22.121 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:37789 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:942 dwBufSize:201248
+03-27 03:48:22.212 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:22.212 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38006 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:947 dwBufSize:201248
+03-27 03:48:22.317 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:22.328 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38029 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:948 dwBufSize:201248
+03-27 03:48:22.432 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:22.432 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38213 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:953 dwBufSize:201248
+03-27 03:48:22.524 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:22.534 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38229 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:954 dwBufSize:201248
+03-27 03:48:22.622 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:22.622 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38420 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:959 dwBufSize:201248
+03-27 03:48:22.705 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:22.705 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38429 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:960 dwBufSize:201248
+03-27 03:48:22.791 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:22.801 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38470 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:961 dwBufSize:201248
+03-27 03:48:22.890 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:22.891 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38687 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:966 dwBufSize:201248
+03-27 03:48:22.977 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:22.988 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38709 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:967 dwBufSize:201248
+03-27 03:48:23.072 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.073 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38874 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:972 dwBufSize:201248
+03-27 03:48:23.160 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.170 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:38909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:973 dwBufSize:201248
+03-27 03:48:23.256 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.257 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39056 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:974 dwBufSize:201248
+03-27 03:48:23.346 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.357 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39069 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:975 dwBufSize:201248
+03-27 03:48:23.442 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.443 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39243 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:980 dwBufSize:201248
+03-27 03:48:23.529 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.540 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39270 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:981 dwBufSize:201248
+03-27 03:48:23.628 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.629 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39425 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:982 dwBufSize:201248
+03-27 03:48:23.714 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.714 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39431 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:983 dwBufSize:201248
+03-27 03:48:23.807 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.808 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39469 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:984 dwBufSize:201248
+03-27 03:48:23.895 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.896 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39703 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:989 dwBufSize:201248
+03-27 03:48:23.977 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:23.988 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39709 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:990 dwBufSize:201248
+03-27 03:48:24.075 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:24.075 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39874 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:995 dwBufSize:201248
+03-27 03:48:24.174 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:24.184 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:39909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:996 dwBufSize:201248
+03-27 03:48:24.269 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:24.269 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40070 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1001 dwBufSize:201248
+03-27 03:48:24.355 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:24.366 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40109 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1002 dwBufSize:201248
+03-27 03:48:24.454 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:24.456 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40251 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1003 dwBufSize:201248
+03-27 03:48:24.562 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:24.563 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40269 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1004 dwBufSize:201248
+03-27 03:48:24.654 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:24.655 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40458 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1009 dwBufSize:201248
+03-27 03:48:24.742 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:24.742 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40470 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1010 dwBufSize:201248
+03-27 03:48:24.827 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:24.828 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40551 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1011 dwBufSize:201248
+03-27 03:48:24.912 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:24.923 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40590 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1012 dwBufSize:201248
+03-27 03:48:25.009 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.010 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40808 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1017 dwBufSize:201248
+03-27 03:48:25.091 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.102 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1018 dwBufSize:201248
+03-27 03:48:25.189 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.189 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40987 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1023 dwBufSize:201248
+03-27 03:48:25.274 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.275 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:40989 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1024 dwBufSize:201248
+03-27 03:48:25.361 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.371 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41029 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1025 dwBufSize:201248
+03-27 03:48:25.461 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.462 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41257 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1030 dwBufSize:201248
+03-27 03:48:25.547 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.558 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41271 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1031 dwBufSize:201248
+03-27 03:48:25.645 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.645 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41444 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1036 dwBufSize:201248
+03-27 03:48:25.727 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.738 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41470 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1037 dwBufSize:201248
+03-27 03:48:25.827 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.828 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41624 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1038 dwBufSize:201248
+03-27 03:48:25.915 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:25.915 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41629 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1039 dwBufSize:201248
+03-27 03:48:26.003 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.016 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41669 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1040 dwBufSize:201248
+03-27 03:48:26.117 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.118 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41900 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1045 dwBufSize:201248
+03-27 03:48:26.218 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.220 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1046 dwBufSize:201248
+03-27 03:48:26.323 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.334 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:41949 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1047 dwBufSize:201248
+03-27 03:48:26.421 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.422 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:42219 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1052 dwBufSize:201248
+03-27 03:48:26.514 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.515 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:42229 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1053 dwBufSize:201248
+03-27 03:48:26.603 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.614 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:42269 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1054 dwBufSize:201248
+03-27 03:48:26.700 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.700 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:42499 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1059 dwBufSize:201248
+03-27 03:48:26.786 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.796 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:42511 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1060 dwBufSize:201248
+03-27 03:48:26.878 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.879 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:42682 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1065 dwBufSize:201248
+03-27 03:48:26.964 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:26.974 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:42709 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1066 dwBufSize:201248
+03-27 03:48:27.060 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:27.060 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:42860 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1071 dwBufSize:201248
+03-27 03:48:27.148 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:27.149 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:42869 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1072 dwBufSize:201248
+03-27 03:48:27.234 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:27.245 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:42909 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1073 dwBufSize:201248
+03-27 03:48:27.332 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:27.332 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:43130 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1078 dwBufSize:201248
+03-27 03:48:27.422 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:27.433 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:43152 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1079 dwBufSize:201248
+03-27 03:48:27.521 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:27.521 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:43318 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1080 dwBufSize:201248
+03-27 03:48:27.610 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:27.621 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:43352 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1081 dwBufSize:201248
+03-27 03:48:27.709 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:27.710 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:43506 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1086 dwBufSize:201248
+03-27 03:48:27.816 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:27.819 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:43509 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1087 dwBufSize:201248
+03-27 03:48:27.926 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:27.940 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:43549 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1088 dwBufSize:201248
+03-27 03:48:28.067 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:28.068 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:43823 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1093 dwBufSize:201248
+03-27 03:48:28.165 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:28.165 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:43829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1094 dwBufSize:201248
+03-27 03:48:28.272 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:28.283 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:43869 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1095 dwBufSize:201248
+03-27 03:48:28.383 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:28.383 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:44168 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1104 dwBufSize:201248
+03-27 03:48:28.482 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:28.494 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:44189 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1105 dwBufSize:201248
+03-27 03:48:28.595 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:28.595 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:44379 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1106 dwBufSize:201248
+03-27 03:48:28.695 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:28.707 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:44389 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1107 dwBufSize:201248
+03-27 03:48:28.810 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:28.811 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:44591 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1112 dwBufSize:201248
+03-27 03:48:28.913 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:28.926 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:44630 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1113 dwBufSize:201248
+03-27 03:48:29.035 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:29.036 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:44810 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1118 dwBufSize:201248
+03-27 03:48:29.142 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:29.154 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:44833 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1119 dwBufSize:201248
+03-27 03:48:29.258 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:29.259 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:45039 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1124 dwBufSize:201248
+03-27 03:48:29.359 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:29.360 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:45070 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1125 dwBufSize:201248
+03-27 03:48:29.458 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:29.458 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:45154 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1126 dwBufSize:201248
+03-27 03:48:29.552 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:29.563 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:45189 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1127 dwBufSize:201248
+03-27 03:48:29.654 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:29.655 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:45449 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1136 dwBufSize:201248
+03-27 03:48:29.747 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:29.758 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:45472 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1137 dwBufSize:201248
+03-27 03:48:29.844 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:29.845 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:45643 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1138 dwBufSize:201248
+03-27 03:48:29.939 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:29.950 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:45669 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1139 dwBufSize:201248
+03-27 03:48:30.041 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.042 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:45836 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1144 dwBufSize:201248
+03-27 03:48:30.128 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.139 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:45869 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1145 dwBufSize:201248
+03-27 03:48:30.227 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.228 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46024 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1150 dwBufSize:201248
+03-27 03:48:30.316 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.316 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46029 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1151 dwBufSize:201248
+03-27 03:48:30.399 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.410 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46069 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1152 dwBufSize:201248
+03-27 03:48:30.500 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.502 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46296 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1157 dwBufSize:201248
+03-27 03:48:30.590 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.590 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46309 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1158 dwBufSize:201248
+03-27 03:48:30.682 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.682 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46397 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1159 dwBufSize:201248
+03-27 03:48:30.767 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.778 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46430 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1160 dwBufSize:201248
+03-27 03:48:30.864 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.864 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46663 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1165 dwBufSize:201248
+03-27 03:48:30.954 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:30.955 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46669 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1166 dwBufSize:201248
+03-27 03:48:31.040 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.050 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46709 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1167 dwBufSize:201248
+03-27 03:48:31.147 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.147 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46936 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1172 dwBufSize:201248
+03-27 03:48:31.233 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.245 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:46950 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1173 dwBufSize:201248
+03-27 03:48:31.329 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.330 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:47130 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1178 dwBufSize:201248
+03-27 03:48:31.417 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.428 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:47149 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1179 dwBufSize:201248
+03-27 03:48:31.516 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.517 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:47313 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1180 dwBufSize:201248
+03-27 03:48:31.603 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.614 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:47349 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1181 dwBufSize:201248
+03-27 03:48:31.704 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.704 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:47500 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1186 dwBufSize:201248
+03-27 03:48:31.789 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.800 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:47511 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1187 dwBufSize:201248
+03-27 03:48:31.888 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.889 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:47686 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1192 dwBufSize:201248
+03-27 03:48:31.972 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:31.983 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:47711 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1193 dwBufSize:201248
+03-27 03:48:32.067 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:32.068 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:47869 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1194 dwBufSize:201248
+03-27 03:48:32.155 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:32.165 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:47910 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1195 dwBufSize:201248
+03-27 03:48:32.250 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:32.251 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48051 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1200 dwBufSize:201248
+03-27 03:48:32.337 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:32.348 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48072 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1201 dwBufSize:201248
+03-27 03:48:32.437 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:32.438 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48234 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1206 dwBufSize:201248
+03-27 03:48:32.522 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:32.534 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48269 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1207 dwBufSize:201248
+03-27 03:48:32.621 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:32.622 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48419 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1208 dwBufSize:201248
+03-27 03:48:32.709 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:32.720 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48430 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1209 dwBufSize:201248
+03-27 03:48:32.809 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:32.810 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48605 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1214 dwBufSize:201248
+03-27 03:48:32.901 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:32.912 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48629 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1215 dwBufSize:201248
+03-27 03:48:33.000 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.001 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48798 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1220 dwBufSize:201248
+03-27 03:48:33.090 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.100 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1221 dwBufSize:201248
+03-27 03:48:33.184 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.185 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48986 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1222 dwBufSize:201248
+03-27 03:48:33.269 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.270 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:48989 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1223 dwBufSize:201248
+03-27 03:48:33.354 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.365 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:49029 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1224 dwBufSize:201248
+03-27 03:48:33.453 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.454 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:49250 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1229 dwBufSize:201248
+03-27 03:48:33.539 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.550 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:49272 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1230 dwBufSize:201248
+03-27 03:48:33.635 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.635 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:49436 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1235 dwBufSize:201248
+03-27 03:48:33.719 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.730 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:49469 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1236 dwBufSize:201248
+03-27 03:48:33.821 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.822 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:49616 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1237 dwBufSize:201248
+03-27 03:48:33.910 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:33.910 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:49629 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1238 dwBufSize:201248
+03-27 03:48:33.995 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.006 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:49717 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1243 dwBufSize:201248
+03-27 03:48:34.093 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.094 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:49891 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1244 dwBufSize:201248
+03-27 03:48:34.176 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.187 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:49910 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1245 dwBufSize:201248
+03-27 03:48:34.276 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.277 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:50072 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1250 dwBufSize:201248
+03-27 03:48:34.383 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.384 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:50109 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1251 dwBufSize:201248
+03-27 03:48:34.482 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.493 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:50172 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1252 dwBufSize:201248
+03-27 03:48:34.580 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.581 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:50378 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1257 dwBufSize:201248
+03-27 03:48:34.664 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.674 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:50389 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1258 dwBufSize:201248
+03-27 03:48:34.777 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.779 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:50560 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1263 dwBufSize:201248
+03-27 03:48:34.882 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.895 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:50589 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1264 dwBufSize:201248
+03-27 03:48:34.997 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:34.998 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:50779 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1269 dwBufSize:201248
+03-27 03:48:35.089 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:35.090 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:50789 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1270 dwBufSize:201248
+03-27 03:48:35.181 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:35.191 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:50829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1271 dwBufSize:201248
+03-27 03:48:35.284 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:35.284 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51077 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1276 dwBufSize:201248
+03-27 03:48:35.374 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:35.384 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51110 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1277 dwBufSize:201248
+03-27 03:48:35.472 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:35.473 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51271 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1282 dwBufSize:201248
+03-27 03:48:35.561 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:35.572 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51309 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1283 dwBufSize:201248
+03-27 03:48:35.658 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:35.659 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51457 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1284 dwBufSize:201248
+03-27 03:48:35.749 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:35.759 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51471 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1285 dwBufSize:201248
+03-27 03:48:35.844 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:35.845 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51645 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1290 dwBufSize:201248
+03-27 03:48:35.930 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:35.941 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51669 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1291 dwBufSize:201248
+03-27 03:48:36.026 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:36.026 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51826 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1292 dwBufSize:201248
+03-27 03:48:36.108 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:36.109 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51829 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1293 dwBufSize:201248
+03-27 03:48:36.194 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:36.195 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:51869 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1294 dwBufSize:201248
+03-27 03:48:36.282 I/[JavaInterface]( 5428): fStreamCallback_JNI OUT!
+03-27 03:48:36.283 I/[JavaInterface]( 5428): fStreamCallback_JNI Success! nStamp:52005 dwStreamType:103 dwWidth:256 dwHeight:392 dwFrameRate:25 dwFrameType:0 dwDataType:0 nFrameNum:1299 dwBufSize:201248
