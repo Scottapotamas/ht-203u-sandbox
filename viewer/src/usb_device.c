@@ -20,7 +20,10 @@ enum
     HTI_XU_GET_BMREQUESTTYPE    = 0xa1,
     HTI_XU_SET_BMREQUESTTYPE    = 0x21,
     HTI_XU_SET_CUR              = 0x01,
+    HTI_XU_GET_CUR              = 0x81,
     HTI_XU_GET_LEN              = 0x85,
+    HTI_XU_SYSTEM_INFO_SELECTOR = 0x01,
+    HTI_XU_PROTOCOL_SELECTOR    = 0x04,
     HTI_XU_PRELUDE_SELECTOR     = 0x05,
     HTI_XU_TRIGGER_SELECTOR     = 0x02,
     HTI_UVC_SET_BMREQUESTTYPE   = LIBUSB_ENDPOINT_OUT | LIBUSB_REQUEST_TYPE_CLASS | LIBUSB_RECIPIENT_INTERFACE,
@@ -34,6 +37,8 @@ enum
     HTI_STREAM_START_SETTLE_MS  = 100,
     HTI_BULK_RETRY_COUNT        = 8,
     HTI_BULK_RETRY_DELAY_MS     = 20,
+    HTI_PROTOCOL_MAX_LEN        = 16,
+    HTI_SYSTEM_INFO_MAX_LEN     = 1024,
 };
 
 static unsigned int transfer_timeout_ms( const struct hti_usb_device *dev )
@@ -340,6 +345,29 @@ static int xu_get_len( struct hti_usb_device *dev, uint8_t selector, uint16_t *d
     return 0;
 }
 
+static int xu_get_cur( struct hti_usb_device *dev, uint8_t selector,
+                       uint8_t *payload, uint16_t payload_len, int *actual_len_out )
+{
+    int rc = libusb_control_transfer( dev->handle,
+                                      HTI_XU_GET_BMREQUESTTYPE,
+                                      HTI_XU_GET_CUR,
+                                      make_xu_w_value( selector ),
+                                      make_xu_w_index( dev ),
+                                      payload,
+                                      payload_len,
+                                      transfer_timeout_ms( dev ) );
+    if( rc < 0 )
+    {
+        return rc;
+    }
+
+    if( actual_len_out != NULL )
+    {
+        *actual_len_out = rc;
+    }
+    return 0;
+}
+
 static int xu_set_cur( struct hti_usb_device *dev, uint8_t selector,
                        const uint8_t *payload, uint16_t payload_len )
 {
@@ -361,6 +389,78 @@ static int xu_set_cur( struct hti_usb_device *dev, uint8_t selector,
         return LIBUSB_ERROR_IO;
     }
 
+    return 0;
+}
+
+static int hti_usb_trigger_shutter_once( struct hti_usb_device *dev );
+
+static int prime_paired_init_state( struct hti_usb_device *dev )
+{
+    static const uint8_t prelude_payload[2] = { 0x01, 0x01 };
+    uint8_t              protocol_buf[HTI_PROTOCOL_MAX_LEN];
+    uint8_t              system_info_buf[HTI_SYSTEM_INFO_MAX_LEN];
+    int                  actual_len      = 0;
+    uint16_t             selector_len    = 0;
+    int                  rc              = 0;
+
+    if( dev->paired_init_done )
+    {
+        return 0;
+    }
+
+    rc = xu_get_len( dev, HTI_XU_PROTOCOL_SELECTOR, &selector_len );
+    if( rc != 0 )
+    {
+        return rc;
+    }
+
+    if( selector_len > sizeof( protocol_buf ) )
+    {
+        return LIBUSB_ERROR_IO;
+    }
+
+    if( selector_len > 0 )
+    {
+        rc = xu_get_cur( dev, HTI_XU_PROTOCOL_SELECTOR, protocol_buf, selector_len, &actual_len );
+        if( rc != 0 )
+        {
+            return rc;
+        }
+    }
+
+    rc = xu_get_len( dev, HTI_XU_PRELUDE_SELECTOR, &selector_len );
+    if( rc != 0 )
+    {
+        return rc;
+    }
+
+    rc = xu_set_cur( dev, HTI_XU_PRELUDE_SELECTOR, prelude_payload, sizeof( prelude_payload ) );
+    if( rc != 0 )
+    {
+        return rc;
+    }
+
+    rc = xu_get_len( dev, HTI_XU_SYSTEM_INFO_SELECTOR, &selector_len );
+    if( rc != 0 )
+    {
+        return rc;
+    }
+
+    if( selector_len > sizeof( system_info_buf ) )
+    {
+        return LIBUSB_ERROR_IO;
+    }
+
+    if( selector_len > 0 )
+    {
+        rc = xu_get_cur( dev, HTI_XU_SYSTEM_INFO_SELECTOR, system_info_buf, selector_len, &actual_len );
+        if( rc != 0 )
+        {
+            return rc;
+        }
+    }
+
+    dev->paired_init_done = true;
     return 0;
 }
 
@@ -455,6 +555,14 @@ int hti_usb_open( struct hti_usb_device *dev, uint16_t vid, uint16_t pid,
     {
         hti_usb_close( dev );
         return rc;
+    }
+
+    rc = prime_paired_init_state( dev );
+    if( rc != 0 )
+    {
+        fprintf( stderr,
+                 "warning: cold-start control init failed during open: %s\n",
+                 libusb_error_name( rc ) );
     }
 
     rc = claim_interface_with_detach( dev, dev->streaming_interface, &dev->streaming_detached );
@@ -610,6 +718,36 @@ int hti_usb_read_frame( struct hti_usb_device *dev, struct hti_transport_frame *
 }
 
 int hti_usb_trigger_shutter( struct hti_usb_device *dev )
+{
+    int rc = prime_paired_init_state( dev );
+
+    if( rc != 0 )
+    {
+        fprintf( stderr,
+                 "warning: cold-start control init failed before shutter: %s\n",
+                 libusb_error_name( rc ) );
+    }
+
+    rc = hti_usb_trigger_shutter_once( dev );
+    if( rc == 0 )
+    {
+        return 0;
+    }
+
+    fprintf( stderr,
+                "shutter trigger failed once (%s); rerunning cold-start init and retrying\n",
+                libusb_error_name( rc ) );
+    
+    dev->paired_init_done = false;
+    if( prime_paired_init_state( dev ) != 0 )
+    {
+        return rc;
+    }
+
+    return hti_usb_trigger_shutter_once( dev );
+}
+
+static int hti_usb_trigger_shutter_once( struct hti_usb_device *dev )
 {
     static const uint8_t prelude_payload[2] = { 0x02, 0x04 };
     static const uint8_t trigger_payload[1] = { 0x01 };

@@ -172,6 +172,7 @@ struct hti_usb_device
     uint32_t              negotiated_frame_bytes;
     uint32_t              negotiated_payload_bytes;
     uint64_t              frame_sequence;
+    bool                  paired_init_done;
     bool                  control_detached;
     bool                  streaming_detached;
     uint8_t               packet_buf[65536];
