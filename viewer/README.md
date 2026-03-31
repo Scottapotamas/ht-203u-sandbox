@@ -1,0 +1,113 @@
+# HTI USB Viewer
+
+`hti-usb-view` is a SDL based realtime viewer for the HT-203U on Linux.
+
+It's able to provide the same basic functionality as the Android app, but running from the thermal data rather than the hardware processed false-colour feed.
+
+- `libusb` only for simultaneous live capture and camera control, no `/dev/video0` or V4L2.
+- Direct access to the radiometric `u16` data path
+- Footer extraction for raw and processed calibration of thermal data
+- Display of temperatures on-screen, optional debug view
+- Automatic or manual temperature-colour mapping, iron and greyscale palettes
+- Live shutter triggering, detection of automatic shutter refreshes
+- Detailed artifacts for scientific analysis
+- Runtime selectable temperature correction modes:
+  - `raw` is mapped but uncompensated by any metadata fields
+  - `w20delta`
+  - `w20+r1` uses `w20` "internal temperature" as the dominant baseline term plus a smaller `r1` warmup term
+  - `lower-affine` uses the hardware's pre-processed image footer fields as 'anchors' when they look trustworthy, and falls back to the upper-footer-driven path during shutter / replay windows.
+
+## Build
+
+```bash
+cd ht-203u-sandbox/viewer
+make
+./hti-usb-view --help
+```
+
+Requirements:
+
+- C compiler
+- `pkg-config`
+- `libusb-1.0` development package
+- `SDL2` development package
+
+## Usage
+
+Open one saved capture without needing the camera:
+
+```bash
+./viewer/hti-usb-view --prefix dataset/005_hotwater --frames 1 --headless
+```
+
+Save one decoded offline frame:
+
+```bash
+./viewer/hti-usb-view --prefix dataset/005_hotwater --frames 1 --headless --save-dir out
+```
+
+Open the `libusb` based live viewer:
+
+```bash
+./viewer/hti-usb-view
+```
+
+Force a different UVC frame descriptor for experiments:
+
+```bash
+./viewer/hti-usb-view --frame-index 4 --verbose
+```
+
+`--verbose` emits a detailed per-frame CLI status, including footer register and lower-reference lines. Without it, the live/headless status output is compact for readability by default.
+
+Trigger a manual correction automatically during a headless capture run:
+
+```bash
+./viewer/hti-usb-view --headless --frames 20 --trigger-after 5
+```
+
+Force one manual correction before live acquisition starts:
+
+```bash
+./viewer/hti-usb-view --headless --frames 24 --trigger-before-start --save-dir out
+```
+
+The default live request is:
+
+- uncompressed UVC format index `1`
+- UVC frame index `1`
+- frame interval `400000` (`25 fps`)
+
+That default matches the `256x392` stacked raster with the upper and lower footer rows intact.
+
+## Runtime keyboard shortcuts
+
+- `q` or `Esc`: quit
+- `space`: pause or resume live capture
+- `s`: trigger shutter / FFC / NUC in live mode
+- `c`: cycle correction mode
+- `o`: cycle overlay mode (`none`, `minimal`, `debug`)
+- `p`: cycle palette
+- `a`: toggle auto and manual scale
+- `[` and `]`: adjust manual minimum in `0.5 C` steps
+- `-` and `=`: adjust manual maximum in `0.5 C` steps
+- `w`: save the current frame
+
+## Output artifacts
+
+When a frame is saved, the viewer writes:
+
+- `<stamp>_<name>.bin`: raw transport bytes when available
+- `<stamp>_<name>_radiometric_u16.pgm`: normalized radiometric codes
+- `<stamp>_<name>_preview.ppm`: the displayed palette preview
+- `<stamp>_<name>.json`: footer fields, correction mode, palette, scale, live replay / FFC state, timing fields, quantitative-valid mask, and lower-affine fit parameters
+
+## Code layout
+
+- [`viewer/src/usb_device.c`](src/usb_device.c): camera open, UVC probe/commit, bulk reads, shutter trigger
+- [`viewer/src/frame_decode.c`](src/frame_decode.c): transport-frame decoding and saved-prefix loading
+- [`viewer/src/thermo.c`](src/thermo.c): temperature mapping, correction modes, stats
+- [`viewer/src/palette.c`](src/palette.c): display palettes
+- [`viewer/src/render_sdl.c`](src/render_sdl.c): SDL rendering
+- [`viewer/src/frame_save.c`](src/frame_save.c): saved artifacts
+- [`viewer/src/main.c`](src/main.c): CLI parsing and single-threaded app loop
