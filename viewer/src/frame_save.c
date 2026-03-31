@@ -202,12 +202,18 @@ static int write_metadata_json( const char                         *path,
     if( frame->quantitative_valid )
     {
         fprintf( f,
-                 "  \"stats_c\": {\"hot\": %.6f, \"cold\": %.6f, \"center\": %.6f, \"mean\": %.6f, \"offset\": %.6f},\n",
+                 "  \"stats_c\": {\"hot\": %.6f, \"cold\": %.6f, \"center\": %.6f, \"mean\": %.6f, \"span\": %.6f, \"effective_bits\": %.6f, \"offset\": %.6f},\n",
                  stats->max_c,
                  stats->min_c,
                  stats->center_c,
                  stats->mean_c,
+                 stats->scene_range_c,
+                 stats->scene_dynamic_bits,
                  stats->offset_c );
+        fprintf( f,
+                 "  \"raw_code_range\": {\"min\": %u, \"max\": %u},\n",
+                 (unsigned)stats->raw_min_code,
+                 (unsigned)stats->raw_max_code );
         fprintf( f,
                  "  \"hot_xy\": [%d, %d],\n"
                  "  \"cold_xy\": [%d, %d],\n",
@@ -219,6 +225,7 @@ static int write_metadata_json( const char                         *path,
     else
     {
         fprintf( f, "  \"stats_c\": null,\n" );
+        fprintf( f, "  \"raw_code_range\": null,\n" );
         fprintf( f, "  \"hot_xy\": null,\n" );
         fprintf( f, "  \"cold_xy\": null,\n" );
     }

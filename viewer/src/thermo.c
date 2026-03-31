@@ -303,21 +303,34 @@ void hti_compute_stats( const struct hti_frame       *frame,
     double sum          = 0.0;
     int    center_index = ( HTI_FRAME_HEIGHT / 2 ) * HTI_FRAME_WIDTH + ( HTI_FRAME_WIDTH / 2 );
 
-    stats->min_c = 1e30;
-    stats->max_c = -1e30;
-    stats->min_x = 0;
-    stats->min_y = 0;
-    stats->max_x = 0;
-    stats->max_y = 0;
+    stats->min_c              = 1e30;
+    stats->max_c              = -1e30;
+    stats->scene_range_c      = 0.0;
+    stats->scene_dynamic_bits = 0.0;
+    stats->raw_min_code       = UINT16_MAX;
+    stats->raw_max_code       = 0;
+    stats->min_x              = 0;
+    stats->min_y              = 0;
+    stats->max_x              = 0;
+    stats->max_y              = 0;
 
     for( int y = 0; y < HTI_FRAME_HEIGHT; y++ )
     {
         for( int x = 0; x < HTI_FRAME_WIDTH; x++ )
         {
-            int    idx    = y * HTI_FRAME_WIDTH + x;
-            double temp_c = hti_temperature_at( frame, correction, idx );
+            int      idx      = y * HTI_FRAME_WIDTH + x;
+            uint16_t raw_code = frame->radiometric[idx];
+            double   temp_c   = hti_temperature_at( frame, correction, idx );
 
             sum += temp_c;
+            if( raw_code < stats->raw_min_code )
+            {
+                stats->raw_min_code = raw_code;
+            }
+            if( raw_code > stats->raw_max_code )
+            {
+                stats->raw_max_code = raw_code;
+            }
             if( temp_c < stats->min_c )
             {
                 stats->min_c = temp_c;
@@ -335,6 +348,21 @@ void hti_compute_stats( const struct hti_frame       *frame,
 
     stats->center_c = hti_temperature_at( frame, correction, center_index );
     stats->mean_c   = sum / (double)HTI_IMAGE_PIXELS;
+    stats->scene_range_c = stats->max_c - stats->min_c;
+    if( !isfinite( stats->scene_range_c ) || stats->scene_range_c < 0.0 )
+    {
+        stats->scene_range_c = 0.0;
+    }
+    if( stats->raw_max_code >= stats->raw_min_code )
+    {
+        double raw_span = (double)( stats->raw_max_code - stats->raw_min_code );
+
+        stats->scene_dynamic_bits = raw_span > 0.0 ? log2( raw_span + 1.0 ) : 0.0;
+    }
+    if( !isfinite( stats->scene_dynamic_bits ) || stats->scene_dynamic_bits < 0.0 )
+    {
+        stats->scene_dynamic_bits = 0.0;
+    }
     stats->offset_c = 0.0;
 }
 
@@ -351,8 +379,8 @@ void hti_compute_display_range( const struct hti_temperature_stats *stats,
     }
     else
     {
-        range->min_c = stats->min_c;
-        range->max_c = stats->max_c;
+        range->min_c = stats->min_c - 1.0;
+        range->max_c = stats->max_c + 1.0;
     }
 
     if( !isfinite( range->min_c ) || !isfinite( range->max_c ) || range->max_c <= range->min_c )

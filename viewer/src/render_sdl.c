@@ -37,6 +37,7 @@ enum hti_overlay_anchor
     HTI_OVERLAY_TOP_CENTER,
     HTI_OVERLAY_TOP_RIGHT,
     HTI_OVERLAY_BOTTOM_LEFT,
+    HTI_OVERLAY_BOTTOM_CENTER,
     HTI_OVERLAY_BOTTOM_RIGHT,
 };
 
@@ -341,6 +342,10 @@ static void draw_overlay_block( SDL_Renderer                   *renderer,
             rect.x = HTI_OVERLAY_OUTER_PAD;
             rect.y = win_h - HTI_OVERLAY_OUTER_PAD - rect.h;
             break;
+        case HTI_OVERLAY_BOTTOM_CENTER:
+            rect.x = ( win_w - rect.w ) / 2;
+            rect.y = win_h - HTI_OVERLAY_OUTER_PAD - rect.h;
+            break;
         case HTI_OVERLAY_BOTTOM_RIGHT:
             rect.x = win_w - HTI_OVERLAY_OUTER_PAD - rect.w;
             rect.y = win_h - HTI_OVERLAY_OUTER_PAD - rect.h;
@@ -409,6 +414,17 @@ static void format_temp_value( char *dst, size_t dst_size, bool valid, double te
 static void format_seconds_value( char *dst, size_t dst_size, uint64_t ns )
 {
     snprintf( dst, dst_size, "%7.2fS", (double)ns / 1000000000.0 );
+}
+
+static void format_bits_value( char *dst, size_t dst_size, bool valid, double bits )
+{
+    if( !valid || !isfinite( bits ) )
+    {
+        snprintf( dst, dst_size, "--.--" );
+        return;
+    }
+
+    snprintf( dst, dst_size, "%5.2f", bits );
 }
 
 static void format_frame_label( char *dst, size_t dst_size, const char *name )
@@ -480,6 +496,7 @@ static void build_overlay_blocks( struct hti_overlay_block           *top_left,
                                   struct hti_overlay_block           *top_center,
                                   struct hti_overlay_block           *top_right,
                                   struct hti_overlay_block           *bottom_left,
+                                  struct hti_overlay_block           *bottom_center,
                                   struct hti_overlay_block           *bottom_right,
                                   const struct hti_frame             *frame,
                                   const struct hti_temperature_stats *stats,
@@ -506,6 +523,7 @@ static void build_overlay_blocks( struct hti_overlay_block           *top_left,
     overlay_block_reset( top_center, HTI_OVERLAY_TOP_CENTER );
     overlay_block_reset( top_right, HTI_OVERLAY_TOP_RIGHT );
     overlay_block_reset( bottom_left, HTI_OVERLAY_BOTTOM_LEFT );
+    overlay_block_reset( bottom_center, HTI_OVERLAY_BOTTOM_CENTER );
     overlay_block_reset( bottom_right, HTI_OVERLAY_BOTTOM_RIGHT );
 
     format_frame_label( label, sizeof( label ), frame->name );
@@ -580,6 +598,11 @@ static void build_overlay_blocks( struct hti_overlay_block           *top_left,
 
     if( opt->overlay == HTI_OVERLAY_DEBUG )
     {
+        format_bits_value( buf0, sizeof( buf0 ), frame->quantitative_valid, stats->scene_dynamic_bits );
+        format_temp_value( buf1, sizeof( buf1 ), frame->quantitative_valid, stats->scene_range_c, decimals );
+        overlay_block_add( bottom_center, accent, "DYN  %s BITS", buf0 );
+        overlay_block_add( bottom_center, tool, "SPAN %s", buf1 );
+
         format_temp_value( buf0, sizeof( buf0 ), lower_valid, hti_lower_footer_max_c( frame ), decimals );
         format_temp_value( buf1, sizeof( buf1 ), lower_valid, hti_lower_footer_min_c( frame ), decimals );
         format_temp_value( buf2, sizeof( buf2 ), lower_valid, hti_lower_footer_center_c( frame ), decimals );
@@ -604,6 +627,7 @@ static void draw_overlay( SDL_Renderer                       *renderer,
     struct hti_overlay_block top_center;
     struct hti_overlay_block top_right;
     struct hti_overlay_block bottom_left;
+    struct hti_overlay_block bottom_center;
     struct hti_overlay_block bottom_right;
     int                      scale = 0;
 
@@ -616,6 +640,7 @@ static void draw_overlay( SDL_Renderer                       *renderer,
                           &top_center,
                           &top_right,
                           &bottom_left,
+                          &bottom_center,
                           &bottom_right,
                           frame,
                           stats,
@@ -627,6 +652,7 @@ static void draw_overlay( SDL_Renderer                       *renderer,
     draw_overlay_block( renderer, win_w, win_h, &top_center, scale );
     draw_overlay_block( renderer, win_w, win_h, &top_right, scale );
     draw_overlay_block( renderer, win_w, win_h, &bottom_left, scale );
+    draw_overlay_block( renderer, win_w, win_h, &bottom_center, scale );
     draw_overlay_block( renderer, win_w, win_h, &bottom_right, scale );
 }
 

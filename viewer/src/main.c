@@ -15,6 +15,9 @@ enum
     HTI_STATUS_INTERVAL_MS = 1000,
 };
 
+static const double   HTI_AUTO_RANGE_SMOOTHING_SEC = 0.5;
+static const uint64_t HTI_DEFAULT_FRAME_DELTA_NS   = 40000000ull;
+
 struct hti_live_state
 {
     bool     have_previous_frame;
@@ -35,6 +38,13 @@ struct hti_live_state
     uint16_t previous_w8;
     uint16_t previous_w9;
     uint16_t previous_radiometric[HTI_IMAGE_PIXELS];
+};
+
+struct hti_auto_range_state
+{
+    bool   initialized;
+    double min_c;
+    double max_c;
 };
 
 static volatile sig_atomic_t g_interrupted = 0;
@@ -567,6 +577,12 @@ static void print_status_line( const struct hti_frame             *frame,
                  frame->footer.r0_w25,
                  frame->footer.r1_u32_10,
                  paused ? " paused" : "" );
+        fprintf( stdout,
+                 "    scene:        span=%.2fC effective_bits=%.2f raw_codes=%u..%u\n",
+                 stats->scene_range_c,
+                 stats->scene_dynamic_bits,
+                 (unsigned)stats->raw_min_code,
+                 (unsigned)stats->raw_max_code );
     }
     else
     {
@@ -624,9 +640,84 @@ static void seed_manual_scale( const struct hti_display_range *range, struct hti
     opt->manual_scale = true;
 }
 
+static void reset_auto_range_state( struct hti_auto_range_state *state )
+{
+    memset( state, 0, sizeof( *state ) );
+}
+
 static const char *save_dir_or_default( const struct hti_options *opt )
 {
     return opt->save_dir != NULL ? opt->save_dir : "viewer-captures";
+}
+
+static double auto_range_alpha( uint64_t frame_delta_ns )
+{
+    double delta_s = frame_delta_ns > 0 ? (double)frame_delta_ns / 1000000000.0
+                                        : (double)HTI_DEFAULT_FRAME_DELTA_NS / 1000000000.0;
+
+    if( delta_s <= 0.0 || !isfinite( delta_s ) )
+    {
+        delta_s = (double)HTI_DEFAULT_FRAME_DELTA_NS / 1000000000.0;
+    }
+    if( HTI_AUTO_RANGE_SMOOTHING_SEC <= 0.0 )
+    {
+        return 1.0;
+    }
+    if( delta_s >= HTI_AUTO_RANGE_SMOOTHING_SEC * 4.0 )
+    {
+        return 1.0;
+    }
+
+    return 1.0 - exp( -delta_s / HTI_AUTO_RANGE_SMOOTHING_SEC );
+}
+
+static void compute_display_range_for_frame( const struct hti_frame             *frame,
+                                             const struct hti_temperature_stats *stats,
+                                             const struct hti_options           *opt,
+                                             struct hti_auto_range_state        *auto_range,
+                                             struct hti_display_range           *range )
+{
+    struct hti_display_range instant;
+
+    hti_compute_display_range( stats,
+                               opt->manual_scale,
+                               opt->manual_min_c,
+                               opt->manual_max_c,
+                               &instant );
+
+    if( opt->manual_scale )
+    {
+        *range = instant;
+        return;
+    }
+
+    if( !auto_range->initialized
+        || !isfinite( auto_range->min_c )
+        || !isfinite( auto_range->max_c )
+        || auto_range->max_c <= auto_range->min_c )
+    {
+        auto_range->initialized = true;
+        auto_range->min_c       = instant.min_c;
+        auto_range->max_c       = instant.max_c;
+    }
+    else if( frame->quantitative_valid )
+    {
+        double alpha = auto_range_alpha( frame->frame_delta_ns );
+
+        auto_range->min_c += ( instant.min_c - auto_range->min_c ) * alpha;
+        auto_range->max_c += ( instant.max_c - auto_range->max_c ) * alpha;
+    }
+
+    range->min_c = auto_range->min_c;
+    range->max_c = auto_range->max_c;
+
+    if( !isfinite( range->min_c ) || !isfinite( range->max_c ) || range->max_c <= range->min_c )
+    {
+        *range = instant;
+        auto_range->initialized = true;
+        auto_range->min_c       = range->min_c;
+        auto_range->max_c       = range->max_c;
+    }
 }
 
 static uint64_t monotonic_ns( void )
@@ -821,6 +912,7 @@ int main( int argc, char **argv )
     struct hti_frame             frame;
     struct hti_temperature_stats stats;
     struct hti_display_range     range;
+    struct hti_auto_range_state  auto_range;
     struct hti_live_state        live_state;
     bool                         live_mode        = false;
     bool                         running          = true;
@@ -840,6 +932,7 @@ int main( int argc, char **argv )
     memset( &renderer, 0, sizeof( renderer ) );
     memset( &transport, 0, sizeof( transport ) );
     memset( &frame, 0, sizeof( frame ) );
+    memset( &auto_range, 0, sizeof( auto_range ) );
     memset( &live_state, 0, sizeof( live_state ) );
 
     signal( SIGINT, on_signal );
@@ -933,6 +1026,7 @@ int main( int argc, char **argv )
                     else if( key == SDLK_c )
                     {
                         opt.correction = hti_next_correction( opt.correction );
+                        reset_auto_range_state( &auto_range );
                         ui_dirty       = true;
                     }
                     else if( key == SDLK_o )
@@ -950,12 +1044,16 @@ int main( int argc, char **argv )
                         if( have_frame && !opt.manual_scale )
                         {
                             hti_compute_stats( &frame, opt.correction, &stats );
-                            hti_compute_display_range( &stats, false, 0.0, 0.0, &range );
+                            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
                             seed_manual_scale( &range, &opt );
                         }
                         else
                         {
                             opt.manual_scale = !opt.manual_scale;
+                            if( !opt.manual_scale )
+                            {
+                                reset_auto_range_state( &auto_range );
+                            }
                         }
                         ui_dirty = true;
                     }
@@ -964,7 +1062,7 @@ int main( int argc, char **argv )
                         if( have_frame && !opt.manual_scale )
                         {
                             hti_compute_stats( &frame, opt.correction, &stats );
-                            hti_compute_display_range( &stats, false, 0.0, 0.0, &range );
+                            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
                             seed_manual_scale( &range, &opt );
                         }
                         opt.manual_min_c -= 0.5;
@@ -976,7 +1074,7 @@ int main( int argc, char **argv )
                         if( have_frame && !opt.manual_scale )
                         {
                             hti_compute_stats( &frame, opt.correction, &stats );
-                            hti_compute_display_range( &stats, false, 0.0, 0.0, &range );
+                            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
                             seed_manual_scale( &range, &opt );
                         }
                         opt.manual_min_c += 0.5;
@@ -988,7 +1086,7 @@ int main( int argc, char **argv )
                         if( have_frame && !opt.manual_scale )
                         {
                             hti_compute_stats( &frame, opt.correction, &stats );
-                            hti_compute_display_range( &stats, false, 0.0, 0.0, &range );
+                            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
                             seed_manual_scale( &range, &opt );
                         }
                         opt.manual_max_c -= 0.5;
@@ -1000,7 +1098,7 @@ int main( int argc, char **argv )
                         if( have_frame && !opt.manual_scale )
                         {
                             hti_compute_stats( &frame, opt.correction, &stats );
-                            hti_compute_display_range( &stats, false, 0.0, 0.0, &range );
+                            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
                             seed_manual_scale( &range, &opt );
                         }
                         opt.manual_max_c += 0.5;
@@ -1056,11 +1154,7 @@ int main( int argc, char **argv )
         if( frame_updated || ui_dirty || pending_save )
         {
             hti_compute_stats( &frame, opt.correction, &stats );
-            hti_compute_display_range( &stats,
-                                       opt.manual_scale,
-                                       opt.manual_min_c,
-                                       opt.manual_max_c,
-                                       &range );
+            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
 
             if( opt.headless || frame_updated || ui_dirty || monotonic_ms() - last_status_ms >= HTI_STATUS_INTERVAL_MS )
             {

@@ -137,7 +137,11 @@ struct hti_temperature_stats
     double max_c;
     double center_c;
     double mean_c;
+    double scene_range_c;
+    double scene_dynamic_bits;
     double offset_c;
+    uint16_t raw_min_code;
+    uint16_t raw_max_code;
     int    min_x;
     int    min_y;
     int    max_x;
