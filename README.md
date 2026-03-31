@@ -30,7 +30,7 @@ Because it's a usable UVC device, simple incantations using `mpv` and `ffmpeg` p
 
 ![Vertical stack with green artifact view is top-half, blue-cold to red-hot scaled output on bottom half](img/256x392-human.png)
 
-The top-half of the image is the `YUYV` formatted raw ratiometric feed, and the bottom image is processed on-camera with autoscaled colour palette.
+The top-half of the image is the `YUYV` formatted raw ratiometric feed, and the bottom image is processed on-camera with autoscaled colour palette. Both images have 4 rows of additional pixels which contain some data that I call 'metadata'. The full/correct use of those values isn't known yet.
 
 # Reverse Engineering
 
@@ -45,17 +45,17 @@ I wanted the ability to get proper ratiometric/thermal data out of the camera fo
 
 ## Ratiometric Output 
 
-A quick tool `/hti-capture` grabs single frames to disk with a range of format options for downstream exploration.
+A quick tool `/tools/dataset-capture` grabs single frames to disk with a range of format options for downstream exploration.
 
 A basic dataset of 'raw' captured scenes is in [`/dataset`](/dataset) which includes test scenes including a human face, ice, hot water and a soldering iron.
 
 ![5x2 test images collage. Labels: Lenscover, wall, face, ice plate, hot water, hot water close, ice and hot cup, soldering iron 360c, ice hand mug iron, ice in hot water](img/thermal_dataset_collage.png)
 
-These images were used to guide the development of `/decoder` to iterate on different thermal conversion processes.
+These images were used to guide the development of `/tools/decoder` to iterate on different thermal conversion processes.
 
 - In the saved `256x392` frames, the upper `256x196` block is currently the best-understood radiometric block: `256x192` active data plus `4` metadata rows. The lower `256x196` block looks like a separately processed display path.
-- `/decoder` can convert the recorded raw files, or a realtime feed, into usable thermal data with attempted scaling. Includes viewer with manual min/max controls.
-- `/apk-re` has notes and log exports from some sessions trying to find implementation details in the Android app. Includes some USB pcap files.
+- `/tools/decoder` can convert the recorded raw files, or run on a `v4l2` realtime feed with conversion into usable thermal data with attempted scaling.
+- `/viewer` is the newer libusb-only realtime viewer project intended as the main path for live analysis/scientific use-cases.
 
 ## Camera Communication
 
@@ -75,7 +75,7 @@ Here's examples of the hardware's internally selectable colour palettes:
 
 ![15 different colour palettes applied to a human face](img/internal_palette_support.png)
 
-There are notes in `/apk-re` along with `.pcap` files. The tool `/hik-info-probe` implements these for experimentation, use the `--transport v4l2` argument if making changes alongside a realtime stream or existing connections will be closed.
+There are notes in `/reverse-engineering` along with `.pcap` and other log files. The tool `/tools/hik-info-probe` implements most of these controls for experimentation, use the `--transport v4l2` argument if making changes alongside a realtime stream or existing connections will be closed.
 
 > The camera appears to remember these settings across power-cycles. _I take no responsibility for what could happen_ with different hardware/firmware or when exploring with the override/scan args. 
 
@@ -83,4 +83,3 @@ There are notes in `/apk-re` along with `.pcap` files. The tool `/hik-info-probe
 
 
 [^1]: No idea what bird-watching mode does?
-
