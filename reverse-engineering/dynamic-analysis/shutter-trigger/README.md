@@ -17,15 +17,15 @@ Shutter actuation has been reproduced from Linux using libusb in the `hik-info-p
 
 ## App-Side UI Path
 
-Static smali evidence in [HomeActivity.smali](/home/scott/src/thermalcam-re/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/ui/activity/HomeActivity.smali):
+Static smali evidence in [HomeActivity.smali](apktool/smartthermal/smali/com/hti/xtherm/hti160203u/ui/activity/HomeActivity.smali):
 
-- [HomeActivity.smali#L6074](/home/scott/src/thermalcam-re/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/ui/activity/HomeActivity.smali#L6074)
+- [HomeActivity.smali#L6074](apktool/smartthermal/smali/com/hti/xtherm/hti160203u/ui/activity/HomeActivity.smali#L6074)
   - `onClick(View)` handles the menu buttons
-- [HomeActivity.smali#L6088](/home/scott/src/thermalcam-re/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/ui/activity/HomeActivity.smali#L6088)
+- [HomeActivity.smali#L6088](apktool/smartthermal/smali/com/hti/xtherm/hti160203u/ui/activity/HomeActivity.smali#L6088)
   - the shutter case checks `mF2Helper.isPreview()`
   - then calls `tipSuccess(0x7f100111)` which is the `shutter_refresh` string
   - then starts a thread
-- [HomeActivity.smali#L5869](/home/scott/src/thermalcam-re/apktool/smartthermal/smali/com/hti/xtherm/hti160203u/ui/activity/HomeActivity.smali#L5869)
+- [HomeActivity.smali#L5869](apktool/smartthermal/smali/com/hti/xtherm/hti160203u/ui/activity/HomeActivity.smali#L5869)
   - the thread body calls `mF2Helper.shutter()`
 
 The button resource is `home_shutter_menu` (`0x7f080129`).
@@ -62,7 +62,9 @@ Measured Java-side duration:
 
 ## PCAP Artifact
 
-- [shutter-refresh-2026-03-28.pcap](shutter-refresh-2026-03-28.pcap)
+> I trimmed this manually after capture to remove long-running frame sequences.
+
+- [shutter-refresh-2026-03-28.pcap.gz](shutter-refresh-2026-03-28.pcap.gz)
 - Packets: `33444`
 - Duration: `16.286053 s`
 

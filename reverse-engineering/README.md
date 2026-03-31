@@ -191,6 +191,8 @@ sudo sh -c 'echo 1 > /sys/kernel/tracing/tracing_on'
 sudo sh -c 'cat /sys/kernel/tracing/trace_pipe > sandbox/output/dynamic/xhci-trace.txt'
 ```
 
+Due to file size limits on GitHub, I had to trim some of the longer running files down to fit.
+
 # Results
 
 Static analysis mostly provides strings to search for and a few paths to try for dynamic analysis. The native libraries are one of the more interesting targets as most useful interaction with hardware is in there.

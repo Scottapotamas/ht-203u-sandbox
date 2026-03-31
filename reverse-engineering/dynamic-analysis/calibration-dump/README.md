@@ -69,8 +69,9 @@ Notable early string:
 
 ## USB Capture Artifact
 
-- Pcap: `thermometry_calibration_2026-03-28.pcap`
-- SHA-256: `2d98c3ad994e277dfa84c4a83735d46b2807c5a3feff77dea47e2a2a03085205`
+> I trimmed this manually after capture to remove long-running frame sequences.
+
+- Pcap: `thermometry_calibration_2026-03-28.pcap.gz`
 - Packets: `49906`
 - Duration: `24.264344 s`
 

@@ -36,12 +36,11 @@ The top-half of the image is the `YUYV` formatted raw ratiometric feed, and the 
 
 I wanted the ability to get proper ratiometric/thermal data out of the camera for better viewing and some scientific applications. I slowly increased my understanding of the camera from two different approaches:
 
-- Unguided analysis with the goal of converting the ratiometric data using test scenes until I could get reasonable results
-- Manual and machine guided static decompilation and dynamic exploration of the Android APK:
+- [Experimental analysis](/reverse-engineering/experimental) with the goal of understanding how the ratiometric data using test scenes until I could get reasonable results.
+- Manual and machine guided [static decompilation](/reverse-engineering/static-analysis) and [dynamic exploration](/reverse-engineering/dynamic-analysis) of the Android APK:
   - Finding interesting strings and mapping abi shapes, looking at `libHCUSBSDK.so` etc.
   - Passed the camera into the Android emulator and used Frida to hook specific features
-  - Managed to capture `pcap` files of some basic communication to guide re-implementation.
-
+  - Managed to capture `pcap` files of some basic communication to guide re-implementation in `/tools/hik-info-probe`.
 
 ## Ratiometric Output 
 
@@ -55,7 +54,7 @@ These images were used to guide the development of `/tools/decoder` to iterate o
 
 - In the saved `256x392` frames, the upper `256x196` block is currently the best-understood radiometric block: `256x192` active data plus `4` metadata rows. The lower `256x196` block looks like a separately processed display path.
 - `/tools/decoder` can convert the recorded raw files, or run on a `v4l2` realtime feed with conversion into usable thermal data with attempted scaling.
-- `/viewer` is the newer libusb-only realtime viewer project intended as the main path for live analysis/scientific use-cases.
+- `/viewer` is a more complete libusb-only viewer that runs from the converted raw thermometric data for live analysis/scientific use-cases.
 
 ## Camera Communication
 

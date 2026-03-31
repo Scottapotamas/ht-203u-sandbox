@@ -103,7 +103,7 @@ The upper and lower footer paths also do not drift the same way:
 
 Repeated the test after letting the camera cool naturally overnight to room temperature (~23 celcius) rather than chilling it in the fridge.
 
-The scene was again a short-range static target with little expected temperature spread, slightly angled but intended to stay effectively isothermal for this purpose.
+This scene was also a short-range static target with little expected temperature spread, slightly angled but intended to stay effectively isothermal for this purpose.
 
 ## Result summary
 

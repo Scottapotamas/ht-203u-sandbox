@@ -179,7 +179,7 @@ Those values change frame to frame.
 
 ## USB capture notes
 
-`minmax-roi-session.pcap`
+`minmax-roi-session.pcap.gz` was huge, so I trimmed it manually after capture to remove long-running frame sequences.
 
 Basic protocol mix from `tshark -q -z io,phs`:
 

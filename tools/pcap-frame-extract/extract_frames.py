@@ -46,7 +46,7 @@ def parse_args() -> argparse.Namespace:
         dest="inputs",
         action="append",
         required=True,
-        help="Input .pcapng path. Repeat for multiple captures.",
+        help="Input capture path. Repeat for multiple captures.",
     )
     parser.add_argument(
         "--out",

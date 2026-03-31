@@ -1,6 +1,6 @@
 # PCAP Frame Extractor
 
-A small Python utility that pulls usable image frames and metadata from Android USB sniffed transfers in [`apk-re/dynamic`](/apk-re/dynamic).
+A small Python utility that pulls usable image frames and metadata from Android USB sniffed transfers in [`reverse-engineering/dynamic-analysis`](/reverse-engineering/dynamic-analysis).
 
 > This utility/script was written by GPT5.4 and worked first attempt on existing sniffed pcaps
 
@@ -30,19 +30,23 @@ which tshark
 Run from the repository root:
 
 ```bash
-python3 extract_frames.py --help
-python3 extract_frames.py --input ../apk-re/dynamic/palette-capture.pcapng --out out/palette
-python3 extract_frames.py --input ../apk-re/dynamic/enhancement-matrix.pcapng --out out/enhancement --limit 10
+python3 tools/pcap-frame-extract/extract_frames.py --help
+python3 tools/pcap-frame-extract/extract_frames.py \
+  --input reverse-engineering/dynamic-analysis/palette-control/palette-capture.pcapng.gz \
+  --out tools/pcap-frame-extract/out/palette
+python3 tools/pcap-frame-extract/extract_frames.py \
+  --input reverse-engineering/dynamic-analysis/palette-control/palette-capture-2.pcapng.gz \
+  --out tools/pcap-frame-extract/out/palette-2 \
+  --limit 10
 ```
 
 You can also pass multiple captures at once:
 
 ```bash
-cd /home/scott/projects/ht-203u-sandbox/pcap-frame-extract
-python3 extract_frames.py \
-  --input ../apk-re/dynamic/palette-capture.pcapng \
-  --input ../apk-re/dynamic/palette-capture-2.pcapng \
-  --out out/multi
+python3 tools/pcap-frame-extract/extract_frames.py \
+  --input reverse-engineering/dynamic-analysis/palette-control/palette-capture.pcapng.gz \
+  --input reverse-engineering/dynamic-analysis/palette-control/palette-capture-2.pcapng.gz \
+  --out tools/pcap-frame-extract/out/multi
 ```
 
 With multiple inputs, the output directory gets one subdirectory per capture stem plus a top-level `captures.json`.
@@ -73,6 +77,5 @@ If you extracted with `--no-previews`, rerun the extractor without that flag fir
 Plane 0 preview to MP4:
 
 ```bash
-cd /home/scott/projects/ht-203u-sandbox/pcap-frame-extract
 ffmpeg -framerate 25 -i out/palette/frame_%04d_plane0_preview.pgm -c:v libx264 -pix_fmt yuv420p out/palette_plane0_25fps.mp4
 ```

@@ -42,10 +42,12 @@ Observed palette enum values in the app:
 ## Artifacts
 
 - Frida trace: `palette-capture-paired-2.jsonl`
-- usbmon pcap: `palette-capture-2.pcapng`
+- usbmon pcap: `palette-capture-2.pcapng.gz`
 - filtered control decode: `palette-xu-selector2-control.txt`
 - frame hexdumps: `palette-xu-selector2-hexdumps.txt`
 - trigger script: `frida-thermalcam-palette-capture.js`
+
+> I trimmed the pcap manually after capture to remove long-running frame sequences.
 
 Frida-side enhancement values during the run:
 
