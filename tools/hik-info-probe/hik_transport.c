@@ -394,25 +394,6 @@ int hik_set_current_value( const HikSession *session,
 {
     if( session->transport == HIK_TRANSPORT_V4L2 )
     {
-        if( selector == HIK_ENHANCEMENT_SELECTOR && len == HIK_EXPECTED_ENHANCEMENT_LEN )
-        {
-            uint8_t padded_buf[HIK_V4L2_SELECTOR2_BUFFER_LEN];
-            int     rc = 0;
-
-            memset( padded_buf, 0, sizeof( padded_buf ) );
-            memcpy( padded_buf, buf, len );
-            rc = xu_query_v4l2( opts,
-                                selector,
-                                HIK_SET_CUR,
-                                padded_buf,
-                                HIK_V4L2_SELECTOR2_BUFFER_LEN );
-            if( rc < 0 )
-            {
-                return -1;
-            }
-            return (int)len;
-        }
-
         {
             int rc = xu_query_v4l2( opts, selector, HIK_SET_CUR, (uint8_t *)buf, len );
 
@@ -421,7 +402,7 @@ int hik_set_current_value( const HikSession *session,
                 return rc;
             }
 
-            if( selector == HIK_ENHANCEMENT_SELECTOR && len == HIK_EXPECTED_ENHANCEMENT_LEN )
+            if( selector == HIK_ENHANCEMENT_SELECTOR && len < HIK_V4L2_SELECTOR2_BUFFER_LEN )
             {
                 uint8_t padded_buf[HIK_V4L2_SELECTOR2_BUFFER_LEN];
 

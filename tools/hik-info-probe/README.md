@@ -372,6 +372,12 @@ That V4L2 mode uses `UVCIOC_CTRL_QUERY` against `/dev/video0`, so it avoids `lib
   - `03 10` -> 53-byte expert-correction setter mailbox
   - `03 06` -> 53-byte temperature-correct setter mailbox
   - `03 0f` -> zero-region expert-regions chunked mailbox
+- The March 28 calibration-file capture shows selector `0x03` is not limited to fixed-size mailboxes:
+  - a selector-state scan from Linux showed `03 0e -> len 5`, which is now the staged prewrite used by `thermometry-calibration-file`
+  - the getter starts with `GET_LEN -> 5` and `GET_CUR(5)`
+  - it then loops through repeated `GET_LEN` / `GET_CUR` reads
+  - most chunks are `512` bytes and the final chunk is short (`213` bytes in the captured run)
+  - each chunk also carries a 5-byte per-chunk header, so the parser now dechunks before carving the embedded `14336`-byte calibration file
 - shutter-button PCAP got a working manual trigger:
   - `USB_SetImageManualCorrect` is best modeled as selector `0x02` `GET_LEN` plus direct `SET_CUR 01`
   - however, fresh Linux runs may still need selector `0x05` payload `02 04` first to prime selector `0x02` into the same 1-byte mode seen in that capture
