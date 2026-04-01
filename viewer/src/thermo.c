@@ -37,8 +37,6 @@ const char *hti_correction_name( enum hti_correction_mode correction )
     {
         case HTI_CORRECTION_RAW:
             return "raw";
-        case HTI_CORRECTION_W20DELTA:
-            return "w20delta";
         case HTI_CORRECTION_W20_PLUS_R1:
             return "w20+r1";
         case HTI_CORRECTION_LOWER_AFFINE:
@@ -54,8 +52,6 @@ enum hti_correction_mode hti_next_correction( enum hti_correction_mode correctio
     switch( correction )
     {
         case HTI_CORRECTION_RAW:
-            return HTI_CORRECTION_W20DELTA;
-        case HTI_CORRECTION_W20DELTA:
             return HTI_CORRECTION_W20_PLUS_R1;
         case HTI_CORRECTION_W20_PLUS_R1:
             return HTI_CORRECTION_LOWER_AFFINE;
@@ -105,7 +101,7 @@ static double corrected_code_raw( const struct hti_frame  *frame,
 
     double code = (double)frame->radiometric[index];
 
-    if( correction == HTI_CORRECTION_W20DELTA || correction == HTI_CORRECTION_LOWER_AFFINE )
+    if( correction == HTI_CORRECTION_LOWER_AFFINE )
     {
         double w20   = (double)frame->footer.r0_w20;
         double w25   = (double)frame->footer.r0_w25;
@@ -138,7 +134,7 @@ static double upper_footer_offset_c( const struct hti_frame  *frame,
 
 static double base_temperature_at( const struct hti_frame *frame, int index )
 {
-    return code_to_temp_c( corrected_code_raw( frame, HTI_CORRECTION_W20DELTA, index ) );
+    return code_to_temp_c( corrected_code_raw( frame, HTI_CORRECTION_W20_PLUS_R1, index ) );
 }
 
 static void compute_base_stats( const struct hti_frame *frame, struct hti_base_stats *stats )

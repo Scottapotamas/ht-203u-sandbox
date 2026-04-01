@@ -33,7 +33,6 @@ enum hti_frame_layout
 enum hti_correction_mode
 {
     HTI_CORRECTION_RAW = 0,
-    HTI_CORRECTION_W20DELTA,
     HTI_CORRECTION_W20_PLUS_R1,
     HTI_CORRECTION_LOWER_AFFINE,
     HTI_CORRECTION_COUNT,

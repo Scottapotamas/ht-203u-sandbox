@@ -131,10 +131,6 @@ static enum hti_correction_mode parse_correction( const char *s )
     {
         return HTI_CORRECTION_RAW;
     }
-    if( strcmp( s, "w20delta" ) == 0 )
-    {
-        return HTI_CORRECTION_W20DELTA;
-    }
     if( strcmp( s, "w20+r1" ) == 0 || strcmp( s, "w20plusr1" ) == 0 || strcmp( s, "w20_plus_r1" ) == 0 )
     {
         return HTI_CORRECTION_W20_PLUS_R1;
@@ -143,7 +139,7 @@ static enum hti_correction_mode parse_correction( const char *s )
     {
         return HTI_CORRECTION_LOWER_AFFINE;
     }
-    die_msg( "unknown correction: use raw, w20delta, w20+r1, or lower-affine" );
+    die_msg( "unknown correction: use raw, w20+r1, or lower-affine" );
 
     return HTI_CORRECTION_RAW;
 }
@@ -207,7 +203,7 @@ static void print_usage( FILE *out )
              "  --prefix PATH            Open one saved capture prefix instead of live USB\n"
              "\n"
              "Display and thermometry:\n"
-             "  --correction NAME        raw, w20delta, w20+r1, or lower-affine (default: w20delta)\n"
+             "  --correction NAME        raw, w20+r1, or lower-affine (default: w20+r1)\n"
              "  --palette NAME           iron or gray (default: iron)\n"
              "  --overlay MODE           none, minimal, or debug (default: minimal)\n"
              "  --min C                  Manual minimum display temperature\n"
@@ -242,7 +238,7 @@ static void print_usage( FILE *out )
 static void default_options( struct hti_options *opt )
 {
     memset( opt, 0, sizeof( *opt ) );
-    opt->correction                          = HTI_CORRECTION_W20DELTA;
+    opt->correction                          = HTI_CORRECTION_W20_PLUS_R1;
     opt->palette                             = HTI_PALETTE_IRON;
     opt->overlay                             = HTI_OVERLAY_MINIMAL;
     opt->window_scale                        = 4;
@@ -490,11 +486,6 @@ static void print_compact_status_line( const struct hti_frame             *frame
     else
     {
         fprintf( stdout, " quantitative=masked scale=%.1f..%.1fC", range->min_c, range->max_c );
-    }
-
-    if( opt->correction != HTI_CORRECTION_W20DELTA )
-    {
-        fprintf( stdout, " corr=%s", hti_correction_name( opt->correction ) );
     }
 
     if( opt->palette != HTI_PALETTE_IRON )

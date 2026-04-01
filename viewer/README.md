@@ -34,6 +34,10 @@ Requirements:
 
 ## Usage
 
+> Depending on your system, you might need elevated privs for libusb to access the camera 
+> `sudo -E ./hti-usb-view` or add a udev rule 
+> TODO: add example udev and `udevadm --reload` then reconnect the camera
+
 Open one saved capture without needing the camera:
 
 ```bash
