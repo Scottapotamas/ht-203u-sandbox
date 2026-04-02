@@ -154,7 +154,15 @@ static enum hti_palette_mode parse_palette( const char *s )
     {
         return HTI_PALETTE_GRAY;
     }
-    die_msg( "unknown palette: use iron or gray" );
+    if( strcmp( s, "viridis" ) == 0 )
+    {
+        return HTI_PALETTE_VIRIDIS;
+    }
+    if( strcmp( s, "inferno" ) == 0 )
+    {
+        return HTI_PALETTE_INFERNO;
+    }
+    die_msg( "unknown palette: use iron, gray, viridis, or inferno" );
 
     return HTI_PALETTE_IRON;
 }
@@ -204,7 +212,7 @@ static void print_usage( FILE *out )
              "\n"
              "Display and thermometry:\n"
              "  --correction NAME        raw, w20+r1, or lower-affine (default: w20+r1)\n"
-             "  --palette NAME           iron or gray (default: iron)\n"
+             "  --palette NAME           iron, gray, viridis, or inferno (default: iron)\n"
              "  --overlay MODE           none, minimal, or debug (default: minimal)\n"
              "  --min C                  Manual minimum display temperature\n"
              "  --max C                  Manual maximum display temperature\n"

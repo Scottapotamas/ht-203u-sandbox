@@ -8,7 +8,7 @@ It's able to provide the same basic functionality as the Android app, but runnin
 - Direct access to the radiometric `u16` data path
 - Footer extraction for raw and processed calibration of thermal data
 - Display of temperatures on-screen, optional debug view
-- Automatic or manual temperature-colour mapping, iron and greyscale palettes
+- Automatic or manual temperature-colour mapping, iron, greyscale, viridis, and inferno palettes
 - Live shutter triggering, detection of automatic shutter refreshes
 - Detailed artifacts for scientific analysis
 - Runtime selectable temperature correction modes:

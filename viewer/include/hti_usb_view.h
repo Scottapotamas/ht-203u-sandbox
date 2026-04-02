@@ -57,6 +57,8 @@ enum hti_palette_mode
 {
     HTI_PALETTE_IRON = 0,
     HTI_PALETTE_GRAY,
+    HTI_PALETTE_VIRIDIS,
+    HTI_PALETTE_INFERNO,
     HTI_PALETTE_COUNT,
 };
 
