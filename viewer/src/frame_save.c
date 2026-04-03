@@ -273,7 +273,9 @@ int hti_save_frame( const char                         *directory,
                     const struct hti_temperature_stats *stats,
                     enum hti_correction_mode            correction,
                     enum hti_palette_mode               palette,
-                    const struct hti_display_range     *range )
+                    const struct hti_display_range     *range,
+                    bool                                save_transport_bin,
+                    bool                                save_preview_ppm )
 {
     struct timespec ts;
     struct tm       tm;
@@ -316,7 +318,7 @@ int hti_save_frame( const char                         *directory,
     snprintf( preview_path, sizeof( preview_path ), "%s_preview.ppm", stem );
     snprintf( json_path, sizeof( json_path ), "%s.json", stem );
 
-    if( transport->length > 0 && write_binary( raw_path, transport->bytes, transport->length ) != 0 )
+    if( save_transport_bin && transport->length > 0 && write_binary( raw_path, transport->bytes, transport->length ) != 0 )
     {
         return -1;
     }
@@ -326,7 +328,7 @@ int hti_save_frame( const char                         *directory,
         return -1;
     }
 
-    if( write_preview_ppm( preview_path, frame, stats, correction, palette, range ) != 0 )
+    if( save_preview_ppm && write_preview_ppm( preview_path, frame, stats, correction, palette, range ) != 0 )
     {
         return -1;
     }

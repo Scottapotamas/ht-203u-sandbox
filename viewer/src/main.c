@@ -220,6 +220,8 @@ static void print_usage( FILE *out )
              "  --headless               Skip SDL and print status in the terminal only\n"
              "  --frames N               Stop after N decoded frames (default: unlimited)\n"
              "  --save-dir DIR           Save frames into DIR when requested, or automatically in headless mode\n"
+             "  --no-save-bin            Skip writing the raw transport .bin alongside saved frames\n"
+             "  --no-save-preview        Skip writing the preview .ppm alongside saved frames\n"
              "\n"
              "Live USB stream:\n"
              "  --format-index N         UVC format index (default: 1)\n"
@@ -250,6 +252,8 @@ static void default_options( struct hti_options *opt )
     opt->palette                             = HTI_PALETTE_IRON;
     opt->overlay                             = HTI_OVERLAY_MINIMAL;
     opt->window_scale                        = 4;
+    opt->save_transport_bin                  = true;
+    opt->save_preview_ppm                    = true;
     opt->frames                              = 0;
     opt->trigger_after_frames                = 0;
     opt->stream_request.format_index         = 1;
@@ -357,6 +361,14 @@ static void parse_args( int argc, char **argv, struct hti_options *opt )
                 die_msg( "--save-dir needs a path" );
             }
             opt->save_dir = argv[i];
+        }
+        else if( strcmp( argv[i], "--no-save-bin" ) == 0 )
+        {
+            opt->save_transport_bin = false;
+        }
+        else if( strcmp( argv[i], "--no-save-preview" ) == 0 )
+        {
+            opt->save_preview_ppm = false;
         }
         else if( strcmp( argv[i], "--format-index" ) == 0 )
         {
@@ -1179,7 +1191,9 @@ int main( int argc, char **argv )
                                     &stats,
                                     opt.correction,
                                     opt.palette,
-                                    &range ) != 0 )
+                                    &range,
+                                    opt.save_transport_bin,
+                                    opt.save_preview_ppm ) != 0 )
                 {
                     perror( "save frame" );
                 }

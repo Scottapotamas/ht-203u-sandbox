@@ -192,6 +192,8 @@ struct hti_options
     enum hti_overlay_mode     overlay;
     bool                      headless;
     bool                      verbose;
+    bool                      save_transport_bin;
+    bool                      save_preview_ppm;
     bool                      manual_scale;
     double                    manual_min_c;
     double                    manual_max_c;
@@ -291,6 +293,8 @@ int hti_save_frame( const char                         *directory,
                     const struct hti_temperature_stats *stats,
                     enum hti_correction_mode            correction,
                     enum hti_palette_mode               palette,
-                    const struct hti_display_range     *range );
+                    const struct hti_display_range     *range,
+                    bool                                save_transport_bin,
+                    bool                                save_preview_ppm );
 
 #endif
