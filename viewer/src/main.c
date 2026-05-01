@@ -47,6 +47,12 @@ struct hti_auto_range_state
     double max_c;
 };
 
+struct hti_auto_save_state
+{
+    bool     have_last_auto_saved_live_frame;
+    uint16_t last_auto_saved_radiometric[HTI_IMAGE_PIXELS];
+};
+
 static volatile sig_atomic_t g_interrupted = 0;
 
 static void on_signal( int signo )
@@ -773,6 +779,27 @@ static bool frame_radiometric_replay( const struct hti_live_state *state, const 
     return memcmp( frame->radiometric, state->previous_radiometric, sizeof( state->previous_radiometric ) ) == 0;
 }
 
+static bool frame_matches_last_auto_saved_live_frame( const struct hti_auto_save_state *state,
+                                                      const struct hti_frame           *frame )
+{
+    if( !state->have_last_auto_saved_live_frame )
+    {
+        return false;
+    }
+
+    return memcmp( frame->radiometric,
+                   state->last_auto_saved_radiometric,
+                   sizeof( state->last_auto_saved_radiometric ) ) == 0;
+}
+
+static void remember_auto_saved_live_frame( struct hti_auto_save_state *state, const struct hti_frame *frame )
+{
+    memcpy( state->last_auto_saved_radiometric,
+            frame->radiometric,
+            sizeof( state->last_auto_saved_radiometric ) );
+    state->have_last_auto_saved_live_frame = true;
+}
+
 static void update_live_frame_state( struct hti_live_state *state, struct hti_frame *frame )
 {
     uint64_t now_ns                 = monotonic_ns();
@@ -924,6 +951,7 @@ int main( int argc, char **argv )
     struct hti_temperature_stats stats;
     struct hti_display_range     range;
     struct hti_auto_range_state  auto_range;
+    struct hti_auto_save_state   auto_save_state;
     struct hti_live_state        live_state;
     bool                         live_mode        = false;
     bool                         running          = true;
@@ -944,6 +972,7 @@ int main( int argc, char **argv )
     memset( &transport, 0, sizeof( transport ) );
     memset( &frame, 0, sizeof( frame ) );
     memset( &auto_range, 0, sizeof( auto_range ) );
+    memset( &auto_save_state, 0, sizeof( auto_save_state ) );
     memset( &live_state, 0, sizeof( live_state ) );
 
     signal( SIGINT, on_signal );
@@ -1164,6 +1193,11 @@ int main( int argc, char **argv )
 
         if( frame_updated || ui_dirty || pending_save )
         {
+            bool auto_sequence_save_requested = opt.headless && opt.save_dir != NULL && frame_updated;
+            bool skip_duplicate_auto_save     = live_mode
+                                           && auto_sequence_save_requested
+                                           && frame_matches_last_auto_saved_live_frame( &auto_save_state, &frame );
+
             hti_compute_stats( &frame, opt.correction, &stats );
             compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
 
@@ -1183,7 +1217,7 @@ int main( int argc, char **argv )
                                       paused );
             }
 
-            if( ( opt.headless && opt.save_dir != NULL && frame_updated ) || pending_save )
+            if( ( auto_sequence_save_requested || pending_save ) && !( skip_duplicate_auto_save && !pending_save ) )
             {
                 if( hti_save_frame( save_dir_or_default( &opt ),
                                     &transport,
@@ -1200,7 +1234,15 @@ int main( int argc, char **argv )
                 else
                 {
                     fprintf( stderr, "saved frame to %s\n", save_dir_or_default( &opt ) );
+                    if( live_mode && auto_sequence_save_requested )
+                    {
+                        remember_auto_saved_live_frame( &auto_save_state, &frame );
+                    }
                 }
+            }
+            else if( skip_duplicate_auto_save )
+            {
+                fprintf( stderr, "skipped duplicate live frame %s\n", frame.name );
             }
             pending_save = false;
         }
