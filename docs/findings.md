@@ -50,10 +50,6 @@ Current footer observations:
 - `r0_w25` appears paired with `r0_w20`, possibly previous or alternate baseline.
 - `r0_w00` and `r0_w01` drift slowly and look temperature-like in centi-units, but they do not by themselves explain the image mapping.
 - The lower processed/display block appears to carry a different trailer starting with `0xFFFFEEEE`; it changes more directly with scene/display state and is not the footer currently decoded by the tooling.
-## Calibration and Corrections
-
-
-## Camera Control
 
 ## Shutter control
 

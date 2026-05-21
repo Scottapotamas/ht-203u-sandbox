@@ -4,8 +4,8 @@
 
 It's able to provide the same basic functionality as the Android app, but running from the thermal data rather than the hardware processed false-colour feed.
 
-- `libusb` only for simultaneous live capture and camera control, no `/dev/video0` or V4L2.
-- Direct access to the radiometric `u16` data path
+- `libusb` only for simultaneous live capture and camera control, no `/dev/video0` or V4L2 because I couldn't work out how to trigger the shutter without breaking the stream.
+- Direct access to the radiometric `u16` data
 - Footer extraction for raw and processed calibration of thermal data
 - Display of temperatures on-screen, optional debug view
 - Automatic or manual temperature-colour mapping, iron, greyscale, viridis, and inferno palettes
@@ -62,7 +62,7 @@ Force a different UVC frame descriptor for experiments:
 ./viewer/hti-usb-view --frame-index 4 --verbose
 ```
 
-`--verbose` emits a detailed per-frame CLI status, including footer register and lower-reference lines. Without it, the live/headless status output is compact for readability by default.
+`--verbose` emits a detailed per-frame CLI status, including footer register and lower-reference lines.
 
 Trigger a manual correction automatically during a headless capture run:
 
@@ -82,7 +82,7 @@ The default live request is:
 - UVC frame index `1`
 - frame interval `400000` (`25 fps`)
 
-That default matches the `256x392` stacked raster with the upper and lower footer rows intact.
+for the `256x392` stacked raster with the upper and lower footer rows included.
 
 ## Runtime keyboard shortcuts
 
@@ -101,17 +101,7 @@ That default matches the `256x392` stacked raster with the upper and lower foote
 
 When a frame is saved, the viewer writes:
 
-- `<stamp>_<name>.bin`: raw transport bytes when available
-- `<stamp>_<name>_radiometric_u16.pgm`: normalized radiometric codes
-- `<stamp>_<name>_preview.ppm`: the displayed palette preview
-- `<stamp>_<name>.json`: footer fields, correction mode, palette, scale, live replay / FFC state, timing fields, quantitative-valid mask, and lower-affine fit parameters
-
-## Code layout
-
-- [`viewer/src/usb_device.c`](src/usb_device.c): camera open, UVC probe/commit, bulk reads, shutter trigger
-- [`viewer/src/frame_decode.c`](src/frame_decode.c): transport-frame decoding and saved-prefix loading
-- [`viewer/src/thermo.c`](src/thermo.c): temperature mapping, correction modes, stats
-- [`viewer/src/palette.c`](src/palette.c): display palettes
-- [`viewer/src/render_sdl.c`](src/render_sdl.c): SDL rendering
-- [`viewer/src/frame_save.c`](src/frame_save.c): saved artifacts
-- [`viewer/src/main.c`](src/main.c): CLI parsing and single-threaded app loop
+- `<stamp>_<name>.bin` raw transport bytes when available
+- `<stamp>_<name>_radiometric_u16.pgm` normalized radiometric codes
+- `<stamp>_<name>_preview.ppm` the displayed palette preview
+- `<stamp>_<name>.json` includes footer fields, correction mode, palette, scale, live replay / FFC state, timing fields, quantitative-valid mask, and lower-affine fit parameters

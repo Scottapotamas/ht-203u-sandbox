@@ -60,7 +60,7 @@ A basic dataset of 'raw' captured scenes is in [`/dataset`](/dataset) which incl
 
 These images were used to guide the development of `/tools/decoder` to iterate on different thermal conversion processes.
 
-- In the saved `256x392` frames, the upper `256x196` block is currently the radiometric block: `256x192` active data and `4` metadata rows. The lower `256x196` block is a on-camera processed display path with a different `4` metadata rows.
+- In the saved `256x392` frames, the upper `256x196` block is the radiometric block: `256x192` active data and `4` metadata rows. The lower `256x196` block is a on-camera processed frame with `4` metadata rows with different data from the ratiometric metadata.
 - `/tools/decoder` can convert the recorded raw files, or run on a `v4l2` realtime feed with conversion into usable thermal data with attempted scaling.
 - `/viewer` is the more complete libusb-only viewer mentioned at the top of this README and runs from the converted raw thermometric data for live analysis/scientific use-cases.
 
