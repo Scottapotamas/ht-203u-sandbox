@@ -1,22 +1,19 @@
 # Cold Start Warmup Behaviour
 
-This was a cold-start behavioral check using the live `viewer/hti-usb-view` in headless mode after leaving the camera in a fridge for about 20 min before connection.
+This was a cold-start test using `viewer/hti-usb-view` in headless mode after leaving the camera in a fridge for about 20 min before connection.
 
-The outcome is knowing that a cold camera should not be treated as immediately usable just because it can stream thermal data:
+Cold cameras shouldn't be treated as usable just because it streams thermal data:
 
-- the first several minutes are strongly biased and heavily correction-driven
-- even after `15 min`, the camera was still not back to warmed steady-state behavior
+- The first several minutes are strongly biased and heavily correction-driven
+- After `15 min`, the camera was still not back to warmed steady-state behavior
+- During the warmup period, the FFC shutter automatically triggers far more often which could affect imaging runs
 
-Later follow-up analysis in [`../2026-03-31-internal-temp-and-ffc-hypothesis/README.md`](/home/scott/src/ht-203u-sandbox/reverse-engineering/2026-03-31-internal-temp-and-ffc-hypothesis/README.md) suggests the rapid repeated “spontaneous correction detected” lines in this run are better interpreted as upper-footer baseline transitions, not confirmed audible mechanical shutter closes.
+The scene was static and close to the lens, with the camera looking at a surface about 1 cm away. The rough environmental references were:
 
-The scene was intentionally static and close to the lens, with the camera looking at a surface about `1 cm` away. The rough environmental references were:
+- fridge setpoint around `3 C`, but only estimated
+- room ambient around `23 C` from handheld k-type thermocouple unit
 
-- fridge setpoint around `3 C`, but not trusted as a calibrated value
-- room ambient around `23 C`
-
-The question here was whether the footer terms, apparent scene drift, and automatic shutter behavior changed in a recognizable way as the camera warmed up.
-
-The raw log used for this pass was kept outside the repo in `/tmp/hti-fridge-warmup-viewer.log`.
+This capture was done to see what changes occur with unit temperature to the footer values, apparent scene drift, and automatic shutter behavior as the camera warmed up.
 
 ## Method
 

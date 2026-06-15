@@ -4,7 +4,7 @@ This folder is intentionally separate from [`dataset-capture`](/tools/dataset-ca
 
 `hti-decode` is a small C tool for:
 
-- loading one capture prefix from [`/dataset`](/home/scott/projects/ht-203u-sandbox/dataset)
+- loading one capture prefix from [`/dataset`](/dataset)
 - sweeping the whole dataset as a quick sanity/integration pass
 - grabbing a live frame from the camera
 - pretty-printing the currently understood footer fields

@@ -53,7 +53,7 @@ Current footer observations:
 
 ## Shutter control
 
-The android app has a shutter refresh button. Hooking it with Frida then capturing a pcap of hte refresh allowed a re-implementation of the command.
+The android app has a shutter refresh button. Hooking it with Frida then capturing a pcap of the refresh allowed a re-implementation of the command.
 
 ```
 [scott@octagonal hik-info-probe]$ sudo ./build/hik-info-probe --profile manual-correct
@@ -80,7 +80,7 @@ Current understanding:
   - `BLACK_HOT = 0x02`
   - `RAINBOW = 0x0b`
   - `RED_HOT = 0x14`
-  - plus the other enum values listed in [`apk-re/protocol_constants.csv`](/home/scott/projects/ht-203u-sandbox/apk-re/protocol_constants.csv).
+  - plus the other enum values listed in [`static/protocol_constants.csv`](/reverse-engineering/static/protocol_constants.csv).
 - Dynamic traces show palette is part of `USB_SetImageEnhancement`, not the simple direct-selector controls already reproduced for brightness and contrast.
 - The captured enhancement state currently looks like:
   - `byPaletteMode = 1`
