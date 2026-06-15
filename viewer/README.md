@@ -35,8 +35,14 @@ Requirements:
 ## Usage
 
 > Depending on your system, you might need elevated privs for libusb to access the camera 
-> `sudo -E ./hti-usb-view` or add a udev rule 
-> TODO: add example udev and `udevadm --reload` then reconnect the camera
+> `sudo -E ./hti-usb-view` or add a udev rule like this:
+>
+> ```
+> SUBSYSTEM=="usb", DEVTYPE=="usb_device", ATTR{idVendor}=="2bdf", ATTR{idProduct}=="0102", GROUP="plugdev", MODE:="0660", TAG+="uaccess"
+> ```
+>
+> Depending on your flavour of Linux the group may not be needed, or might need to be different.
+
 
 Open one saved capture without needing the camera:
 
