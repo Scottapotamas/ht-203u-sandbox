@@ -112,7 +112,6 @@ static int write_pgm_u16( const char *path, const uint16_t *pixels )
 
 static int write_preview_ppm( const char                         *path,
                               const struct hti_frame             *frame,
-                              const struct hti_temperature_stats *stats,
                               enum hti_correction_mode            correction,
                               enum hti_palette_mode               palette,
                               const struct hti_display_range     *range )
@@ -139,7 +138,7 @@ static int write_preview_ppm( const char                         *path,
     for( int i = 0; i < HTI_IMAGE_PIXELS; i++ )
     {
         uint8_t rgb[3];
-        double  temp_c     = hti_temperature_at( frame, correction, i ) + stats->offset_c;
+        double  temp_c     = hti_temperature_at( frame, correction, i );
         double  normalized = ( temp_c - range->min_c ) / denom;
 
         hti_palette_map( palette, normalized, &rgb[0], &rgb[1], &rgb[2] );
@@ -202,14 +201,13 @@ static int write_metadata_json( const char                         *path,
     if( frame->quantitative_valid )
     {
         fprintf( f,
-                 "  \"stats_c\": {\"hot\": %.6f, \"cold\": %.6f, \"center\": %.6f, \"mean\": %.6f, \"span\": %.6f, \"effective_bits\": %.6f, \"offset\": %.6f},\n",
+                 "  \"stats_c\": {\"hot\": %.6f, \"cold\": %.6f, \"center\": %.6f, \"mean\": %.6f, \"span\": %.6f, \"effective_bits\": %.6f},\n",
                  stats->max_c,
                  stats->min_c,
                  stats->center_c,
                  stats->mean_c,
                  stats->scene_range_c,
-                 stats->scene_dynamic_bits,
-                 stats->offset_c );
+                 stats->scene_dynamic_bits );
         fprintf( f,
                  "  \"raw_code_range\": {\"min\": %u, \"max\": %u},\n",
                  (unsigned)stats->raw_min_code,
@@ -328,7 +326,7 @@ int hti_save_frame( const char                         *directory,
         return -1;
     }
 
-    if( save_preview_ppm && write_preview_ppm( preview_path, frame, stats, correction, palette, range ) != 0 )
+    if( save_preview_ppm && write_preview_ppm( preview_path, frame, correction, palette, range ) != 0 )
     {
         return -1;
     }

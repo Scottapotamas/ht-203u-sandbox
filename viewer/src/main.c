@@ -15,8 +15,6 @@ enum
     HTI_STATUS_INTERVAL_MS = 1000,
 };
 
-static const double   HTI_AUTO_RANGE_SMOOTHING_SEC = 0.5;
-static const uint64_t HTI_DEFAULT_FRAME_DELTA_NS   = 40000000ull;
 
 struct hti_live_state
 {
@@ -39,14 +37,6 @@ struct hti_live_state
     uint16_t previous_w9;
     uint16_t previous_radiometric[HTI_IMAGE_PIXELS];
 };
-
-struct hti_auto_range_state
-{
-    bool   initialized;
-    double min_c;
-    double max_c;
-};
-
 struct hti_auto_save_state
 {
     bool     have_last_auto_saved_live_frame;
@@ -749,36 +739,6 @@ static uint64_t monotonic_ns( void )
     return (uint64_t)ts.tv_sec * 1000000000ull + (uint64_t)ts.tv_nsec;
 }
 
-static bool frame_footer_changed( const struct hti_live_state *state, const struct hti_frame *frame )
-{
-    if( !state->have_previous_frame )
-    {
-        return false;
-    }
-
-    return frame->footer.r0_w20 != state->previous_r0_w20 || frame->footer.r0_w25 != state->previous_r0_w25 || frame->footer.r0_w03 != state->previous_r0_w03 || frame->footer.r1_u32_10 != state->previous_r1_u32_10 || frame->display_footer.w2 != state->previous_w2 || frame->display_footer.w5 != state->previous_w5 || frame->display_footer.w8 != state->previous_w8 || frame->display_footer.w9 != state->previous_w9;
-}
-
-static bool frame_upper_baseline_changed( const struct hti_live_state *state, const struct hti_frame *frame )
-{
-    if( !state->have_previous_frame )
-    {
-        return false;
-    }
-
-    return frame->footer.r0_w20 != state->previous_r0_w20 || frame->footer.r0_w25 != state->previous_r0_w25 || frame->footer.r0_w03 != state->previous_r0_w03;
-}
-
-static bool frame_radiometric_replay( const struct hti_live_state *state, const struct hti_frame *frame )
-{
-    if( !state->have_previous_frame )
-    {
-        return false;
-    }
-
-    return memcmp( frame->radiometric, state->previous_radiometric, sizeof( state->previous_radiometric ) ) == 0;
-}
-
 static bool frame_matches_last_auto_saved_live_frame( const struct hti_auto_save_state *state,
                                                       const struct hti_frame           *frame )
 {
@@ -1083,7 +1043,6 @@ int main( int argc, char **argv )
                     {
                         if( have_frame && !opt.manual_scale )
                         {
-                            hti_compute_stats( &frame, opt.correction, &stats );
                             compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
                             seed_manual_scale( &range, &opt );
                         }
@@ -1101,7 +1060,6 @@ int main( int argc, char **argv )
                     {
                         if( have_frame && !opt.manual_scale )
                         {
-                            hti_compute_stats( &frame, opt.correction, &stats );
                             compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
                             seed_manual_scale( &range, &opt );
                         }
@@ -1125,7 +1083,6 @@ int main( int argc, char **argv )
                     {
                         if( have_frame && !opt.manual_scale )
                         {
-                            hti_compute_stats( &frame, opt.correction, &stats );
                             compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
                             seed_manual_scale( &range, &opt );
                         }
@@ -1137,7 +1094,6 @@ int main( int argc, char **argv )
                     {
                         if( have_frame && !opt.manual_scale )
                         {
-                            hti_compute_stats( &frame, opt.correction, &stats );
                             compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
                             seed_manual_scale( &range, &opt );
                         }

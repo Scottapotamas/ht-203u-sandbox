@@ -10,6 +10,23 @@ enum
     HTI_TOP_HALF_ROWS      = 196,
     HTI_LOWER_BLOCK_START  = HTI_TOP_HALF_ROWS,
     HTI_LOWER_FOOTER_START = HTI_LOWER_BLOCK_START + HTI_FRAME_HEIGHT,
+
+    /* Upper radiometric footer field offsets within meta_raw. */
+    HTI_FOOTER_R0_W00     = 0x00,   /* drift field, centi-unit temperature-like */
+    HTI_FOOTER_R0_W01     = 0x02,   /* drift field, centi-unit temperature-like */
+    HTI_FOOTER_R0_W03     = 0x06,   /* mode/state: 0x1F normal, 0x20 during FFC */
+    HTI_FOOTER_R0_W20     = 0x28,   /* current FFC/NUC baseline (dominant correction term) */
+    HTI_FOOTER_R0_W25     = 0x32,   /* previous FFC/NUC baseline */
+    HTI_FOOTER_R1_U32_10  = 0x210,  /* internal temperature / warmup state (deci-C) */
+    HTI_FOOTER_R1_U32_14  = 0x214,  /* constant ~60000, purpose unknown */
+
+    /* Lower display footer field offsets within the footer row. */
+    HTI_DF_MARKER0 = 0x00,          /* stable marker: 0xFFFF */
+    HTI_DF_MARKER1 = 0x02,          /* stable marker: 0xEEEE */
+    HTI_DF_W2      = 0x04,          /* proxy for scene max temperature */
+    HTI_DF_W5      = 0x0a,          /* proxy for scene min temperature */
+    HTI_DF_W8      = 0x10,          /* proxy for scene mean temperature */
+    HTI_DF_W9      = 0x12,          /* proxy for scene center temperature */
 };
 
 static const uint32_t HTI_VENDOR_MARKER = 0xaabbccddU;
@@ -63,26 +80,31 @@ static int read_file_exact( const char *path, uint8_t *dst, size_t expected_len 
 static void decode_footer( struct hti_footer_fields *footer, const uint8_t *meta_raw )
 {
     memset( footer, 0, sizeof( *footer ) );
-    footer->r0_w00    = hti_read_le16( meta_raw + 0x00 );
-    footer->r0_w01    = hti_read_le16( meta_raw + 0x02 );
-    footer->r0_w03    = hti_read_le16( meta_raw + 0x06 );
-    footer->r0_w20    = hti_read_le16( meta_raw + 0x28 );
-    footer->r0_w25    = hti_read_le16( meta_raw + 0x32 );
-    footer->r1_u32_10 = hti_read_le32( meta_raw + 0x210 );
-    footer->r1_u32_14 = hti_read_le32( meta_raw + 0x214 );
+    footer->r0_w00    = hti_read_le16( meta_raw + HTI_FOOTER_R0_W00 );
+    footer->r0_w01    = hti_read_le16( meta_raw + HTI_FOOTER_R0_W01 );
+    footer->r0_w03    = hti_read_le16( meta_raw + HTI_FOOTER_R0_W03 );
+    footer->r0_w20    = hti_read_le16( meta_raw + HTI_FOOTER_R0_W20 );
+    footer->r0_w25    = hti_read_le16( meta_raw + HTI_FOOTER_R0_W25 );
+    footer->r1_u32_10 = hti_read_le32( meta_raw + HTI_FOOTER_R1_U32_10 );
+    footer->r1_u32_14 = hti_read_le32( meta_raw + HTI_FOOTER_R1_U32_14 );
     footer->valid     = true;
 }
 
 static void decode_display_footer( struct hti_display_footer_fields *footer, const uint8_t *row0_raw )
 {
+    uint16_t marker0;
+    uint16_t marker1;
+
     memset( footer, 0, sizeof( *footer ) );
-    footer->marker0 = hti_read_le16( row0_raw + 0x00 );
-    footer->marker1 = hti_read_le16( row0_raw + 0x02 );
-    footer->w2      = hti_read_le16( row0_raw + 0x04 );
-    footer->w5      = hti_read_le16( row0_raw + 0x0a );
-    footer->w8      = hti_read_le16( row0_raw + 0x10 );
-    footer->w9      = hti_read_le16( row0_raw + 0x12 );
-    footer->valid   = footer->marker0 == 0xffffu && footer->marker1 == 0xeeeeu && ( footer->w2 != 0 || footer->w5 != 0 || footer->w8 != 0 || footer->w9 != 0 );
+    marker0     = hti_read_le16( row0_raw + HTI_DF_MARKER0 );
+    marker1     = hti_read_le16( row0_raw + HTI_DF_MARKER1 );
+    footer->w2  = hti_read_le16( row0_raw + HTI_DF_W2 );
+    footer->w5  = hti_read_le16( row0_raw + HTI_DF_W5 );
+    footer->w8  = hti_read_le16( row0_raw + HTI_DF_W8 );
+    footer->w9  = hti_read_le16( row0_raw + HTI_DF_W9 );
+    /* Only trust when both markers match and at least one temperature field is nonzero. */
+    footer->valid = marker0 == 0xffffu && marker1 == 0xeeeeu
+                    && ( footer->w2 != 0 || footer->w5 != 0 || footer->w8 != 0 || footer->w9 != 0 );
 }
 
 static void decode_active_u16( const uint8_t *src, uint16_t *dst )

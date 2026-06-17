@@ -3,6 +3,8 @@
 #include <math.h>
 enum
 {
+    /* Lower-footer affine fits degrade above ~120°C; scenes hotter than
+     * this fall through to the min/mean fallback path instead of min/max. */
     HTI_LOWER_AFFINE_MAX_TRUST_C = 120,
 };
 
@@ -359,7 +361,6 @@ void hti_compute_stats( const struct hti_frame       *frame,
     {
         stats->scene_dynamic_bits = 0.0;
     }
-    stats->offset_c = 0.0;
 }
 
 void hti_compute_display_range( const struct hti_temperature_stats *stats,
@@ -388,5 +389,82 @@ void hti_compute_display_range( const struct hti_temperature_stats *stats,
     if( range->max_c <= range->min_c )
     {
         range->max_c = range->min_c + 1.0;
+    }
+}
+
+/* Seconds of smoothing for auto-range EMA. Larger = more stable, slower to react. */
+static const double HTI_RANGE_SMOOTHING_SEC = 0.5;
+static const uint64_t HTI_DEFAULT_FRAME_DELTA_NS = 40000000ull;
+
+static double range_alpha( uint64_t frame_delta_ns )
+{
+    double delta_s = frame_delta_ns > 0 ? (double)frame_delta_ns / 1000000000.0
+                                        : (double)HTI_DEFAULT_FRAME_DELTA_NS / 1000000000.0;
+
+    if( delta_s <= 0.0 || !isfinite( delta_s ) )
+    {
+        delta_s = (double)HTI_DEFAULT_FRAME_DELTA_NS / 1000000000.0;
+    }
+    if( HTI_RANGE_SMOOTHING_SEC <= 0.0 )
+    {
+        return 1.0;
+    }
+    if( delta_s >= HTI_RANGE_SMOOTHING_SEC * 4.0 )
+    {
+        return 1.0;
+    }
+
+    return 1.0 - exp( -delta_s / HTI_RANGE_SMOOTHING_SEC );
+}
+
+void hti_range_reset( struct hti_auto_range_state *state )
+{
+    memset( state, 0, sizeof( *state ) );
+}
+
+void hti_range_update( const struct hti_frame             *frame,
+                        const struct hti_temperature_stats *stats,
+                        bool                                manual_scale,
+                        double                              manual_min_c,
+                        double                              manual_max_c,
+                        struct hti_auto_range_state        *auto_range,
+                        struct hti_display_range           *range_out )
+{
+    struct hti_display_range instant;
+
+    hti_compute_display_range( stats, manual_scale, manual_min_c, manual_max_c, &instant );
+
+    if( manual_scale )
+    {
+        *range_out = instant;
+        return;
+    }
+
+    if( !auto_range->initialized
+        || !isfinite( auto_range->min_c )
+        || !isfinite( auto_range->max_c )
+        || auto_range->max_c <= auto_range->min_c )
+    {
+        auto_range->initialized = true;
+        auto_range->min_c       = instant.min_c;
+        auto_range->max_c       = instant.max_c;
+    }
+    else if( frame->quantitative_valid )
+    {
+        double alpha = range_alpha( frame->frame_delta_ns );
+
+        auto_range->min_c += ( instant.min_c - auto_range->min_c ) * alpha;
+        auto_range->max_c += ( instant.max_c - auto_range->max_c ) * alpha;
+    }
+
+    range_out->min_c = auto_range->min_c;
+    range_out->max_c = auto_range->max_c;
+
+    if( !isfinite( range_out->min_c ) || !isfinite( range_out->max_c ) || range_out->max_c <= range_out->min_c )
+    {
+        *range_out = instant;
+        auto_range->initialized = true;
+        auto_range->min_c       = range_out->min_c;
+        auto_range->max_c       = range_out->max_c;
     }
 }

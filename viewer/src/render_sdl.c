@@ -101,6 +101,10 @@ static const uint8_t HTI_FONT_5X7[128][HTI_FONT_H] = {
     ['_'] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1f },
 };
 
+static SDL_Window   *win ( struct hti_renderer *r ) { return (SDL_Window *)  r->window;   }
+static SDL_Renderer *sdl ( struct hti_renderer *r ) { return (SDL_Renderer *)r->renderer; }
+static SDL_Texture  *tex ( struct hti_renderer *r ) { return (SDL_Texture *) r->texture;  }
+
 static SDL_Color hti_color( uint8_t r, uint8_t g, uint8_t b, uint8_t a )
 {
     SDL_Color color = { r, g, b, a };
@@ -392,12 +396,9 @@ static void draw_overlay_block( SDL_Renderer                   *renderer,
 
 static void format_temp_value( char *dst, size_t dst_size, bool valid, double temp_c, int decimals )
 {
-    int         width = decimals >= 2 ? 7 : 6;
-    const char *mask  = decimals >= 2 ? "---.--" : "--.-";
-
     if( !valid || !isfinite( temp_c ) )
     {
-        snprintf( dst, dst_size, "%*sC", width, mask );
+        snprintf( dst, dst_size, decimals >= 2 ? "---.--C" : "--.-C" );
         return;
     }
 
@@ -734,9 +735,9 @@ int hti_renderer_init( struct hti_renderer *renderer, int window_scale )
 
 void hti_renderer_shutdown( struct hti_renderer *renderer )
 {
-    SDL_Texture  *texture      = (SDL_Texture *)renderer->texture;
-    SDL_Renderer *sdl_renderer = (SDL_Renderer *)renderer->renderer;
-    SDL_Window   *window       = (SDL_Window *)renderer->window;
+    SDL_Texture  *texture      = tex( renderer );
+    SDL_Renderer *sdl_renderer = sdl( renderer );
+    SDL_Window   *window       = win( renderer );
 
     if( texture != NULL )
     {
@@ -764,9 +765,9 @@ void hti_renderer_present( struct hti_renderer                *renderer,
                            const struct hti_display_range     *range,
                            bool                                paused )
 {
-    SDL_Window   *window       = (SDL_Window *)renderer->window;
-    SDL_Renderer *sdl_renderer = (SDL_Renderer *)renderer->renderer;
-    SDL_Texture  *texture      = (SDL_Texture *)renderer->texture;
+    SDL_Window   *window       = win( renderer );
+    SDL_Renderer *sdl_renderer = sdl( renderer );
+    SDL_Texture  *texture      = tex( renderer );
     void         *pixels       = NULL;
     int           pitch        = 0;
     double        denom        = range->max_c - range->min_c;
@@ -790,7 +791,7 @@ void hti_renderer_present( struct hti_renderer                *renderer,
         for( int x = 0; x < HTI_FRAME_WIDTH; x++ )
         {
             int     idx        = y * HTI_FRAME_WIDTH + x;
-            double  temp_c     = hti_temperature_at( frame, opt->correction, idx ) + stats->offset_c;
+            double  temp_c     = hti_temperature_at( frame, opt->correction, idx );
             double  normalized = ( temp_c - range->min_c ) / denom;
             uint8_t r          = 0;
             uint8_t g          = 0;

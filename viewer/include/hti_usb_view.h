@@ -85,8 +85,6 @@ struct hti_footer_fields
 struct hti_display_footer_fields
 {
     bool     valid;
-    uint16_t marker0;
-    uint16_t marker1;
     uint16_t w2;
     uint16_t w5;
     uint16_t w8;
@@ -132,6 +130,15 @@ struct hti_frame
     double                           lower_affine_target_center_c;
 };
 
+
+/* Auto-range EMA state for smoothing the displayed temperature window. */
+struct hti_auto_range_state
+{
+    bool   initialized;
+    double min_c;
+    double max_c;
+};
+
 struct hti_temperature_stats
 {
     double min_c;
@@ -140,7 +147,6 @@ struct hti_temperature_stats
     double mean_c;
     double scene_range_c;
     double scene_dynamic_bits;
-    double offset_c;
     uint16_t raw_min_code;
     uint16_t raw_max_code;
     int    min_x;

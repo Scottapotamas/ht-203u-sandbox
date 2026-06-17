@@ -15,6 +15,7 @@ SRCS := \
 	src/main.c \
 	src/usb_device.c \
 	src/frame_decode.c \
+	src/ffc_state.c \
 	src/thermo.c \
 	src/palette.c \
 	src/render_sdl.c \
