@@ -30,8 +30,12 @@ static int mkdir_p( const char *path )
     for( size_t i = 1; i < len; i++ )
     {
         if( buf[i] != '/' )
+        {
             continue;
+        }
+
         buf[i] = '\0';
+        
         if( mkdir( buf, 0777 ) != 0 && errno != EEXIST )
         {
             return -1;

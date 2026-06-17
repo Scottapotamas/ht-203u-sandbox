@@ -6,6 +6,16 @@
 #include <stdint.h>
 
 #include <libusb-1.0/libusb.h>
+#include <time.h>
+
+static inline void hti_sleep_ms( long milliseconds )
+{
+    struct timespec delay;
+    if( milliseconds <= 0 ) return;
+    delay.tv_sec  = milliseconds / 1000;
+    delay.tv_nsec = ( milliseconds % 1000 ) * 1000000L;
+    nanosleep( &delay, NULL );
+}
 
 enum
 {
@@ -130,6 +140,28 @@ struct hti_frame
     double                           lower_affine_target_center_c;
 };
 
+/* Per-device-session state for FFC/shutter detection state machine. */
+struct hti_live_state
+{
+    bool     have_previous_frame;
+    bool     manual_trigger_pending;
+    bool     ffc_window_active;
+    bool     current_ffc_manual;
+    bool     replay_seen;
+    uint64_t last_frame_monotonic_ns;
+    uint64_t ffc_window_start_ns;
+    uint64_t stable_run_start_ns;
+    uint64_t last_completed_stable_run_ns;
+    uint16_t previous_r0_w20;
+    uint16_t previous_r0_w25;
+    uint16_t previous_r0_w03;
+    uint32_t previous_r1_u32_10;
+    uint16_t previous_w2;
+    uint16_t previous_w5;
+    uint16_t previous_w8;
+    uint16_t previous_w9;
+    uint16_t previous_radiometric[HTI_IMAGE_PIXELS];
+};
 
 /* Auto-range EMA state for smoothing the displayed temperature window. */
 struct hti_auto_range_state
@@ -268,6 +300,8 @@ int hti_load_saved_prefix( const char                 *prefix,
                            struct hti_transport_frame *transport,
                            struct hti_frame           *frame );
 
+void hti_ffc_update( struct hti_live_state *state, struct hti_frame *frame, uint64_t now_ns );
+
 double hti_temperature_at( const struct hti_frame  *frame,
                            enum hti_correction_mode correction,
                            int                      index );
@@ -280,6 +314,15 @@ void   hti_compute_display_range( const struct hti_temperature_stats *stats,
                                   double                              manual_min_c,
                                   double                              manual_max_c,
                                   struct hti_display_range           *range );
+
+void hti_range_reset( struct hti_auto_range_state *state );
+void hti_range_update( const struct hti_frame             *frame,
+                       const struct hti_temperature_stats *stats,
+                       bool                                manual_scale,
+                       double                              manual_min_c,
+                       double                              manual_max_c,
+                       struct hti_auto_range_state        *auto_range,
+                       struct hti_display_range           *range_out );
 
 void hti_palette_map( enum hti_palette_mode palette, double normalized,
                       uint8_t *r, uint8_t *g, uint8_t *b );

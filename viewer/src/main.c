@@ -15,28 +15,6 @@ enum
     HTI_STATUS_INTERVAL_MS = 1000,
 };
 
-
-struct hti_live_state
-{
-    bool     have_previous_frame;
-    bool     manual_trigger_pending;
-    bool     ffc_window_active;
-    bool     current_ffc_manual;
-    bool     replay_seen;
-    uint64_t last_frame_monotonic_ns;
-    uint64_t ffc_window_start_ns;
-    uint64_t stable_run_start_ns;
-    uint64_t last_completed_stable_run_ns;
-    uint16_t previous_r0_w20;
-    uint16_t previous_r0_w25;
-    uint16_t previous_r0_w03;
-    uint32_t previous_r1_u32_10;
-    uint16_t previous_w2;
-    uint16_t previous_w5;
-    uint16_t previous_w8;
-    uint16_t previous_w9;
-    uint16_t previous_radiometric[HTI_IMAGE_PIXELS];
-};
 struct hti_auto_save_state
 {
     bool     have_last_auto_saved_live_frame;
@@ -67,6 +45,7 @@ static int parse_int( const char *s, const char *what )
         fprintf( stderr, "invalid %s: %s\n", what, s );
         exit( EXIT_FAILURE );
     }
+
     if( value < -2147483647L || value > 2147483647L )
     {
         fprintf( stderr, "out of range %s: %s\n", what, s );
@@ -93,6 +72,9 @@ static double snap_half_degree( double value )
     return round( value * 2.0 ) / 2.0;
 }
 
+static uint64_t monotonic_ns( void );
+static void seed_manual_scale( const struct hti_display_range *range, struct hti_options *opt );
+
 static void snap_manual_scale_pair( struct hti_options *opt )
 {
     opt->manual_min_c = snap_half_degree( opt->manual_min_c );
@@ -103,22 +85,35 @@ static void snap_manual_scale_pair( struct hti_options *opt )
     }
 }
 
-static void clamp_manual_min( struct hti_options *opt )
+static void adjust_manual_bound( struct hti_options *opt, bool is_min, double delta )
 {
-    opt->manual_min_c = snap_half_degree( opt->manual_min_c );
-    if( opt->manual_min_c >= opt->manual_max_c )
+    if( is_min )
     {
-        opt->manual_min_c = opt->manual_max_c - 0.5;
+        opt->manual_min_c = snap_half_degree( opt->manual_min_c + delta );
+        if( opt->manual_min_c >= opt->manual_max_c )
+        {
+            opt->manual_min_c = opt->manual_max_c - 0.5;
+        }
+    }
+    else
+    {
+        opt->manual_max_c = snap_half_degree( opt->manual_max_c + delta );
+        if( opt->manual_max_c <= opt->manual_min_c )
+        {
+            opt->manual_max_c = opt->manual_min_c + 0.5;
+        }
     }
 }
 
-static void clamp_manual_max( struct hti_options *opt )
+static void seed_manual_from_auto( struct hti_frame              *frame,
+                                    struct hti_options            *opt,
+                                    struct hti_temperature_stats  *stats,
+                                    struct hti_auto_range_state   *auto_range,
+                                    struct hti_display_range      *range )
 {
-    opt->manual_max_c = snap_half_degree( opt->manual_max_c );
-    if( opt->manual_max_c <= opt->manual_min_c )
-    {
-        opt->manual_max_c = opt->manual_min_c + 0.5;
-    }
+    hti_compute_stats( frame, opt->correction, stats );
+    hti_range_update( frame, stats, opt->manual_scale, opt->manual_min_c, opt->manual_max_c, auto_range, range );
+    seed_manual_scale( range, opt );
 }
 
 static enum hti_correction_mode parse_correction( const char *s )
@@ -127,14 +122,17 @@ static enum hti_correction_mode parse_correction( const char *s )
     {
         return HTI_CORRECTION_RAW;
     }
+
     if( strcmp( s, "w20+r1" ) == 0 || strcmp( s, "w20plusr1" ) == 0 || strcmp( s, "w20_plus_r1" ) == 0 )
     {
         return HTI_CORRECTION_W20_PLUS_R1;
     }
+
     if( strcmp( s, "lower-affine" ) == 0 || strcmp( s, "loweraffine" ) == 0 )
     {
         return HTI_CORRECTION_LOWER_AFFINE;
     }
+
     die_msg( "unknown correction: use raw, w20+r1, or lower-affine" );
 
     return HTI_CORRECTION_RAW;
@@ -146,14 +144,17 @@ static enum hti_palette_mode parse_palette( const char *s )
     {
         return HTI_PALETTE_IRON;
     }
+
     if( strcmp( s, "gray" ) == 0 )
     {
         return HTI_PALETTE_GRAY;
     }
+
     if( strcmp( s, "viridis" ) == 0 )
     {
         return HTI_PALETTE_VIRIDIS;
     }
+
     if( strcmp( s, "inferno" ) == 0 )
     {
         return HTI_PALETTE_INFERNO;
@@ -169,14 +170,17 @@ static enum hti_overlay_mode parse_overlay( const char *s )
     {
         return HTI_OVERLAY_NONE;
     }
+
     if( strcmp( s, "minimal" ) == 0 || strcmp( s, "min" ) == 0 )
     {
         return HTI_OVERLAY_MINIMAL;
     }
+
     if( strcmp( s, "debug" ) == 0 )
     {
         return HTI_OVERLAY_DEBUG;
     }
+    
     die_msg( "unknown overlay: use none, minimal, or debug" );
 
     return HTI_OVERLAY_MINIMAL;
@@ -449,28 +453,7 @@ static void parse_args( int argc, char **argv, struct hti_options *opt )
 
 static uint64_t monotonic_ms( void )
 {
-    struct timespec ts;
-
-    if( clock_gettime( CLOCK_MONOTONIC, &ts ) != 0 )
-    {
-        return 0;
-    }
-
-    return (uint64_t)ts.tv_sec * 1000u + (uint64_t)( ts.tv_nsec / 1000000u );
-}
-
-static void sleep_ms( long milliseconds )
-{
-    struct timespec delay;
-
-    if( milliseconds <= 0 )
-    {
-        return;
-    }
-
-    delay.tv_sec  = milliseconds / 1000;
-    delay.tv_nsec = ( milliseconds % 1000 ) * 1000000L;
-    nanosleep( &delay, NULL );
+    return monotonic_ns() / 1000000ull;
 }
 
 static void print_runtime_help( bool live_mode )
@@ -647,84 +630,9 @@ static void seed_manual_scale( const struct hti_display_range *range, struct hti
     opt->manual_scale = true;
 }
 
-static void reset_auto_range_state( struct hti_auto_range_state *state )
-{
-    memset( state, 0, sizeof( *state ) );
-}
-
 static const char *save_dir_or_default( const struct hti_options *opt )
 {
     return opt->save_dir != NULL ? opt->save_dir : "viewer-captures";
-}
-
-static double auto_range_alpha( uint64_t frame_delta_ns )
-{
-    double delta_s = frame_delta_ns > 0 ? (double)frame_delta_ns / 1000000000.0
-                                        : (double)HTI_DEFAULT_FRAME_DELTA_NS / 1000000000.0;
-
-    if( delta_s <= 0.0 || !isfinite( delta_s ) )
-    {
-        delta_s = (double)HTI_DEFAULT_FRAME_DELTA_NS / 1000000000.0;
-    }
-    if( HTI_AUTO_RANGE_SMOOTHING_SEC <= 0.0 )
-    {
-        return 1.0;
-    }
-    if( delta_s >= HTI_AUTO_RANGE_SMOOTHING_SEC * 4.0 )
-    {
-        return 1.0;
-    }
-
-    return 1.0 - exp( -delta_s / HTI_AUTO_RANGE_SMOOTHING_SEC );
-}
-
-static void compute_display_range_for_frame( const struct hti_frame             *frame,
-                                             const struct hti_temperature_stats *stats,
-                                             const struct hti_options           *opt,
-                                             struct hti_auto_range_state        *auto_range,
-                                             struct hti_display_range           *range )
-{
-    struct hti_display_range instant;
-
-    hti_compute_display_range( stats,
-                               opt->manual_scale,
-                               opt->manual_min_c,
-                               opt->manual_max_c,
-                               &instant );
-
-    if( opt->manual_scale )
-    {
-        *range = instant;
-        return;
-    }
-
-    if( !auto_range->initialized
-        || !isfinite( auto_range->min_c )
-        || !isfinite( auto_range->max_c )
-        || auto_range->max_c <= auto_range->min_c )
-    {
-        auto_range->initialized = true;
-        auto_range->min_c       = instant.min_c;
-        auto_range->max_c       = instant.max_c;
-    }
-    else if( frame->quantitative_valid )
-    {
-        double alpha = auto_range_alpha( frame->frame_delta_ns );
-
-        auto_range->min_c += ( instant.min_c - auto_range->min_c ) * alpha;
-        auto_range->max_c += ( instant.max_c - auto_range->max_c ) * alpha;
-    }
-
-    range->min_c = auto_range->min_c;
-    range->max_c = auto_range->max_c;
-
-    if( !isfinite( range->min_c ) || !isfinite( range->max_c ) || range->max_c <= range->min_c )
-    {
-        *range = instant;
-        auto_range->initialized = true;
-        auto_range->min_c       = range->min_c;
-        auto_range->max_c       = range->max_c;
-    }
 }
 
 static uint64_t monotonic_ns( void )
@@ -760,103 +668,6 @@ static void remember_auto_saved_live_frame( struct hti_auto_save_state *state, c
     state->have_last_auto_saved_live_frame = true;
 }
 
-static void update_live_frame_state( struct hti_live_state *state, struct hti_frame *frame )
-{
-    uint64_t now_ns                 = monotonic_ns();
-    bool     footer_changed         = frame_footer_changed( state, frame );
-    bool     upper_baseline_changed = frame_upper_baseline_changed( state, frame );
-    bool     replay_detected        = frame_radiometric_replay( state, frame );
-    bool     start_ffc_window       = false;
-    bool     manual_ffc             = false;
-
-    frame->capture_monotonic_ns   = now_ns;
-    frame->frame_delta_ns         = state->last_frame_monotonic_ns > 0 && now_ns >= state->last_frame_monotonic_ns
-                                        ? now_ns - state->last_frame_monotonic_ns
-                                        : 0;
-    frame->footer_changed         = footer_changed;
-    frame->replay_detected        = replay_detected;
-    frame->ffc_state              = HTI_FFC_NONE;
-    frame->ffc_manual             = false;
-    frame->quantitative_valid     = true;
-    frame->ffc_window_ns          = 0;
-    frame->stable_run_ns          = 0;
-    frame->previous_stable_run_ns = state->last_completed_stable_run_ns;
-
-    if( !state->ffc_window_active && state->manual_trigger_pending )
-    {
-        start_ffc_window = true;
-        manual_ffc       = true;
-    }
-    else if( !state->ffc_window_active && upper_baseline_changed )
-    {
-        start_ffc_window = true;
-        manual_ffc       = false;
-    }
-
-    if( start_ffc_window )
-    {
-        if( state->stable_run_start_ns > 0 && now_ns >= state->stable_run_start_ns )
-        {
-            state->last_completed_stable_run_ns = now_ns - state->stable_run_start_ns;
-        }
-        state->stable_run_start_ns    = 0;
-        state->ffc_window_active      = true;
-        state->current_ffc_manual     = manual_ffc;
-        state->ffc_window_start_ns    = now_ns;
-        state->manual_trigger_pending = false;
-        frame->previous_stable_run_ns = state->last_completed_stable_run_ns;
-    }
-
-    if( state->ffc_window_active )
-    {
-        frame->ffc_manual         = state->current_ffc_manual;
-        frame->ffc_window_ns      = now_ns >= state->ffc_window_start_ns ? now_ns - state->ffc_window_start_ns : 0;
-        frame->quantitative_valid = false;
-        if( replay_detected )
-        {
-            frame->ffc_state   = HTI_FFC_REPLAY;
-            state->replay_seen = true;
-        }
-        else if( state->replay_seen )
-        {
-            frame->ffc_state           = HTI_FFC_RECOVERED;
-            state->ffc_window_active   = false;
-            state->replay_seen         = false;
-            state->stable_run_start_ns = now_ns;
-            frame->quantitative_valid  = true;
-        }
-        else
-        {
-            frame->ffc_state = HTI_FFC_TRIGGERED;
-        }
-    }
-
-    if( !state->ffc_window_active && frame->ffc_state == HTI_FFC_NONE )
-    {
-        if( state->stable_run_start_ns == 0 )
-        {
-            state->stable_run_start_ns = now_ns;
-        }
-        frame->stable_run_ns = now_ns >= state->stable_run_start_ns ? now_ns - state->stable_run_start_ns : 0;
-    }
-    else if( frame->ffc_state == HTI_FFC_RECOVERED )
-    {
-        frame->stable_run_ns = 0;
-    }
-
-    state->last_frame_monotonic_ns = now_ns;
-    state->previous_r0_w20         = frame->footer.r0_w20;
-    state->previous_r0_w25         = frame->footer.r0_w25;
-    state->previous_r0_w03         = frame->footer.r0_w03;
-    state->previous_r1_u32_10      = frame->footer.r1_u32_10;
-    state->previous_w2             = frame->display_footer.w2;
-    state->previous_w5             = frame->display_footer.w5;
-    state->previous_w8             = frame->display_footer.w8;
-    state->previous_w9             = frame->display_footer.w9;
-    memcpy( state->previous_radiometric, frame->radiometric, sizeof( state->previous_radiometric ) );
-    state->have_previous_frame = true;
-}
-
 static bool trigger_live_shutter( struct hti_usb_device *usb, const struct hti_options *opt )
 {
     int  rc         = 0;
@@ -873,7 +684,7 @@ static bool trigger_live_shutter( struct hti_usb_device *usb, const struct hti_o
     fprintf( stderr, "live-handle shutter trigger failed: %s\n", libusb_error_name( rc ) );
     fprintf( stderr, "restarting the live USB stream for a control-only shutter trigger\n" );
     hti_usb_close( usb );
-    sleep_ms( 250 );
+    hti_sleep_ms( 250 );
 
     rc = hti_usb_trigger_shutter_standalone( 0, 0, opt->stream_request.timeout_ms, opt->verbose );
     if( rc != 0 )
@@ -885,7 +696,7 @@ static bool trigger_live_shutter( struct hti_usb_device *usb, const struct hti_o
         trigger_ok = true;
     }
 
-    sleep_ms( 250 );
+    hti_sleep_ms( 250 );
     rc = hti_usb_open( usb, 0, 0, &opt->stream_request, opt->verbose );
     if( rc != 0 )
     {
@@ -1026,7 +837,7 @@ int main( int argc, char **argv )
                     else if( key == SDLK_c )
                     {
                         opt.correction = hti_next_correction( opt.correction );
-                        reset_auto_range_state( &auto_range );
+                        hti_range_reset( &auto_range );
                         ui_dirty       = true;
                     }
                     else if( key == SDLK_o )
@@ -1043,62 +854,42 @@ int main( int argc, char **argv )
                     {
                         if( have_frame && !opt.manual_scale )
                         {
-                            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
-                            seed_manual_scale( &range, &opt );
+                            seed_manual_from_auto( &frame, &opt, &stats, &auto_range, &range );
                         }
                         else
                         {
                             opt.manual_scale = !opt.manual_scale;
                             if( !opt.manual_scale )
-                            {
-                                reset_auto_range_state( &auto_range );
-                            }
+                                hti_range_reset( &auto_range );
                         }
                         ui_dirty = true;
                     }
                     else if( key == SDLK_LEFTBRACKET )
                     {
                         if( have_frame && !opt.manual_scale )
-                        {
-                            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
-                            seed_manual_scale( &range, &opt );
-                        }
-                        opt.manual_min_c -= 0.5;
-                        clamp_manual_min( &opt );
+                            seed_manual_from_auto( &frame, &opt, &stats, &auto_range, &range );
+                        adjust_manual_bound( &opt, true, -0.5 );
                         ui_dirty = true;
                     }
                     else if( key == SDLK_RIGHTBRACKET )
                     {
                         if( have_frame && !opt.manual_scale )
-                        {
-                            hti_compute_stats( &frame, opt.correction, &stats );
-                            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
-                            seed_manual_scale( &range, &opt );
-                        }
-                        opt.manual_min_c += 0.5;
-                        clamp_manual_min( &opt );
+                            seed_manual_from_auto( &frame, &opt, &stats, &auto_range, &range );
+                        adjust_manual_bound( &opt, true, +0.5 );
                         ui_dirty = true;
                     }
                     else if( key == SDLK_MINUS )
                     {
                         if( have_frame && !opt.manual_scale )
-                        {
-                            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
-                            seed_manual_scale( &range, &opt );
-                        }
-                        opt.manual_max_c -= 0.5;
-                        clamp_manual_max( &opt );
+                            seed_manual_from_auto( &frame, &opt, &stats, &auto_range, &range );
+                        adjust_manual_bound( &opt, false, -0.5 );
                         ui_dirty = true;
                     }
                     else if( key == SDLK_EQUALS )
                     {
                         if( have_frame && !opt.manual_scale )
-                        {
-                            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
-                            seed_manual_scale( &range, &opt );
-                        }
-                        opt.manual_max_c += 0.5;
-                        clamp_manual_max( &opt );
+                            seed_manual_from_auto( &frame, &opt, &stats, &auto_range, &range );
+                        adjust_manual_bound( &opt, false, +0.5 );
                         ui_dirty = true;
                     }
                     else if( key == SDLK_w )
@@ -1124,7 +915,7 @@ int main( int argc, char **argv )
                          (unsigned long long)transport.sequence );
                 continue;
             }
-            update_live_frame_state( &live_state, &frame );
+            hti_ffc_update( &live_state, &frame, monotonic_ns() );
             if( frame.ffc_state == HTI_FFC_TRIGGERED && !frame.ffc_manual )
             {
                 fprintf( stderr,
@@ -1155,7 +946,7 @@ int main( int argc, char **argv )
                                            && frame_matches_last_auto_saved_live_frame( &auto_save_state, &frame );
 
             hti_compute_stats( &frame, opt.correction, &stats );
-            compute_display_range_for_frame( &frame, &stats, &opt, &auto_range, &range );
+            hti_range_update( &frame, &stats, opt.manual_scale, opt.manual_min_c, opt.manual_max_c, &auto_range, &range );
 
             if( opt.headless || frame_updated || ui_dirty || monotonic_ms() - last_status_ms >= HTI_STATUS_INTERVAL_MS )
             {

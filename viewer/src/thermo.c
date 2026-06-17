@@ -1,9 +1,11 @@
 #include "hti_usb_view.h"
 
 #include <math.h>
+#include <string.h>
+
 enum
 {
-    /* Lower-footer affine fits degrade above ~120°C; scenes hotter than
+    /* Lower-footer affine fit degrades above ~120°C; scenes hotter than
      * this fall through to the min/mean fallback path instead of min/max. */
     HTI_LOWER_AFFINE_MAX_TRUST_C = 120,
 };
@@ -16,9 +18,10 @@ static const double HTI_W8_TO_MEAN_SLOPE   = 0.017148;
 static const double HTI_W8_TO_MEAN_BIAS    = -53.198287;
 static const double HTI_W9_TO_CENTER_SLOPE = 0.017119;
 static const double HTI_W9_TO_CENTER_BIAS  = -52.032800;
+
 /*
  * Provisional upper-footer-only additive correction.
- * Coefficients are a sample-count-weighted blend of the two mean-stat
+ * Coefficients are a count-weighted blend of the two mean-stat
  * w20+r1 fits from the cold-start and room-temperature warmup runs.
  */
 static const double HTI_W20_PLUS_R1_INTERCEPT_C = -36.205448;
@@ -95,6 +98,20 @@ const char *hti_lower_affine_kind_name( enum hti_lower_affine_kind kind )
     return "unknown";
 }
 
+/*
+ * Convert a raw u16 pixel code to a temperature-independent code value.
+ *
+ * For LOWER_AFFINE mode this also applies a shutter/FFC pre-correction.
+ * When the camera re-baselines at an FFC event, the pixel codes shift by an
+ * offset proportional to the w20/w25 delta.
+
+ * Subtracting ~0.8125 * delta compensates for this before the lower-footer
+ * affine remap is applied later in hti_temperature_at(). T
+
+ * This is a two-stage correction strategy:
+ *   - undo the FFC baseline jump here,
+ *   - affine-map to match the lower processed footer reference.
+ */
 static double corrected_code_raw( const struct hti_frame  *frame,
                                   enum hti_correction_mode correction,
                                   int                      index )
@@ -211,6 +228,8 @@ static bool compute_affine( double  src_a,
         return false;
     }
 
+    /* Empirically-derived. Anything outside these bounds indicates something odd in the 
+     * scene (all-one-temperature, saturated, or misaligned footer vs image). */
     if( scale < 0.5 || scale > 2.0 )
     {
         return false;
@@ -325,16 +344,19 @@ void hti_compute_stats( const struct hti_frame       *frame,
             {
                 stats->raw_min_code = raw_code;
             }
+
             if( raw_code > stats->raw_max_code )
             {
                 stats->raw_max_code = raw_code;
             }
+
             if( temp_c < stats->min_c )
             {
                 stats->min_c = temp_c;
                 stats->min_x = x;
                 stats->min_y = y;
             }
+
             if( temp_c > stats->max_c )
             {
                 stats->max_c = temp_c;
@@ -347,16 +369,19 @@ void hti_compute_stats( const struct hti_frame       *frame,
     stats->center_c = hti_temperature_at( frame, correction, center_index );
     stats->mean_c   = sum / (double)HTI_IMAGE_PIXELS;
     stats->scene_range_c = stats->max_c - stats->min_c;
+
     if( !isfinite( stats->scene_range_c ) || stats->scene_range_c < 0.0 )
     {
         stats->scene_range_c = 0.0;
     }
+
     if( stats->raw_max_code >= stats->raw_min_code )
     {
         double raw_span = (double)( stats->raw_max_code - stats->raw_min_code );
 
         stats->scene_dynamic_bits = raw_span > 0.0 ? log2( raw_span + 1.0 ) : 0.0;
     }
+
     if( !isfinite( stats->scene_dynamic_bits ) || stats->scene_dynamic_bits < 0.0 )
     {
         stats->scene_dynamic_bits = 0.0;
@@ -392,7 +417,7 @@ void hti_compute_display_range( const struct hti_temperature_stats *stats,
     }
 }
 
-/* Seconds of smoothing for auto-range EMA. Larger = more stable, slower to react. */
+/* Seconds of smoothing for auto-range EMA. Larger = more stable and slower to react. */
 static const double HTI_RANGE_SMOOTHING_SEC = 0.5;
 static const uint64_t HTI_DEFAULT_FRAME_DELTA_NS = 40000000ull;
 
@@ -405,10 +430,12 @@ static double range_alpha( uint64_t frame_delta_ns )
     {
         delta_s = (double)HTI_DEFAULT_FRAME_DELTA_NS / 1000000000.0;
     }
+
     if( HTI_RANGE_SMOOTHING_SEC <= 0.0 )
     {
         return 1.0;
     }
+
     if( delta_s >= HTI_RANGE_SMOOTHING_SEC * 4.0 )
     {
         return 1.0;

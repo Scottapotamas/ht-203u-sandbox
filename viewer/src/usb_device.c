@@ -13,6 +13,7 @@ enum
     HTI_DEFAULT_STREAMING_INTERFACE = 1,
     HTI_DEFAULT_EXTENSION_UNIT      = 0x0a,
     HTI_DEFAULT_BULK_ENDPOINT       = 0x81,
+    
     /* The camera reports UVC 1.10, so the packed Linux header size is 34 bytes. */
     HTI_UVC_PROBE_LEN           = (int)sizeof( struct uvc_streaming_control ),
     HTI_UVC_PROBE_REQUIRED_LEN  = 26,
@@ -47,6 +48,7 @@ static unsigned int transfer_timeout_ms( const struct hti_usb_device *dev )
     {
         return (unsigned int)dev->timeout_ms;
     }
+
     return HTI_DEFAULT_TIMEOUT_MS;
 }
 
@@ -73,20 +75,6 @@ static uint32_t fallback_frame_bytes( uint8_t frame_index )
         default:
             return 0u;
     }
-}
-
-static void sleep_ms_local( long milliseconds )
-{
-    struct timespec delay;
-
-    if( milliseconds <= 0 )
-    {
-        return;
-    }
-    
-    delay.tv_sec  = milliseconds / 1000;
-    delay.tv_nsec = ( milliseconds % 1000 ) * 1000000L;
-    nanosleep( &delay, NULL );
 }
 
 static uint16_t make_xu_w_value( uint8_t selector )
@@ -159,6 +147,7 @@ static const char *usb_string_or_unknown( libusb_device_handle *handle,
     }
 
     rc = libusb_get_string_descriptor_ascii( handle, index, (unsigned char *)buf, (int)buf_len - 1 );
+    
     if( rc < 0 )
     {
         snprintf( buf, buf_len, "<unavailable: %s>", libusb_error_name( rc ) );
@@ -591,7 +580,7 @@ int hti_usb_open( struct hti_usb_device *dev, uint16_t vid, uint16_t pid,
         return rc;
     }
 
-    sleep_ms_local( HTI_STREAM_START_SETTLE_MS );
+    hti_sleep_ms( HTI_STREAM_START_SETTLE_MS );
 
     return 0;
 }
@@ -656,18 +645,16 @@ int hti_usb_read_frame( struct hti_usb_device *dev, struct hti_transport_frame *
 
         if( rc != 0 )
         {
-            if( ( rc == LIBUSB_ERROR_IO || rc == LIBUSB_ERROR_TIMEOUT ) && transient_retries < HTI_BULK_RETRY_COUNT )
+            if( ( rc == LIBUSB_ERROR_IO || rc == LIBUSB_ERROR_TIMEOUT || rc == LIBUSB_ERROR_PIPE )
+                && transient_retries < HTI_BULK_RETRY_COUNT )
             {
                 transient_retries++;
-                sleep_ms_local( HTI_BULK_RETRY_DELAY_MS );
-                continue;
-            }
-
-            if( rc == LIBUSB_ERROR_PIPE && transient_retries < HTI_BULK_RETRY_COUNT )
-            {
-                transient_retries++;
-                libusb_clear_halt( dev->handle, dev->bulk_endpoint );
-                sleep_ms_local( HTI_BULK_RETRY_DELAY_MS );
+                if( rc == LIBUSB_ERROR_PIPE )
+                {
+                    libusb_clear_halt( dev->handle, dev->bulk_endpoint );
+                }
+                
+                hti_sleep_ms( HTI_BULK_RETRY_DELAY_MS );
                 continue;
             }
 
@@ -679,7 +666,7 @@ int hti_usb_read_frame( struct hti_usb_device *dev, struct hti_transport_frame *
             if( transient_retries < HTI_BULK_RETRY_COUNT )
             {
                 transient_retries++;
-                sleep_ms_local( HTI_BULK_RETRY_DELAY_MS );
+                hti_sleep_ms( HTI_BULK_RETRY_DELAY_MS );
                 continue;
             }
             return LIBUSB_ERROR_IO;

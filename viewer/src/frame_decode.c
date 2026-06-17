@@ -12,21 +12,21 @@ enum
     HTI_LOWER_FOOTER_START = HTI_LOWER_BLOCK_START + HTI_FRAME_HEIGHT,
 
     /* Upper radiometric footer field offsets within meta_raw. */
-    HTI_FOOTER_R0_W00     = 0x00,   /* drift field, centi-unit temperature-like */
-    HTI_FOOTER_R0_W01     = 0x02,   /* drift field, centi-unit temperature-like */
-    HTI_FOOTER_R0_W03     = 0x06,   /* mode/state: 0x1F normal, 0x20 during FFC */
-    HTI_FOOTER_R0_W20     = 0x28,   /* current FFC/NUC baseline (dominant correction term) */
-    HTI_FOOTER_R0_W25     = 0x32,   /* previous FFC/NUC baseline */
-    HTI_FOOTER_R1_U32_10  = 0x210,  /* internal temperature / warmup state (deci-C) */
-    HTI_FOOTER_R1_U32_14  = 0x214,  /* constant ~60000, purpose unknown */
+    HTI_FOOTER_R0_W00     = 0x00,   /* Drift field, centi-unit temperature-like */
+    HTI_FOOTER_R0_W01     = 0x02,   /* Drift field, centi-unit temperature-like */
+    HTI_FOOTER_R0_W03     = 0x06,   /* Mode/state: 0x1F normal, 0x20 during FFC */
+    HTI_FOOTER_R0_W20     = 0x28,   /* Current FFC/NUC baseline (dominant correction term) */
+    HTI_FOOTER_R0_W25     = 0x32,   /* Previous FFC/NUC baseline */
+    HTI_FOOTER_R1_U32_10  = 0x210,  /* Internal temperature / warmup state (deci-C) */
+    HTI_FOOTER_R1_U32_14  = 0x214,  /* Constant ~60000, purpose unknown */
 
     /* Lower display footer field offsets within the footer row. */
-    HTI_DF_MARKER0 = 0x00,          /* stable marker: 0xFFFF */
-    HTI_DF_MARKER1 = 0x02,          /* stable marker: 0xEEEE */
-    HTI_DF_W2      = 0x04,          /* proxy for scene max temperature */
-    HTI_DF_W5      = 0x0a,          /* proxy for scene min temperature */
-    HTI_DF_W8      = 0x10,          /* proxy for scene mean temperature */
-    HTI_DF_W9      = 0x12,          /* proxy for scene center temperature */
+    HTI_DF_MARKER0 = 0x00,          /* Header/marker: 0xFFFF */
+    HTI_DF_MARKER1 = 0x02,          /* Header/marker: 0xEEEE */
+    HTI_DF_W2      = 0x04,          /* ISP reported max temperature */
+    HTI_DF_W5      = 0x0a,          /* ISP reported min temperature */
+    HTI_DF_W8      = 0x10,          /* ISP reported mean temperature */
+    HTI_DF_W9      = 0x12,          /* ISP reported center temperature */
 };
 
 static const uint32_t HTI_VENDOR_MARKER = 0xaabbccddU;
@@ -102,7 +102,8 @@ static void decode_display_footer( struct hti_display_footer_fields *footer, con
     footer->w5  = hti_read_le16( row0_raw + HTI_DF_W5 );
     footer->w8  = hti_read_le16( row0_raw + HTI_DF_W8 );
     footer->w9  = hti_read_le16( row0_raw + HTI_DF_W9 );
-    /* Only trust when both markers match and at least one temperature field is nonzero. */
+
+    /* Trust when both markers match and at least one temperature field is nonzero. */
     footer->valid = marker0 == 0xffffu && marker1 == 0xeeeeu
                     && ( footer->w2 != 0 || footer->w5 != 0 || footer->w8 != 0 || footer->w9 != 0 );
 }
